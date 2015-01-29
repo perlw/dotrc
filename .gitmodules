@@ -34,3 +34,6 @@
 [submodule "bundle/jshint2.vim"]
 	path = bundle/jshint2.vim
 	url = https://github.com/Shutnik/jshint2.vim
+[submodule "bundle/vim-minimap"]
+	path = bundle/vim-minimap
+	url = https://github.com/severin-lemaignan/vim-minimap
