@@ -5,6 +5,7 @@ set enc=utf-8
 syntax on
 filetype plugin indent on
 set number
+set nowrap
 
 " Extra paths
 let $GOPATH = "~/Projects/go"
