@@ -37,3 +37,6 @@
 [submodule "bundle/vim-minimap"]
 	path = bundle/vim-minimap
 	url = https://github.com/severin-lemaignan/vim-minimap
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
