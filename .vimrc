@@ -6,6 +6,7 @@ syntax on
 filetype plugin indent on
 set number
 set nowrap
+set cursorline
 
 " Extra paths
 let $GOPATH = "~/Projects/go"
