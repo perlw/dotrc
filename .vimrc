@@ -46,6 +46,13 @@ nnoremap <C-l> <C-w>l
 set splitbelow
 set splitright
 
+" Tabular
+let mapleader=','
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
 " Eyecandy
 if has('gui_running')
 	set guifont=PragmataPro:h12
