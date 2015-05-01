@@ -66,7 +66,7 @@ let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh,*.frag,*.vert'
 
 " Eyecandy
 if has('gui_running')
-	set guifont=PragmataPro:h12
+	set guifont=PragmataPro:h10
 
 	" Turning off scrollbars
 	set guioptions-=r
@@ -80,5 +80,5 @@ if has('gui_running')
 	let g:airline_powerline_fonts = 1
 endif
 color jellybeans
-set fillchars=vert:\
+set fillchars=vert:\ 
 hi NonText guifg=bg
