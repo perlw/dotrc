@@ -24,6 +24,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+if has("win32")
+    let g:syntastic_cpp_compiler = 'g++'
+    let g:syntastic_cpp_compiler_options = ' -std=c++11 -pedantic-errors -Wall'
+else
+    let g:syntastic_cpp_compiler = 'clang++'
+    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -pedantic-errors -Weverything'
+endif
+
 " CtrlP
 let g:ctrlp_user_command = {
   \ 'types': {
@@ -53,6 +61,9 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
+" GLSL
+let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh,*.frag,*.vert'
+
 " Eyecandy
 if has('gui_running')
 	set guifont=PragmataPro:h12
@@ -62,10 +73,12 @@ if has('gui_running')
 	set guioptions-=R
 	set guioptions-=l
 	set guioptions-=L
+    set guioptions-=T
+    set guioptions-=m
 
 	" airline
 	let g:airline_powerline_fonts = 1
 endif
 color jellybeans
-set fillchars=vert:\ 
+set fillchars=vert:\
 hi NonText guifg=bg
