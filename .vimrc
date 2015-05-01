@@ -1,3 +1,5 @@
+let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh,*.frag,*.vert'
+
 execute pathogen#infect()
 
 " Generic settings
@@ -61,12 +63,13 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
-" GLSL
-let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh,*.frag,*.vert'
-
 " Eyecandy
 if has('gui_running')
-	set guifont=PragmataPro:h10
+    if has("win32")
+        set guifont=PragmataPro:h10
+    else
+        set guifont=PragmataPro:h12
+    endif
 
 	" Turning off scrollbars
 	set guioptions-=r
