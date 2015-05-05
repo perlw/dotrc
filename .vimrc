@@ -85,3 +85,7 @@ endif
 color jellybeans
 set fillchars=vert:\ 
 hi NonText guifg=bg
+
+hi ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
