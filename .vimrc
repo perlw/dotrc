@@ -63,6 +63,9 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
+" jsx
+let g:jsx_ext_required = 0
+
 " Eyecandy
 if has('gui_running')
     if has("win32")
