@@ -6,15 +6,18 @@ execute pathogen#infect()
 set enc=utf-8
 syntax on
 filetype plugin indent on
-set number
+set relativenumber
 set nowrap
 set cursorline
+autocmd InsertEnter * :set norelativenumber | :set number
+autocmd InsertLeave * :set nonumber | :set relativenumber
 
 " Extra paths
 let $GOPATH = "~/Projects/go"
 
-" Autocommands
+" NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeShowLineNumbers = 1
 
 " Syntastic
 set statusline+=%#warningmsg#
