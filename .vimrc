@@ -19,11 +19,6 @@ let $GOPATH = "~/Projects/go"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowLineNumbers = 1
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " CtrlP
 let g:ctrlp_user_command = {
   \ 'types': {
@@ -79,6 +74,6 @@ color jellybeans
 set fillchars=vert:\ 
 hi NonText guifg=bg
 
-hi ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
+"hi ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"au InsertLeave * match ExtraWhitespace /\s\+$/
