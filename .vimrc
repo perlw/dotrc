@@ -66,11 +66,13 @@ if has('gui_running')
 	set guioptions-=L
     set guioptions-=T
     set guioptions-=m
-
-	" airline
-	let g:airline_powerline_fonts = 1
 endif
-color jellybeans
+" airline
+let g:airline_powerline_fonts = 1
+
+"color jellybeans
+set background=dark
+color base16-ocean
 set fillchars=vert:\ 
 hi NonText guifg=bg
 
