@@ -7,10 +7,11 @@ set enc=utf-8
 syntax on
 filetype plugin indent on
 set relativenumber
+set number
 set nowrap
 set cursorline
-autocmd InsertEnter * :set norelativenumber | :set number
-autocmd InsertLeave * :set nonumber | :set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * set number | :set relativenumber
 
 " Extra paths
 let $GOPATH = "~/Projects/go"
@@ -28,8 +29,8 @@ let g:ctrlp_user_command = {
   \ }
 
 " Tabs
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set softtabstop=0
 set expandtab
 
@@ -45,11 +46,11 @@ set splitright
 let mapleader=','
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a: :Tabularize /:/l0c1<CR>
+vmap <Leader>a: :Tabularize /:/l0c1<CR>
 
 " jsx
-let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
 
 " Eyecandy
 if has('gui_running')
@@ -64,17 +65,25 @@ if has('gui_running')
 	set guioptions-=R
 	set guioptions-=l
 	set guioptions-=L
-    set guioptions-=T
-    set guioptions-=m
+  set guioptions-=T
+  set guioptions-=m
 endif
 " airline
 let g:airline_powerline_fonts = 1
+
+set mouse=a
 
 "color jellybeans
 set background=dark
 color base16-ocean
 set fillchars=vert:\ 
 hi NonText guifg=bg
+
+" syntastic
+autocmd bufwritepost *.js silent !semistandard % --format
+set autoread
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_exec = 'semistandard'
 
 "hi ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 "au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
