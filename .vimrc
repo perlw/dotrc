@@ -9,12 +9,11 @@ filetype plugin indent on
 set relativenumber
 set number
 set nowrap
-set cursorline
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * set number | :set relativenumber
 
-" Extra paths
-let $GOPATH = "~/Projects/go"
+" golang
+let $GOPATH = "$HOME/Projects/go"
 
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -54,11 +53,13 @@ let g:jsx_ext_required = 1
 
 " Eyecandy
 if has('gui_running')
-    if has("win32")
-        set guifont=PragmataPro:h10
-    else
-        set guifont=PragmataPro:h12
-    endif
+  set cursorline
+
+  if has('win32')
+    set guifont=PragmataPro:h10
+  else
+    set guifont=PragmataPro:h12
+  endif
 
 	" Turning off scrollbars
 	set guioptions-=r
@@ -68,23 +69,18 @@ if has('gui_running')
   set guioptions-=T
   set guioptions-=m
 endif
+
 " airline
 let g:airline_powerline_fonts = 1
 
-set mouse=a
-
-"color jellybeans
 set background=dark
-color base16-ocean
+color gruvbox
 set fillchars=vert:\ 
 hi NonText guifg=bg
 
 " syntastic
 autocmd bufwritepost *.js silent !semistandard % --format
+autocmd bufwritepost *.jsx silent !semistandard % --format
 set autoread
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_exec = 'semistandard'
-
-"hi ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"au InsertLeave * match ExtraWhitespace /\s\+$/

@@ -85,3 +85,9 @@
 [submodule "bundle/syntastic.git"]
 	path = bundle/syntastic.git
 	url = git@github.com:scrooloose/syntastic.git
+[submodule "bundle/colorsbox"]
+	path = bundle/colorsbox
+	url = https://github.com/mkarmona/colorsbox
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = git@github.com:morhetz/gruvbox.git
