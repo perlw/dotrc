@@ -55,11 +55,11 @@ let g:jsx_ext_required = 1
 if has('gui_running')
   set cursorline
 
-"  if has('win32')
-"    set guifont=PragmataPro:h10
-"  else
-  set guifont=PragmataPro:h10
-"  endif
+  if has('win32')
+    set guifont=PragmataPro:h10
+  else
+  set guifont=PragmataPro:h11
+  endif
 
 	" Turning off scrollbars
 	set guioptions-=r
