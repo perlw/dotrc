@@ -2,11 +2,14 @@ set nocompatible
 filetype off
 
 " Vundle
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+set rtp+=~/AppData/Local/nvim/bundle/Vundle.vim
+if has('win32')
+  call vundle#begin('~/AppData/Local/nvim/bundle')
+else
+  call vundle#begin('~/.config/nvim/bundle')
+endif
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
 Plugin 'vim-airline/vim-airline'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
@@ -128,17 +131,6 @@ let g:jsx_ext_required = 1
 
 " Eyecandy
 set cursorline
-if has('gui_running')
-  set guifont=PragmataPro_Mono:h9
-
-	" Turning off scrollbars
-	set guioptions-=r
-	set guioptions-=R
-	set guioptions-=l
-	set guioptions-=L
-  set guioptions-=T
-  set guioptions-=m
-endif
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -205,3 +197,5 @@ let g:clang_format#style_options = {
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_formatexpr = 1
 autocmd FileType c ClangFormatAutoEnable
+
+let g:EditorConfig_core_mode = "python_builtin"
