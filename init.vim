@@ -2,15 +2,15 @@ set nocompatible
 filetype off
 
 " Vundle
-set rtp+=~/AppData/Local/nvim/bundle/Vundle.vim
 if has('win32')
+  set rtp+=~/AppData/Local/nvim/bundle/Vundle.vim
   call vundle#begin('~/AppData/Local/nvim/bundle')
 else
+  set rtp+=~/.config/nvim/bundle/Vundle.vim
   call vundle#begin('~/.config/nvim/bundle')
 endif
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
@@ -26,6 +26,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-markdown'
 Plugin 'petrbroz/vim-glsl'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
@@ -34,14 +37,14 @@ set enc=utf-8
 set relativenumber
 set number
 set nowrap
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * set number | :set relativenumber
-autocmd FileType make set noexpandtab
-autocmd FileType rust set ts=2 sw=2 sts=2
-autocmd FileType c set ts=2 sw=2 sts=2
-autocmd BufRead,BufNewFile *.rs set ts=2 sw=2 sts=2
-autocmd BufRead,BufNewFile *.c set ts=2 sw=2 sts=2
-autocmd BufRead,BufNewFile *.h set ts=2 sw=2 sts=2
+au InsertEnter * :set norelativenumber
+au InsertLeave * set number | :set relativenumber
+au FileType make set noexpandtab
+au FileType rust set ts=2 sw=2 sts=2
+au FileType c set ts=2 sw=2 sts=2
+au BufRead,BufNewFile *.rs set ts=2 sw=2 sts=2
+au BufRead,BufNewFile *.c set ts=2 sw=2 sts=2
+au BufRead,BufNewFile *.h set ts=2 sw=2 sts=2
 set nobackup
 set noswapfile
 set mouse=n
@@ -49,6 +52,29 @@ set path+=**
 set wildmenu
 filetype indent plugin on
 syn on
+
+" Statusline
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline ctermbg=magenta
+  elseif a:mode == 'r'
+    hi statusline ctermbg=blue
+  else
+    hi statusline ctermbg=red
+  endif
+endfunction
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertChange * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline ctermbg=green
+hi statusline ctermbg=green
+
+set statusline=
+set statusline+=[%n]%f
+set statusline+=%m%r
+set statusline+=\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}
+set statusline+=%=
+set statusline+=%y
+set statusline+=%P[%l/%L]
 
 " Tags
 "autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.html silent! !ctags -a -R % &
@@ -131,10 +157,17 @@ let g:jsx_ext_required = 1
 
 " Eyecandy
 set cursorline
+if has('gui_running')
+  set guifont=PragmataPro_Mono:h9
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+	" Turning off scrollbars
+	set guioptions-=r
+	set guioptions-=R
+	set guioptions-=l
+	set guioptions-=L
+  set guioptions-=T
+  set guioptions-=m
+endif
 
 color jellybeans
 set fillchars=vert:\ 
@@ -198,4 +231,5 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_formatexpr = 1
 autocmd FileType c ClangFormatAutoEnable
 
+" Editorconfig
 let g:EditorConfig_core_mode = "python_builtin"
