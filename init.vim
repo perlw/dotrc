@@ -56,17 +56,17 @@ syn on
 " Statusline
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
-    hi statusline ctermbg=magenta
+    hi statusline ctermbg=magenta guibg=magenta
   elseif a:mode == 'r'
-    hi statusline ctermbg=blue
+    hi statusline ctermbg=blue guibg=blue
   else
-    hi statusline ctermbg=red
+    hi statusline ctermbg=red guibg=red
   endif
 endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermbg=green
-hi statusline ctermbg=green
+au InsertLeave * hi statusline ctermbg=green guibg=green
+hi statusline ctermbg=green guibg=green
 
 set statusline=
 set statusline+=[%n]%f
