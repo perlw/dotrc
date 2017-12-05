@@ -13,7 +13,6 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mhinz/vim-signify'
@@ -29,6 +28,8 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -52,6 +53,12 @@ set path+=**
 set wildmenu
 filetype indent plugin on
 syn on
+
+" Eyecandy
+set cursorline
+color jellybeans
+set fillchars=vert:\ 
+hi NonText guifg=bg
 
 " Statusline
 function! InsertStatuslineColor(mode)
@@ -95,7 +102,7 @@ function! UpdateTags()
   call DelTagOfFile(f)
   let resp = system(cmd)
 endfunction
-autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.html call UpdateTags()
+autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html call UpdateTags()
 nnoremap <c-k> g<c-]>
 vnoremap <c-k> g<c-]>
 
@@ -106,9 +113,6 @@ let g:markdown_fenced_languages = ['html']
 au BufNewFile,BufRead *.glsl set filetype=glsl
 au BufNewFile,BufRead *.frag set filetype=glsl
 au BufNewFile,BufRead *.vert set filetype=glsl
-
-" Remap terminal escape
-tnoremap <Esc> <C-\><C-n>
 
 " Paste with indentation
 nnoremap p p=`[
@@ -127,14 +131,10 @@ vnoremap <C-V> "+p=`[
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowLineNumbers = 1
-
-" CtrlP
-let g:ctrlp_user_command = {
-  \ 'types': {
-    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
-    \ },
-  \ 'fallback': 'find %s -type f'
-  \ }
+let NERDTreeMapOpenSplit='s'
+let NERDTreeMapOpenPreviewSplit='gs'
+let NERDTreeMapOpenVSplit='i'
+let NERDTreeMapOpenPreviewVSplit='gi'
 
 " Tabs
 set tabstop=2
@@ -146,32 +146,13 @@ set smarttab
 " Splits
 set splitbelow
 set splitright
+nnoremap <C-Y> :vert res +10<CR>
+nnoremap <C-O> :vert res -10<CR>
 
 let mapleader=','
 
 " Make
-nnoremap <Leader>m :silent make\|redraw\|cwindow<CR>
-
-" jsx
-let g:jsx_ext_required = 1
-
-" Eyecandy
-set cursorline
-if has('gui_running')
-  set guifont=PragmataPro_Mono:h9
-
-	" Turning off scrollbars
-	set guioptions-=r
-	set guioptions-=R
-	set guioptions-=l
-	set guioptions-=L
-  set guioptions-=T
-  set guioptions-=m
-endif
-
-color jellybeans
-set fillchars=vert:\ 
-hi NonText guifg=bg
+" nnoremap <Leader>m :silent make\|redraw\|cwindow<CR>
 
 " Clang format
 let g:clang_format#style_options = {
@@ -233,3 +214,6 @@ autocmd FileType c ClangFormatAutoEnable
 
 " Editorconfig
 let g:EditorConfig_core_mode = "python_builtin"
+
+" Rust
+let g:rustfmt_autosave = 1
