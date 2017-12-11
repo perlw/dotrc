@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mhinz/vim-signify'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vimwiki/vimwiki'
 
@@ -75,13 +76,20 @@ au InsertChange * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermbg=green guibg=green cterm=NONE gui=NONE
 hi statusline ctermbg=green guibg=green cterm=NONE gui=NONE
 
+function! ScmStatus()
+  let head = '-'
+  if exists('b:git_dir')
+    let head = fugitive#head()
+  endif
+  return '('.head.')'
+endfunction
 set statusline=
-set statusline+=[%n]%f
+set statusline+=[%n]\ %f
 set statusline+=%m%r
-set statusline+=\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}
+set statusline+=\ %{ScmStatus()}
 set statusline+=%=
 set statusline+=%y
-set statusline+=%P[%l/%L]
+set statusline+=%P[%c@%l/%L]
 
 " Tags
 "autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.html silent! !ctags -a -R % &
@@ -211,9 +219,6 @@ let g:clang_format#style_options = {
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_formatexpr = 1
 autocmd FileType c ClangFormatAutoEnable
-
-" Editorconfig
-let g:EditorConfig_core_mode = "python_builtin"
 
 " Rust
 let g:rustfmt_autosave = 1
