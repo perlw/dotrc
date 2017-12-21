@@ -81,7 +81,7 @@ function! ScmStatus()
   if exists('b:git_dir')
     let head = fugitive#head()
   endif
-  return '('.head.')'
+  return '⌥('.head.')'
 endfunction
 set statusline=
 set statusline+=[%n]\ %f
@@ -89,7 +89,7 @@ set statusline+=%m%r
 set statusline+=\ %{ScmStatus()}
 set statusline+=%=
 set statusline+=%y
-set statusline+=%P[%c@%l/%L]
+set statusline+=┊%P[%c@%l/%L]
 
 " Tags
 "autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.html silent! !ctags -a -R % &
