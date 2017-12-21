@@ -31,6 +31,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 

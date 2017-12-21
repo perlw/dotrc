@@ -7,8 +7,8 @@ export BROWSER=firefox
 if [ "$DESKTOP_SESSION" = "i3" ]; then
     export $(gnome-keyring-daemon -s)
 fi
-export GOROOT=$HOME/go
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 source /usr/share/nvm/init-nvm.sh
 
 PWD=`dirname $0`
