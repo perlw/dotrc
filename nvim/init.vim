@@ -93,7 +93,6 @@ set statusline+=%y
 set statusline+=┊%P[%c@%l/%L]
 
 " Tags
-"autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.html silent! !ctags -a -R % &
 function! DelTagOfFile(file)
   let fullpath = a:file
   let cwd = getcwd()
@@ -111,7 +110,7 @@ function! UpdateTags()
   call DelTagOfFile(f)
   let resp = system(cmd)
 endfunction
-autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html call UpdateTags()
+autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html,*.go call UpdateTags()
 nnoremap <c-k> g<c-]>
 vnoremap <c-k> g<c-]>
 

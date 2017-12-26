@@ -14,6 +14,8 @@ alias ev="nvim ~/.config/nvim/init.vim"
 alias gd="cd ~/Downloads"
 alias gc="cd ~/.config"
 alias gi="cd ~/.config/i3"
+alias gg="cd $GOPATH"
+alias ggp="cd $GOPATH/src/github.com/perlw"
 
 ## Projects
 alias gp="cd ~/Projects"
