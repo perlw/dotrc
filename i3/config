@@ -24,7 +24,7 @@ client.focused #ffa500 #285577 #ffffff #2e9f4 #ffa500
 font pango:PragmataPro Mono 10
 
 bar {
-  status_command ~/.config/i3/bumblebee-status/bumblebee-status -m pasink pasource battery nic spacer my_disk spacer datetime -p my_disk.path=/home datetime.format="%a, %d/%m/%y - %H:%M" spacer.text="|" -t gruvbox-powerline
+  status_command ~/.config/i3/bumblebee-status/bumblebee-status -m pasink pasource battery nic spacer datetime -p datetime.format="%a, %d/%m/%y - %H:%M" spacer.text="|" -t gruvbox
   position top
 }
 
