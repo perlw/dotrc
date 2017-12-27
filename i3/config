@@ -14,6 +14,7 @@ exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id unclutter -noevents
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 exec_always --no-startup-id xbacklight = 10
+exec_always --no-startup-id ~/.config/i3/setup_ckb.sh
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
@@ -116,13 +117,13 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/lock.sh
 
 # Media
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
-bindsym XF86AudioMute exec --no-startup-id pamixer -t
-bindsym XF86AudioPlay exec --no-startup-id mocp -G
-bindsym XF86AudioPause exec --no-startup-id mocp -G
-bindsym XF86AudioPrev exec --no-startup-id mocp -r
-bindsym XF86AudioNext exec --no-startup-id mocp -f
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/sound.sh inc
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/sound.sh dec
+bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/sound.sh mute
+#bindsym XF86AudioPlay exec --no-startup-id mocp -G
+#bindsym XF86AudioPause exec --no-startup-id mocp -G
+#bindsym XF86AudioPrev exec --no-startup-id mocp -r
+#bindsym XF86AudioNext exec --no-startup-id mocp -f
 
 # Screenshotting
 set $scrot_filename '%Y-%m-%d-%H%M%S_$wx$h.png'
