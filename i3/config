@@ -13,8 +13,9 @@ exec --no-startup-id dropbox start
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id unclutter -noevents
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
-exec_always --no-startup-id xbacklight = 10
+exec_always --no-startup-id xbacklight = 20
 exec_always --no-startup-id ~/.config/i3/setup_ckb.sh
+exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
