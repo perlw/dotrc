@@ -1,19 +1,22 @@
 #!/bin/zsh
 op="-i"
+arg=""
 if [[ $# -gt 0 ]]; then
   case $1 in
     inc)
-      op="-i 5"
+      op="-i"
+      arg=5
       ;;
     dec)
-      op="-d 5"
+      op="-d"
+      arg=5
       ;;
     mute)
       op="-t"
       ;;
   esac
 fi
-pamixer $op
+pamixer $op $arg
 
 device=/dev/input/ckb1/cmd
 if [ -e $device ]; then
