@@ -16,6 +16,7 @@ exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 exec_always --no-startup-id xbacklight = 20
 exec_always --no-startup-id ~/.config/i3/setup_ckb.sh
 exec_always --no-startup-id ~/.config/i3/setup_sens.sh
+exec_always --no-startup-id ~/.config/i3/media.sh
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
@@ -38,7 +39,10 @@ bindsym $mod+t floating toggle
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
+
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show run
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -121,10 +125,11 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/lock.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/sound.sh inc
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/sound.sh dec
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/sound.sh mute
-#bindsym XF86AudioPlay exec --no-startup-id mocp -G
-#bindsym XF86AudioPause exec --no-startup-id mocp -G
-#bindsym XF86AudioPrev exec --no-startup-id mocp -r
-#bindsym XF86AudioNext exec --no-startup-id mocp -f
+bindsym XF86AudioPlay exec --no-startup-id ~/.config/i3/media.sh play
+bindsym XF86AudioPause exec --no-startup-id ~/.config/i3/media.sh pause
+bindsym XF86AudioStop exec --no-startup-id ~/.config/i3/media.sh stop
+bindsym XF86AudioPrev exec --no-startup-id ~/.config/i3/media.sh prev
+bindsym XF86AudioNext exec --no-startup-id ~/.config/i3/media.sh next
 
 # Screenshotting
 set $scrot_filename '%Y-%m-%d-%H%M%S_$wx$h.png'
