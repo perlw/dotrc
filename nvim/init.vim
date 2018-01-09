@@ -161,6 +161,7 @@ let mapleader=','
 
 " Make
 " nnoremap <Leader>m :silent make\|redraw\|cwindow<CR>
+nnoremap <Leader>m :GoBuild<CR>
 
 " Clang format
 let g:clang_format#style_options = {
