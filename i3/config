@@ -28,7 +28,7 @@ client.focused #ffa500 #285577 #ffffff #2e9f4 #ffa500
 font pango:PragmataPro Mono 10
 
 bar {
-  status_command ~/.config/i3/bumblebee-status/bumblebee-status -m pasink pasource battery nic spacer datetime -p datetime.format="%a, %d/%m/%y - %H:%M" spacer.text="|" -t gruvbox
+  status_command i3status
   position top
 }
 
@@ -38,9 +38,6 @@ bindsym $mod+t floating toggle
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
