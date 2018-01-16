@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+alias nv=nvim
+
 # Configs
 alias ez="nvim ~/.zshrc"
 alias ezi="nvim ~/Projects/dotrc/zsh/init.sh"
@@ -20,5 +22,4 @@ alias ggp="cd $GOPATH/src/github.com/perlw"
 ## Projects
 alias gp="cd ~/Projects"
 alias gpo="cd ~/Projects/office"
-alias gpd="cd ~/Projects/darkhub"
 alias gps="cd ~/Projects/sandbox_rust"

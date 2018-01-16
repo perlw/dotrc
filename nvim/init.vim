@@ -143,6 +143,8 @@ let NERDTreeMapOpenSplit='s'
 let NERDTreeMapOpenPreviewSplit='gs'
 let NERDTreeMapOpenVSplit='i'
 let NERDTreeMapOpenPreviewVSplit='gi'
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
 
 " Tabs
 set tabstop=2
