@@ -1,6 +1,8 @@
 set nocompatible
 filetype off
 
+let mapleader=','
+
 " Vundle
 if has('win32')
   set rtp+=~/AppData/Local/nvim/bundle/Vundle.vim
@@ -12,6 +14,8 @@ endif
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
@@ -58,7 +62,10 @@ syn on
 
 " Eyecandy
 set cursorline
-color jellybeans
+set termguicolors
+"color jellybeans
+set background=light
+color solarized8_high
 set fillchars=vert:\ 
 hi NonText guifg=bg
 
@@ -74,8 +81,8 @@ function! InsertStatuslineColor(mode)
 endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermbg=green guibg=green cterm=NONE gui=NONE
-hi statusline ctermbg=green guibg=green cterm=NONE gui=NONE
+au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+hi statusline ctermbg=darkgreen guibg=darkgreen ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 
 function! ScmStatus()
   let head = '-'
@@ -158,8 +165,6 @@ set splitbelow
 set splitright
 nnoremap <C-Y> :vert res +10<CR>
 nnoremap <C-O> :vert res -10<CR>
-
-let mapleader=','
 
 " Make
 " nnoremap <Leader>m :silent make\|redraw\|cwindow<CR>
