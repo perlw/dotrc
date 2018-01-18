@@ -1,0 +1,50 @@
+./Postman
+exec
+move ~/Music
+rename c
+rename foo.png
+gimp %
+console gimp %
+refresh
+mkdir test
+search fmod
+mkdir tome
+edit 
+mkdir tiles
+copy 
+mkdir scenes
+copy tiles.frag
+rename tiles.frag
+rename tiles.vert
+open_with qq
+rename scene_world-edit.c
+rename scene_world-edit.h
+mkdir 
+mkdir lua-src
+mkdir lua
+rename lua-src
+mkdir config
+move wall.png
+move nestincliffs.png wall.png
+rename 
+cd ~/.config
+rename wall2.png
+rename wall.png
+rename drip.wav
+open_with 
+open_with feh
+search hdp
+search stj
+mkdir Tactel
+mkdir tmp
+delete
+cd /tmp
+open_with
+redraw_window 
+
+cd .ssh
+ls -la
+shell lack
+open_with j
+open_with nvim
+cd .config
