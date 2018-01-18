@@ -72,17 +72,17 @@ hi NonText guifg=bg
 " Statusline
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
-    hi statusline ctermbg=magenta guibg=magenta cterm=NONE gui=NONE
+    hi statusline ctermbg=darkmagenta guibg=darkmagenta cterm=NONE gui=NONE
   elseif a:mode == 'r'
-    hi statusline ctermbg=blue guibg=blue cterm=NONE gui=NONE
+    hi statusline ctermbg=darkgreen guibg=darkgreen cterm=NONE gui=NONE
   else
     hi statusline ctermbg=red guibg=red cterm=NONE gui=NONE
   endif
 endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
-hi statusline ctermbg=darkgreen guibg=darkgreen ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+au InsertLeave * hi statusline ctermbg=brown guibg=brown ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+hi statusline ctermbg=brown guibg=brown ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 
 function! ScmStatus()
   let head = '-'
@@ -120,6 +120,14 @@ endfunction
 autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html,*.go call UpdateTags()
 nnoremap <c-k> g<c-]>
 vnoremap <c-k> g<c-]>
+au Filetype go nnoremap <c-k> :GoDef<cr>
+au Filetype go vnoremap <c-k> :GoDef<cr>
+au Filetype go nnoremap <c-l> :GoDefPop<cr>
+au Filetype go vnoremap <c-l> :GoDefPop<cr>
+au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
+au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
+au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
+au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
@@ -129,20 +137,6 @@ au BufNewFile,BufRead *.glsl set filetype=glsl
 au BufNewFile,BufRead *.frag set filetype=glsl
 au BufNewFile,BufRead *.vert set filetype=glsl
 
-" Paste with indentation
-nnoremap p p=`[
-
-" 'Normal' copy/paste
-nnoremap <C-X> "+x
-inoremap <C-X> "+x
-vnoremap <C-X> "+x
-nnoremap <C-C> "+y
-inoremap <C-C> "+y
-vnoremap <C-C> "+y
-nnoremap <C-V> "+p=`[
-inoremap <C-V> "+p=`[
-vnoremap <C-V> "+p=`[
-
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowLineNumbers = 1
@@ -150,8 +144,8 @@ let NERDTreeMapOpenSplit='s'
 let NERDTreeMapOpenPreviewSplit='gs'
 let NERDTreeMapOpenVSplit='i'
 let NERDTreeMapOpenPreviewVSplit='gi'
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>f :NERDTreeFind<cr>
 
 " Tabs
 set tabstop=2
@@ -163,12 +157,12 @@ set smarttab
 " Splits
 set splitbelow
 set splitright
-nnoremap <C-Y> :vert res +10<CR>
-nnoremap <C-O> :vert res -10<CR>
+nnoremap <c-y> :vert res +10<cr>
+nnoremap <c-o> :vert res -10<cr>
 
 " Make
-" nnoremap <Leader>m :silent make\|redraw\|cwindow<CR>
-nnoremap <Leader>m :GoBuild<CR>
+nnoremap <leader>m :silent make\|redraw\|cwindow<cr>
+nnoremap <leader>b :GoBuild<cr>
 
 " Clang format
 let g:clang_format#style_options = {
