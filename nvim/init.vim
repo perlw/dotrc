@@ -67,7 +67,9 @@ set termguicolors
 set background=light
 color solarized8_high
 set fillchars=vert:\ 
-hi NonText guifg=bg
+
+" Searching
+nnoremap <leader><leader> :nohl<cr>
 
 " Statusline
 function! InsertStatuslineColor(mode)
