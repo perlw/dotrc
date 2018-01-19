@@ -119,9 +119,11 @@ function! UpdateTags()
   call DelTagOfFile(f)
   let resp = system(cmd)
 endfunction
-autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html,*.go call UpdateTags()
+autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html call UpdateTags()
 nnoremap <c-k> g<c-]>
 vnoremap <c-k> g<c-]>
+
+" Go
 au Filetype go nnoremap <c-k> :GoDef<cr>
 au Filetype go vnoremap <c-k> :GoDef<cr>
 au Filetype go nnoremap <c-l> :GoDefPop<cr>
@@ -130,6 +132,8 @@ au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
 au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
 au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
 au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
+" TODO: Set up a minimal snippet-something instead
+au Filetype go ab mapi map[string]interface{}
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
