@@ -74,17 +74,17 @@ nnoremap <leader><leader> :nohl<cr>
 " Statusline
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
-    hi statusline ctermbg=darkmagenta guibg=darkmagenta cterm=NONE gui=NONE
-  elseif a:mode == 'r'
     hi statusline ctermbg=darkgreen guibg=darkgreen cterm=NONE gui=NONE
+  elseif a:mode == 'r'
+    hi statusline ctermbg=darkmagenta guibg=darkmagenta cterm=NONE gui=NONE
   else
     hi statusline ctermbg=red guibg=red cterm=NONE gui=NONE
   endif
 endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermbg=brown guibg=brown ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
-hi statusline ctermbg=brown guibg=brown ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 
 function! ScmStatus()
   let head = '-'
