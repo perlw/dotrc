@@ -134,6 +134,7 @@ au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
 au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
 " TODO: Set up a minimal snippet-something instead
 au Filetype go ab mapi map[string]interface{}
+au Filetype go ab e! err != nil
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
