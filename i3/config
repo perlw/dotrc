@@ -1,7 +1,7 @@
 # i3 config file (Per Lönn Wege)
 
 set $mod Mod1
-set $term termite
+set $term st
 set $browser firefox
 set $quick_browser qutebrowser
 set $editor nvim
