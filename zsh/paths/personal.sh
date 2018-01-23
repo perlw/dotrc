@@ -8,7 +8,6 @@ alias ezi="nvim ~/Projects/dotrc/zsh/init.sh"
 alias sz="source ~/.zshrc"
 alias ei="nvim ~/.config/i3/config"
 alias er="nvim ~/.config/ranger/rc.conf"
-alias et="nvim ~/.config/termite/config"
 alias ezt="nvim ~/.oh-my-zsh/themes/perlw.zsh-theme"
 alias ev="nvim ~/.config/nvim/init.vim"
 
@@ -21,5 +20,6 @@ alias ggp="cd $GOPATH/src/github.com/perlw"
 
 ## Projects
 alias gp="cd ~/Projects"
+alias gpd="cd ~/Projects/dotrc"
 alias gpo="cd ~/Projects/office"
 alias gps="cd ~/Projects/sandbox_rust"
