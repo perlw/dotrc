@@ -14,7 +14,6 @@ endif
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
