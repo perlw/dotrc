@@ -35,6 +35,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
+Plugin 'jodosha/vim-godebug'
 
 call vundle#end()
 
@@ -66,6 +67,15 @@ set termguicolors
 set background=light
 color solarized8_high
 set fillchars=vert:\ 
+
+function! ToggleBackground()
+  if &background ==# 'dark'
+    set background=light
+  else
+    set background=dark
+  endif
+endfunction
+nnoremap <c-tab> call ToggleBackground()
 
 " Searching
 nnoremap <leader><leader> :nohl<cr>

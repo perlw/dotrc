@@ -21,7 +21,7 @@ exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 exec_always --no-startup-id ~/.config/i3/media.sh
 
 hide_edge_borders both
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
 # App rules
 for_window [class="qutebrowser"] floating enable
@@ -29,6 +29,7 @@ for_window [class="Zeal"] floating enable
 
 # colors
 client.focused #ffa500 #285577 #ffffff #2e9f4 #ffa500
+client.urgent #aa0000 #285577 #ffffff #2e9f4 #aa0000
 
 font pango:PragmataPro Mono 10
 
