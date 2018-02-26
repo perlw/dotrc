@@ -8,7 +8,7 @@ if [ "$DESKTOP_SESSION" = "i3" ]; then
     export $(gnome-keyring-daemon -s)
 fi
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/.gem/ruby/2.5.0/bin
 source /usr/share/nvm/init-nvm.sh
 
 PWD=`dirname $0`

@@ -56,3 +56,27 @@ class my_edit(Command):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
+
+class beautify(Command):
+    """:beautify <filename>
+
+    Runs js-beautify on file and opens in nvim.
+    """
+
+    def execute(self):
+        if self.arg(1):
+            target_filename = self.rest(1)
+        else:
+            target_filename = self.fm.thisfile.path
+
+        self.fm.notify("Let's beautify the file " + target_filename + "!")
+
+        if not os.path.exists(target_filename):
+            self.fm.notify("The given file does not exist!", bad=True)
+            return
+
+        self.fm.execute_command("js-beautify -o /tmp/beautify " + target_filename)
+        self.fm.edit_file("/tmp/beautify")
+
+    def tab(self):
+        return self._tab_directory_content()
