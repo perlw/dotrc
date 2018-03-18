@@ -1,9 +1,4 @@
 #!/bin/zsh
-device=/dev/input/ckb1/cmd
-if [ -e $device ]; then
-  echo "rgb lock:800000" > $device
-fi
-
 scrot /tmp/screen.png
 convert /tmp/screen.png -scale 10% -blur 0x2 -brightness-contrast -25x-25 -scale 1000% /tmp/screen.png
 
@@ -33,10 +28,8 @@ done
 
 xset s 60 60
 xset dpms 60 60 60
+
 i3lock -n -u -e -i /tmp/screen.png
+
 xset s 600 600
 xset dpms 600 600 600
-
-if [ -e $device ]; then
-  echo "rgb lock:008000" > $device
-fi

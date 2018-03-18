@@ -15,6 +15,7 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'morhetz/gruvbox'
 Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
@@ -63,9 +64,12 @@ syn on
 " Eyecandy
 set cursorline
 set termguicolors
-"color jellybeans
 set background=light
+"color jellybeans
 color solarized8_high
+let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_contrast_light='hard'
+"color gruvbox
 set fillchars=vert:\ 
 
 function! ToggleBackground()

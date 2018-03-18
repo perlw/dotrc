@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Passwords
-#alias op="~/op get item \"Lab5 SSH\" | jq '.details.fields[] | select(.designation == \"password\").value' | sed 's/\"\\(.*\\)\"/\\1/'"
+alias sesame="eval \$(op signin hdsit)"
 
 # Configs
 alias eh="nvim ~/Work/Homestead/Homestead.yaml"
