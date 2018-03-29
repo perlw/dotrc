@@ -2,6 +2,9 @@
 
 alias nv=nvim
 
+# Passwords
+alias sesame="eval \$(op signin my)"
+
 # Configs
 alias ez="nvim ~/.zshrc"
 alias ezi="nvim ~/Projects/dotrc/zsh/init.sh"

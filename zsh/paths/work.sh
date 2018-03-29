@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Passwords
-alias sesame="eval \$(op signin hdsit)"
+alias sesame_work="eval \$(op signin hdsit)"
 
 # Configs
 alias eh="nvim ~/Work/Homestead/Homestead.yaml"
