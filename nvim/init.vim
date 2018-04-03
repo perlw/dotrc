@@ -78,7 +78,7 @@ function! ToggleBackground()
     set background=dark
   endif
 endfunction
-nnoremap <c-tab> call ToggleBackground()
+nnoremap <f2> call ToggleBackground()
 
 " Searching
 nnoremap <leader><leader> :nohl<cr>
