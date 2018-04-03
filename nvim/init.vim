@@ -36,7 +36,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
-Plugin 'jodosha/vim-godebug'
 
 call vundle#end()
 
@@ -66,10 +65,10 @@ set cursorline
 set termguicolors
 set background=light
 "color jellybeans
-color solarized8_high
-let g:gruvbox_contrast_dark='soft'
-let g:gruvbox_contrast_light='hard'
-"color gruvbox
+" color solarized8_high
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='soft'
+color gruvbox
 set fillchars=vert:\ 
 
 function! ToggleBackground()
@@ -244,3 +243,8 @@ autocmd FileType c ClangFormatAutoEnable
 
 " Rust
 let g:rustfmt_autosave = 1
+
+" Go
+"if !has('win32')
+let g:go_fmt_command = "goimports"
+"endif
