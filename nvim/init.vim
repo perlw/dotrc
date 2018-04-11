@@ -68,6 +68,7 @@ set background=light
 " color solarized8_high
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
+let g:gruvbox_vert_split='bg1'
 color gruvbox
 set fillchars=vert:\ 
 
