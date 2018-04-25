@@ -4,20 +4,27 @@ set -o vi
 
 export EDITOR='nvim'
 export BROWSER=firefox
-if [ "$DESKTOP_SESSION" = "i3" ]; then
-    export $(gnome-keyring-daemon -s)
-fi
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/.gem/ruby/2.5.0/bin
-source /usr/share/nvm/init-nvm.sh
+export GOPATH=$HOME/Go
+export PATH=$PATH:$GOPATH/bin
 
 PWD=`dirname $0`
 
-# Functions
+## Functions
 source "$PWD/functions/aur.sh"
-source "$PWD/functions/todo.sh"
-source "$PWD/functions/wgt.sh"
 
-# Path shortcuts
-source "$PWD/paths/personal.sh"
-source "$PWD/paths/work.sh"
+## Navigation
+# Passwords
+alias sesame="eval \$(op signin my)"
+
+# Configs
+alias ez="nvim ~/.zshrc"
+alias ezi="nvim ~/Projects/dotrc/zsh/init.sh"
+alias sz="source ~/.zshrc"
+alias ei="nvim ~/.config/i3/config"
+
+# Navigation
+alias gd="cd ~/Downloads"
+alias gc="cd ~/.config"
+alias gi="cd ~/.config/i3"
+alias gg="cd $GOPATH"
+alias gp="cd ~/Projects"
