@@ -5,18 +5,16 @@ general {
 }
 
 order += "volume master"
-order += "ipv6"
 order += "disk /"
-order += "wireless _first_"
+order += "disk /home"
 order += "ethernet _first_"
-order += "battery 0"
 order += "load"
 order += "tztime local"
 
 volume master {
   format = "♪: %volume"
   format_muted = "♪: muted (%volume)"
-  device = "pulse:0"
+  device = "pulse"
 }
 
 wireless _first_ {
@@ -40,7 +38,6 @@ battery 0 {
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
 }
-
 
 tztime local {
   format = "%Y-%m-%d %H:%M:%S"

@@ -21,10 +21,11 @@ alias ez="nvim ~/.zshrc"
 alias ezi="nvim ~/Projects/dotrc/zsh/init.sh"
 alias sz="source ~/.zshrc"
 alias ei="nvim ~/.config/i3/config"
+alias eis="nvim ~/.config/i3status/config"
 
 # Navigation
 alias gd="cd ~/Downloads"
 alias gc="cd ~/.config"
 alias gi="cd ~/.config/i3"
-alias gg="cd $GOPATH"
+alias gg="cd $GOPATH/src"
 alias gp="cd ~/Projects"
