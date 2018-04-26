@@ -15,10 +15,11 @@ exec --no-startup-id unclutter -noevents
 #exec --no-startup-id zeal
 exec_always --no-startup-id setxkbmap -option caps:escape se
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
+exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
-gaps inner 4
+gaps inner 16
 
 # App rules
 for_window [class="qutebrowser"] floating enable
