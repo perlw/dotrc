@@ -12,20 +12,24 @@ PWD=`dirname $0`
 ## Functions
 source "$PWD/functions/aur.sh"
 
-## Navigation
 # Passwords
 alias sesame="eval \$(op signin my)"
 
 # Configs
-alias ez="nvim ~/.zshrc"
-alias ezi="nvim ~/Projects/dotrc/zsh/init.sh"
-alias sz="source ~/.zshrc"
-alias ei="nvim ~/.config/i3/config"
-alias eis="nvim ~/.config/i3status/config"
+alias ez="nvim $HOME/.zshrc"
+alias ezi="nvim $HOMe/Projects/dotrc/zsh/init.sh"
+alias sz="source $HOME/.zshrc"
+alias ei="nvim $HOME/.config/i3/config"
+alias eis="nvim $HOME/.config/i3status/config"
+alias er="nvim $HOME/.config/ranger/rc.conf"
 
 # Navigation
-alias gd="cd ~/Downloads"
-alias gc="cd ~/.config"
-alias gi="cd ~/.config/i3"
-alias gg="cd $GOPATH/src"
-alias gp="cd ~/Projects"
+alias gd="cd $HOME/Downloads"
+alias gc="cd $HOME/.config"
+alias gci="cd $HOME/.config/i3"
+alias gtg="cd $GOPATH/src/github.com/perlw"
+alias gp="cd $HOME/Projects"
+alias gw="cd $HOME/Work"
+
+# Misc
+alias wttr="curl wttr.in/Malmö"

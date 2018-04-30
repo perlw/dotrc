@@ -15,7 +15,7 @@
 
 ##If set to false the visualizers will use mono mode instead of stereo. Some visualizers will
 ##behave differently when mono is enabled. For example, spectrum show two sets of bars.
-audio.stereo.enabled=false
+#audio.stereo.enabled=false
 
 ##Specifies how often the visualizer will change in seconds. 0 means do not rotate. Default is 0.
 #visualizer.rotation.secs=10
@@ -36,14 +36,14 @@ audio.stereo.enabled=false
 
 ##Configures what character the spectrum visualizer will use. Specifying a space (e.g " ") means the
 ##background will be colored instead of the character. Defaults to " ".
-#visualizer.spectrum.character=#
+#visualizer.spectrum.character=|
 
 ##Spectrum bar width. Defaults to 2.
-#visualizer.spectrum.bar.width=2
+visualizer.spectrum.bar.width=1
 
 ##The amount of space between each bar in the spectrum visualizer. Defaults to 1. It's possible to set this to
 ##zero to have no space between bars
-visualizer.spectrum.bar.spacing=0
+visualizer.spectrum.bar.spacing=1
 
 ##Available smoothing options are monstercat, sgs, none.
 #visualizer.spectrum.smoothing.mode=sgs
@@ -85,8 +85,8 @@ visualizer.spectrum.bar.spacing=0
 
 
 ##Turns off overriding the user's terminal colors. This is true by default.
-#colors.override.terminal=false
+colors.override.terminal=false
 
 ##Specifies the color scheme. The color scheme must be in ~/.config/vis/colors/ directory. The default scheme is "colors".
-#colors.scheme=rainbow
+colors.scheme=mine
 
