@@ -19,7 +19,7 @@ exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
-gaps inner 16
+gaps inner 8
 
 # App rules
 for_window [class="qutebrowser"] floating enable

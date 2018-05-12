@@ -50,3 +50,7 @@ load {
 disk "/" {
   format = "%avail"
 }
+
+disk "/home" {
+  format = "%avail"
+}
