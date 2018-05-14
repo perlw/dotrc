@@ -12,7 +12,7 @@ exec --no-startup-id xset dpms 600 600 600
 exec --no-startup-id compton -bcf -i 0.9 --backend glx --vsync opengl-swc
 exec --no-startup-id unclutter -noevents
 exec_always --no-startup-id setxkbmap -option caps:escape se
-exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
+exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 exec --no-startup-id ~/.config/i3/local_startup.sh
 
@@ -126,6 +126,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Lock screen
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/lock.sh
+
+# Multihead
+bindsym Mod4+p exec --no-startup-id ~/.config/i3/multihead.sh
 
 # Media
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/sound.sh inc
