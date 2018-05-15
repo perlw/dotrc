@@ -15,6 +15,7 @@ exec_always --no-startup-id setxkbmap -option caps:escape se
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 exec --no-startup-id ~/.config/i3/local_startup.sh
+exec --no-startup-id xbacklight = 25
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
@@ -48,7 +49,6 @@ bindsym $mod+m scratchpad show
 
 # start rofi (a program launcher)
 bindsym $mod+d exec dmenu_run
-#bindsym $mod+d exec rofi -show run
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -139,6 +139,10 @@ bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/sound.sh mute
 #bindsym XF86AudioStop exec --no-startup-id ~/.config/i3/media.sh stop
 #bindsym XF86AudioPrev exec --no-startup-id ~/.config/i3/media.sh prev
 #bindsym XF86AudioNext exec --no-startup-id ~/.config/i3/media.sh next
+
+# Screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/backlight.sh dec
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/backlight.sh inc
 
 # Screenshotting
 set $scrot_filename '%Y-%m-%d-%H%M%S_$wx$h.png'

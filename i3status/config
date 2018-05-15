@@ -8,7 +8,9 @@ order += "volume master"
 order += "disk /"
 order += "disk /home"
 order += "ethernet _first_"
+order += "wireless _first_"
 order += "load"
+order += "battery 0"
 order += "tztime local"
 
 volume master {

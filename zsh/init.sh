@@ -27,9 +27,13 @@ alias er="nvim $HOME/.config/ranger/rc.conf"
 alias gd="cd $HOME/Downloads"
 alias gc="cd $HOME/.config"
 alias gci="cd $HOME/.config/i3"
-alias gtg="cd $GOPATH/src/github.com/perlw"
+alias gtg="cd $GOPATH/src/github.com"
 alias gp="cd $HOME/Projects"
 alias gw="cd $HOME/Work"
 
 # Misc
 alias wttr="curl wttr.in/Malmö"
+
+# Work
+alias ca="consul agent -server -data-dir . -bootstrap -advertise 127.0.0.1 -rejoin -ui"
+alias cg="cgateway proxy --omit jobinternalreport --omit apiproxy-80"
