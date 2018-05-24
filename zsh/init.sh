@@ -28,6 +28,8 @@ alias gd="cd $HOME/Downloads"
 alias gc="cd $HOME/.config"
 alias gci="cd $HOME/.config/i3"
 alias gtg="cd $GOPATH/src/github.com"
+alias gtgs="cd $GOPATH/src/github.com/Sydsvenskan"
+alias gtgp="cd $GOPATH/src/github.com/perlw"
 alias gp="cd $HOME/Projects"
 alias gw="cd $HOME/Work"
 
