@@ -1,4 +1,5 @@
 #!/bin/zsh
+# TODO: Add from path
 files=("${(f)$(ls /usr/share/applications/*.desktop)}")
 names=""
 typeset -A execs
