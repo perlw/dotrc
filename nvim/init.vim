@@ -19,12 +19,14 @@ Plugin 'morhetz/gruvbox'
 Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vimwiki/vimwiki'
+Plugin 'ryanoasis/vim-devicons'
 
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-markdown'
@@ -166,6 +168,9 @@ let NERDTreeMapOpenVSplit='i'
 let NERDTreeMapOpenPreviewVSplit='gi'
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
+
+" Tagbar
+nnoremap <leader>t :TagbarToggle<cr>
 
 " Tabs
 set tabstop=2
