@@ -27,6 +27,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'w0rp/ale'
 
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-markdown'
@@ -38,6 +39,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
+Plugin 'aserebryakov/vim-todo-lists'
 
 call vundle#end()
 
