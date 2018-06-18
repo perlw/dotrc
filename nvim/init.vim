@@ -11,24 +11,27 @@ else
   set rtp+=~/.config/nvim/bundle/Vundle.vim
   call vundle#begin('~/.config/nvim/bundle')
 endif
-
 Plugin 'VundleVim/Vundle.vim'
+
+" Vim settings/improvements
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'morhetz/gruvbox'
 Plugin 'mileszs/ack.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vimwiki/vimwiki'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'w0rp/ale'
+Plugin 'mattn/emmet-vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'KabbAmine/zeavim.vim'
 
+" File and syntax
+Plugin 'vimwiki/vimwiki'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-markdown'
 Plugin 'petrbroz/vim-glsl'
@@ -39,7 +42,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
-Plugin 'aserebryakov/vim-todo-lists'
 
 call vundle#end()
 

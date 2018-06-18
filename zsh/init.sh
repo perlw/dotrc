@@ -33,6 +33,9 @@ alias gtgp="cd $GOPATH/src/github.com/perlw"
 alias gp="cd $HOME/Projects"
 alias gw="cd $HOME/Work"
 
+# Go
+alias gg="go get -v -u"
+
 # Misc
 alias wttr="curl wttr.in/Malmö"
 

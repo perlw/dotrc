@@ -15,7 +15,6 @@ exec_always --no-startup-id setxkbmap -option caps:escape se
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 exec_always --no-startup-id ~/.config/i3/setup_sens.sh
 exec --no-startup-id ~/.config/i3/local_startup.sh
-exec --no-startup-id xbacklight = 25
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 1
