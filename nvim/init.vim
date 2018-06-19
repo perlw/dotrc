@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'morhetz/gruvbox'
-Plugin 'mileszs/ack.vim'
+Plugin 'nazo/pt.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
@@ -65,6 +65,9 @@ set path+=**
 set wildmenu
 filetype indent plugin on
 syn on
+
+" Pt
+nnoremap <leader>g :Pt! <cword><cr>
 
 " Eyecandy
 set cursorline
