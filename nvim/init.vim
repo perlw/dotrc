@@ -41,6 +41,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
+Plugin 'jansedivy/jai.vim'
 
 call vundle#end()
 

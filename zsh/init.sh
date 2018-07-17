@@ -9,8 +9,9 @@ export PATH=$PATH:$GOPATH/bin
 
 PWD=`dirname $0`
 
-## Functions
+# Functions
 source "$PWD/functions/aur.sh"
+source "$PWD/functions/aws-env.sh"
 
 # Passwords
 alias sesame="eval \$(op signin my)"
