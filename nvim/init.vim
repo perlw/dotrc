@@ -42,6 +42,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'jansedivy/jai.vim'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
@@ -122,28 +123,6 @@ set statusline+=\ %{ScmStatus()}
 set statusline+=%=
 set statusline+=%y
 set statusline+=┊%P[%c@%l/%L]
-
-" Tags
-function! DelTagOfFile(file)
-  let fullpath = a:file
-  let cwd = getcwd()
-  let tagfilename = cwd . "/tags"
-  let f = substitute(fullpath, cwd . "/", "", "")
-  let f = escape(f, './')
-  let cmd = 'sed -i "/' . f . '/d" "' . tagfilename . '"'
-  let resp = system(cmd)
-endfunction
-
-function! UpdateTags()
-  let f = expand("%:p")
-  let cwd = getcwd()
-  let cmd = 'ctags -a ' . f
-  call DelTagOfFile(f)
-  let resp = system(cmd)
-endfunction
-autocmd BufWritePost *.c,*.cpp,*.php,*.js,*.jsx,*.html call UpdateTags()
-nnoremap <c-k> g<c-]>
-vnoremap <c-k> g<c-]>
 
 " Go
 au Filetype go nnoremap <c-k> :GoDef<cr>
