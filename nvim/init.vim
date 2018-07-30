@@ -28,6 +28,7 @@ Plugin 'w0rp/ale'
 Plugin 'mattn/emmet-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'KabbAmine/zeavim.vim'
+Plugin 'jodosha/vim-godebug'
 
 " File and syntax
 Plugin 'vimwiki/vimwiki'
