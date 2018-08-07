@@ -1,0 +1,59 @@
+{
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'PragmataPro Mono'",
+    "editor.tabSize": 2,
+    "editor.fontLigatures": true,
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "Solarized Light",
+    "explorer.openEditors.visible": 0,
+    "editor.renderIndentGuides": false,
+    "window.titleBarStyle": "custom",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+
+    // VIM
+    "vim.easymotion": false,
+    "vim.sneak": false,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "<leader>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {},
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.surround": true
+}
