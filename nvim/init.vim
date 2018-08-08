@@ -29,6 +29,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'jodosha/vim-godebug'
+Plugin 'shougo/deoplete.nvim'
 
 " File and syntax
 Plugin 'vimwiki/vimwiki'
@@ -67,6 +68,9 @@ set path+=**
 set wildmenu
 filetype indent plugin on
 syn on
+
+" Deoplete
+let g:deoplete#enable_at_startup=1
 
 " Pt
 nnoremap <leader>g :Pt! <cword><cr>
