@@ -12,6 +12,9 @@
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
 
+    // ESlint
+    "eslint.run": "onSave",
+
     // VIM
     "vim.easymotion": false,
     "vim.sneak": false,
