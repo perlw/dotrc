@@ -33,7 +33,7 @@ Plugin 'jodosha/vim-godebug'
 " File and syntax
 Plugin 'vimwiki/vimwiki'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/vim-markdown'
+Plugin 'garielelana/vim-markdown'
 Plugin 'petrbroz/vim-glsl'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
@@ -74,20 +74,20 @@ nnoremap <leader>g :Pt! <cword><cr>
 " Eyecandy
 set cursorline
 set termguicolors
-set background=light
-"color jellybeans
-" color solarized8_high
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 let g:gruvbox_vert_split='bg1'
-color gruvbox
+set background=light
+color solarized8_high
 set fillchars=vert:\ 
 
 function! ToggleBackground()
   if &background ==# 'dark'
     set background=light
+    color solarized8_high
   else
     set background=dark
+    color gruvbox
   endif
 endfunction
 nnoremap <f2> :call ToggleBackground()<cr>
