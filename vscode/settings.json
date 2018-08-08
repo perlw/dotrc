@@ -8,6 +8,7 @@
     "explorer.openEditors.visible": 0,
     "editor.renderIndentGuides": false,
     "window.titleBarStyle": "custom",
+    "workbench.tips.enabled": false,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
