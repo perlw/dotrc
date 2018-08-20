@@ -45,6 +45,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'jansedivy/jai.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'lifepillar/pgsql.vim'
 
 call vundle#end()
 
