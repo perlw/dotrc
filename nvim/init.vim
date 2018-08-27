@@ -34,7 +34,7 @@ Plugin 'shougo/deoplete.nvim'
 " File and syntax
 Plugin 'vimwiki/vimwiki'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'garielelana/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 Plugin 'petrbroz/vim-glsl'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
