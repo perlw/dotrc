@@ -12,6 +12,7 @@ PWD=`dirname $0`
 # Functions
 source "$PWD/functions/aur.sh"
 source "$PWD/functions/aws-env.sh"
+source "$PWD/functions/creds.sh"
 
 # Passwords
 alias sesame="eval \$(op signin my)"
@@ -43,3 +44,4 @@ alias wttr="curl wttr.in/Malmö"
 # Work
 alias ca="consul agent -server -data-dir . -bootstrap -advertise 127.0.0.1 -rejoin -ui"
 alias cg="cgateway proxy --omit jobinternalreport --omit apiproxy-80"
+alias cgp="cgateway proxy --production --omit jobinternalreport --omit apiproxy-80"

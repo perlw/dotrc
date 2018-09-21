@@ -59,5 +59,21 @@
     "vim.handleKeys": {},
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
-    "vim.surround": true
+    "vim.surround": true,
+
+    // Eslint
+    "eslint.packageManager": "yarn",
+
+    // TODO-Tree
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+
+    // Go
+    "go.formatTool": "goimports"
 }
