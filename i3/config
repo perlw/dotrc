@@ -155,3 +155,4 @@ bindsym $mod+r exec EDITOR=$editor $term -e ranger
 bindsym $mod+e exec $term -e $editor
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $quick_browser
+bindsym $mod+a exec ~/.config/i3/dmenu_aws.sh
