@@ -75,5 +75,10 @@
     },
 
     // Go
-    "go.formatTool": "goimports"
+    "go.formatTool": "goimports",
+    "go.buildOnSave": "off",
+    "go.gopath": "/home/perlw/Go",
+    "breadcrumbs.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "none"
 }
