@@ -31,7 +31,6 @@ Plugin 'KabbAmine/zeavim.vim'
 Plugin 'jodosha/vim-godebug'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
 Plugin 'ryanoasis/vim-devicons'
 
 " File and syntax
@@ -75,6 +74,13 @@ syn on
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
+let g:neosnippet#disable_runtime_snippets={
+      \ '_' : 1,
+      \ }
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Pt
 nnoremap <leader>g :Pt! <cword><cr>
@@ -142,9 +148,6 @@ au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
 au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
 au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
 au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
-" TODO: Set up a minimal snippet-something instead
-au Filetype go ab mapi map[string]interface{}
-au Filetype go ab err! err != nil
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
