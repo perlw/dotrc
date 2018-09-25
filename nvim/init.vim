@@ -48,6 +48,7 @@ Plugin 'fatih/vim-go'
 Plugin 'jansedivy/jai.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lifepillar/pgsql.vim'
+Plugin 'shime/vim-livedown'
 
 call vundle#end()
 
@@ -151,6 +152,12 @@ au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
+let g:livedown_autorun = 0
+let g:livedown_open = 1
+let g:livedown_port = 1337
+let g:livedown_browser = "firefox"
+au Filetype markdown nnoremap <c-p> :LivedownToggle<cr>
+au Filetype markdown vnoremap <c-p> :LivedownToggle<cr>
 
 " GLSL
 au BufNewFile,BufRead *.glsl set filetype=glsl
