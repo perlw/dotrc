@@ -29,7 +29,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'jodosha/vim-godebug'
-Plugin 'shougo/deoplete.nvim'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'ryanoasis/vim-devicons'
 
 " File and syntax
 Plugin 'vimwiki/vimwiki'
