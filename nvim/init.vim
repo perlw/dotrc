@@ -49,6 +49,7 @@ Plugin 'jansedivy/jai.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lifepillar/pgsql.vim'
 Plugin 'shime/vim-livedown'
+Plugin 'aklt/plantuml-syntax'
 
 call vundle#end()
 
@@ -83,8 +84,13 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" Pt
-nnoremap <leader>g :Pt! <cword><cr>
+" plantuml call
+nnoremap <leader>u :! plantuml -tutxt %<cr>
+vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
+
+" graph-easy call
+nnoremap <leader>g :! graph-easy --as=boxart %<cr>
+vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
 
 " Eyecandy
 set cursorline
