@@ -11,7 +11,7 @@ PWD=`dirname $0`
 
 # Functions
 source "$PWD/functions/aur.sh"
-source "$PWD/functions/aws-env.sh"
+source "$PWD/functions/aws.sh"
 source "$PWD/functions/creds.sh"
 
 # Passwords
