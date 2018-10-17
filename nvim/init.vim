@@ -73,6 +73,7 @@ set path+=**
 set wildmenu
 filetype indent plugin on
 syn on
+set cc=120
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
