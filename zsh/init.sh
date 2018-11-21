@@ -34,6 +34,7 @@ alias gtgs="cd $GOPATH/src/github.com/Sydsvenskan"
 alias gtgp="cd $GOPATH/src/github.com/perlw"
 alias gp="cd $HOME/Projects"
 alias gw="cd $HOME/Work"
+alias gs="cd /storage"
 
 # Go
 alias gg="go get -v -u"
