@@ -65,7 +65,35 @@ AWStaskenv() {
   fi
 }
 
+AWSpipe() {
+  err=0
+  if [[ $# -gt 1 ]]; then
+    case $1 in
+      approve)
+        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name CreateChangeSet --result summary=auto,status=Approved --token {}
+        err=$?
+        ;;
+      reject)
+        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name CreateChangeSet --result summary=auto,status=Rejected --token {}
+        err=$?
+        ;;
+      *)
+        err=1
+        ;;
+    esac
+  else
+    err=1
+  fi
+
+  if [[ $err -eq 0 ]]; then
+    print -P '%F{green}Done!%f'
+  else
+    print -P '$0 <approve|reject> <cluster>/<service>'
+  fi
+}
+
 alias aws-env='setupAWSEnv'
 alias aws-kick='AWSkick'
 alias aws-state='AWSstate'
 alias aws-task-env='AWStaskenv'
+alias aws-pipe='AWSpipe'
