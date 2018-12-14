@@ -14,8 +14,6 @@ source "$PWD/functions/aur.sh"
 source "$PWD/functions/aws.sh"
 source "$PWD/functions/creds.sh"
 
-alias vis="TERM=rxvt-256color vis"
-
 # Passwords
 alias sesame="eval \$(op signin my)"
 
