@@ -2,8 +2,8 @@
 
 set $mod Mod1
 # set $mod Mod4
-set $term alacritty
-set $altterm st
+set $term st
+set $altterm alacritty
 set $browser firefox
 set $quick_browser qutebrowser
 set $editor nvim
