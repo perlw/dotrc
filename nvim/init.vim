@@ -1,5 +1,5 @@
 set nocompatible
-filetype off
+filetype plugin on
 
 let mapleader=','
 
@@ -46,6 +46,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
+Plugin 'mdempsky/gocode', {'rtp': 'nvim/'}
+Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 Plugin 'jansedivy/jai.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lifepillar/pgsql.vim'
@@ -75,9 +77,13 @@ set wildmenu
 filetype indent plugin on
 syn on
 set cc=120
+set lazyredraw
+set maxmempattern=20000
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
+
+" Neosnippet
 let g:neosnippet#disable_runtime_snippets={
       \ '_' : 1,
       \ }
@@ -157,6 +163,36 @@ au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
 au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
 au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
 au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_options = {
+  \ 'goimports': '-local do/',
+  \ }
+let g:go_test_prepend_name = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 0
+let g:go_auto_sameids = 0
+let g:go_info_mode = "gocode"
+
+let g:go_def_mode = "godef"
+let g:go_echo_command_info = 1
+let g:go_autodetect_gopath = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
+
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_extra_types = 0
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 0
+let g:go_highlight_operators = 1
+let g:go_highlight_format_strings = 0
+let g:go_highlight_function_calls = 0
+let g:go_gocode_propose_source = 1
+
+let g:go_modifytags_transform = 'camelcase'
+let g:go_fold_enable = []
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
@@ -175,10 +211,11 @@ au BufNewFile,BufRead *.vert set filetype=glsl
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowLineNumbers = 1
-let NERDTreeMapOpenSplit='s'
-let NERDTreeMapOpenPreviewSplit='gs'
-let NERDTreeMapOpenVSplit='i'
-let NERDTreeMapOpenPreviewVSplit='gi'
+let NERDTreeMapOpenSplit = 's'
+let NERDTreeMapOpenPreviewSplit = 'gs'
+let NERDTreeMapOpenVSplit = 'i'
+let NERDTreeMapOpenPreviewVSplit = 'gi'
+let NERDTreeShowHidden = 1
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 
@@ -262,8 +299,3 @@ autocmd FileType c ClangFormatAutoEnable
 
 " Rust
 let g:rustfmt_autosave = 1
-
-" Go
-"if !has('win32')
-let g:go_fmt_command = "goimports"
-"endif
