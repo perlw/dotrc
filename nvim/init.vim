@@ -46,7 +46,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
-Plugin 'mdempsky/gocode', {'rtp': 'nvim/'}
 Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 Plugin 'jansedivy/jai.vim'
 Plugin 'leafgarland/typescript-vim'
