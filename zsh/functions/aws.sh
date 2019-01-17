@@ -70,11 +70,11 @@ AWSpipe() {
   if [[ $# -gt 1 ]]; then
     case $1 in
       approve)
-        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name CreateChangeSet --result summary=auto,status=Approved --token {}
+        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Approved --token {}
         err=$?
         ;;
       reject)
-        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name CreateChangeSet --result summary=auto,status=Rejected --token {}
+        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Rejected --token {}
         err=$?
         ;;
       *)
@@ -88,7 +88,7 @@ AWSpipe() {
   if [[ $err -eq 0 ]]; then
     print -P '%F{green}Done!%f'
   else
-    print -P '$0 <approve|reject> <cluster>/<service>'
+    print -P '$0 <approve|reject> <pipeline>'
   fi
 }
 
