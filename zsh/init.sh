@@ -41,6 +41,7 @@ alias gg="go get -v -u"
 
 # Misc
 alias wttr="curl wttr.in/Malmö"
+alias dvim="DARK=1 $EDITOR"
 
 # Work
 alias ca="consul agent -server -data-dir . -bootstrap -advertise 127.0.0.1 -rejoin -ui"

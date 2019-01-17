@@ -119,6 +119,9 @@ function! ToggleBackground()
   endif
 endfunction
 nnoremap <f2> :call ToggleBackground()<cr>
+if !empty($DARK)
+  call ToggleBackground()
+endif
 
 " Searching
 nnoremap <leader><leader> :nohl<cr>
@@ -294,7 +297,7 @@ let g:clang_format#style_options = {
   \ }
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_formatexpr = 1
-autocmd FileType c ClangFormatAutoEnable
+" autocmd FileType c ClangFormatAutoEnable
 
 " Rust
 let g:rustfmt_autosave = 1
