@@ -3,9 +3,8 @@
 set $mod Mod1
 # set $mod Mod4
 set $term st
-set $altterm alacritty
 set $browser firefox
-set $quick_browser qutebrowser
+set $altbrowser chromium
 set $editor nvim
 
 exec --no-startup-id xset s 600 600
@@ -152,9 +151,8 @@ bindsym --release Shift+Print exec --no-startup-id scrot -s $scrot_filename -e '
 
 # Apps
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $altterm
 bindsym $mod+r exec EDITOR=$editor $term -e ranger
 bindsym $mod+e exec $term -e $editor
 bindsym $mod+b exec $browser
-bindsym $mod+Shift+b exec $quick_browser
+bindsym $mod+Shift+b exec $altbrowser
 bindsym $mod+a exec ~/.config/i3/dmenu_aws.sh
