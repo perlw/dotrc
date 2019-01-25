@@ -55,6 +55,37 @@ Plugin 'aklt/plantuml-syntax'
 
 call vundle#end()
 
+" Adapted from http://klamp.works/2016/01/01/vim-splash.html
+fun! StartMsg()
+  enew
+
+  setlocal
+    \ bufhidden=wipe
+    \ buftype=nofile
+    \ nobuflisted
+    \ nocursorcolumn
+    \ nocursorline
+    \ nolist
+    \ nonumber
+    \ noswapfile
+    \ norelativenumber
+
+	" Msgs
+	exec ":r !fortune"
+
+  setlocal
+    \ nomodifiable
+    \ nomodified
+
+  nnoremap <buffer><silent> e :enew<CR>
+  nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+endfun
+
+if argc() == 0
+  autocmd VimEnter * call StartMsg()
+endif
+
 " Generic settings
 set enc=utf-8
 set relativenumber
