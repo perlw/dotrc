@@ -32,7 +32,7 @@ client.urgent #aa0000 #285577 #ffffff #00abab #aa0000
 font pango:PragmataPro Mono 10
 
 bar {
-  status_command i3status
+  status_command i3blocks
   position top
 }
 

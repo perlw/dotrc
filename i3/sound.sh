@@ -17,3 +17,4 @@ if [[ $# -gt 0 ]]; then
   esac
 fi
 pamixer $op $arg
+pkill -RTMIN+10 i3blocks
