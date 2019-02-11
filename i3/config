@@ -149,6 +149,9 @@ set $scrot_filename '%Y-%m-%d-%H%M%S_$wx$h.png'
 bindsym Print exec --no-startup-id scrot $scrot_filename -e 'mv $f ~/ScreenGrabs/'
 bindsym --release Shift+Print exec --no-startup-id scrot -s $scrot_filename -e 'mv $f ~/ScreenGrabs/'
 
+# Emoji!
+bindsym $mod+u exec --no-startup-id ~/.config/i3/dmenu_unicode.sh
+
 # Apps
 bindsym $mod+Return exec $term
 bindsym $mod+r exec EDITOR=$editor $term -e ranger
