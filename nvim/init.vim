@@ -196,6 +196,8 @@ let g:go_gocode_propose_source = 1
 let g:go_modifytags_transform = 'camelcase'
 let g:go_fold_enable = []
 
+set completeopt-=preview
+
 " Markdown
 let g:markdown_fenced_languages = ['html']
 let g:livedown_autorun = 0
