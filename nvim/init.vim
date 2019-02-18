@@ -303,3 +303,17 @@ let g:clang_format#auto_formatexpr = 1
 
 " Rust
 let g:rustfmt_autosave = 1
+
+" Time func
+let g:time_stamp_enabled = 0
+command! TimeStampToggle let g:time_stamp_enabled = !g:time_stamp_enabled
+
+inoremap <expr> <CR> g:time_stamp_enabled ? "\<ESC>:call TimeStamp()\<CR>a" : "\<CR>"
+
+function! TimeStamp()
+  let l:current_time = strftime("%H:%M:%S")
+  execute "normal! 0i\<SPACE>\<ESC>0dwi\
+    \<C-R>=l:current_time\<CR>\
+    \<SPACE>\<SPACE>—\<SPACE>\<SPACE>\<ESC>o\<SPACE>\<SPACE>\<SPACE>\<SPACE>\
+    \<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>"
+endfunction
