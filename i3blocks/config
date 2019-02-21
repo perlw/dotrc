@@ -26,6 +26,10 @@ label=/storage
 DIR=/storage
 interval=30
 
+[weather]
+command=~/.config/i3blocks/scripts/weather.sh
+interval=60
+
 [iface eth0]
 command=~/.config/i3blocks/scripts/iface.sh
 label=eth0: 
