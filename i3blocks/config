@@ -63,5 +63,5 @@ min_width=bat: ■■■■■
 
 # Update time every 5 seconds
 [time]
-command=date +"[%d %b] %T"
+command=~/.config/i3blocks/scripts/datetime.sh
 interval=5
