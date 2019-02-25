@@ -19,7 +19,13 @@
 #  MA 02110-1301, USA.
 #  
 #  
-readarray -t output <<< $(acpi battery)
+acpi=$(acpi -b)
+grep "Battery" <<< $acpi > /dev/null
+if [[ $? -ne 0 ]]; then
+  exit 0
+fi
+
+readarray -t output <<< $acpi
 battery_count=${#output[@]}
 
 for line in "${output[@]}";
