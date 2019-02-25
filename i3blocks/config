@@ -1,5 +1,6 @@
 [users]
 command=users
+label= 
 interval=10
 
 [volume]
@@ -10,19 +11,19 @@ signal=10
 
 [disk-/]
 command=~/.config/i3blocks/scripts/disk.sh
-label=/ 
+label=💽 / 
 DIR=/
 interval=30
 
 [disk /home]
 command=~/.config/i3blocks/scripts/disk.sh
-label=/home 
+label=💽 /home 
 DIR=/home
 interval=30
 
 [disk /storage]
 command=~/.config/i3blocks/scripts/disk.sh
-label=/storage 
+label=💽 /storage 
 DIR=/storage
 interval=30
 
@@ -32,13 +33,13 @@ interval=60
 
 [iface eth0]
 command=~/.config/i3blocks/scripts/iface.sh
-label=eth0: 
+label=eth0 
 IFACE=eth0
 interval=10
 
 [iface wlp2s0]
 command=~/.config/i3blocks/scripts/iface.sh
-label=wifi: 
+label=wlp2s0: 
 IFACE=wlp2s0
 interval=10
 
@@ -56,10 +57,10 @@ T_CRIT=90
 
 [batterybar]
 command=~/.config/i3blocks/scripts/battery.sh
-label=bat:
+label=🔋
 interval=5
 markup=pango
-min_width=bat: ■■■■■
+min_width=🔋■■■■■
 
 # Update time every 5 seconds
 [time]
