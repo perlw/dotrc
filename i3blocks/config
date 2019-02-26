@@ -33,19 +33,19 @@ interval=60
 
 [iface eth0]
 command=~/.config/i3blocks/scripts/iface.sh
-label=eth0 
+label=🖧 
 IFACE=eth0
 interval=10
 
 [iface wlp2s0]
 command=~/.config/i3blocks/scripts/iface.sh
-label=wlp2s0: 
+label=📶 
 IFACE=wlp2s0
 interval=10
 
 [iface wg0]
 command=~/.config/i3blocks/scripts/iface.sh
-label=wg0: 
+label=🔐 
 IFACE=wg0
 interval=10
 
