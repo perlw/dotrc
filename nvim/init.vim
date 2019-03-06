@@ -30,9 +30,13 @@ Plugin 'mattn/emmet-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'jodosha/vim-godebug'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'Shougo/neosnippet.vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'build': 'bash install.sh',
+  \ }
+Plugin 'Shougo/deoplete.nvim', { 'build': ':UpdateRemotePlugins' }
+Plugin 'Shougo/neosnippet.vim'
 
 " File and syntax
 Plugin 'vimwiki/vimwiki'
@@ -46,7 +50,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
-Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 Plugin 'jansedivy/jai.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lifepillar/pgsql.vim'
@@ -81,6 +84,22 @@ set maxmempattern=20000
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
+
+" LanguageClient
+let g:LanguageClient_rootMarkers = {
+        \ 'go': ['.git', 'go.mod'],
+        \ }
+
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['bingo'],
+    \ }
+
+function LC_maps()
+  if has_key(g:LanguageClient_serverCommands, &filetype)
+    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  endif
+endfunction
+autocmd FileType * call LC_maps()
 
 " Neosnippet
 let g:neosnippet#disable_runtime_snippets={
