@@ -3,60 +3,54 @@ filetype plugin on
 
 let mapleader=','
 
-" Vundle
-if has('win32')
-  set rtp+=~/AppData/Local/nvim/bundle/Vundle.vim
-  call vundle#begin('~/AppData/Local/nvim/bundle')
-else
-  set rtp+=~/.config/nvim/bundle/Vundle.vim
-  call vundle#begin('~/.config/nvim/bundle')
-endif
-Plugin 'VundleVim/Vundle.vim'
+" Plug
+call plug#begin('~/.config/nvim/bundle')
 
 " Vim settings/improvements
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'morhetz/gruvbox'
-Plugin 'nazo/pt.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'mhinz/vim-signify'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'w0rp/ale'
-Plugin 'mattn/emmet-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'KabbAmine/zeavim.vim'
-Plugin 'jodosha/vim-godebug'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'autozimu/LanguageClient-neovim', {
+Plug 'nanotech/jellybeans.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
+Plug 'nazo/pt.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-signify'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
+Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'KabbAmine/zeavim.vim'
+Plug 'jodosha/vim-godebug'
+Plug 'ryanoasis/vim-devicons'
+Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
-  \ 'build': 'bash install.sh',
+  \ 'do': 'bash install.sh',
   \ }
-Plugin 'Shougo/deoplete.nvim', { 'build': ':UpdateRemotePlugins' }
-Plugin 'Shougo/neosnippet.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet.vim'
 
 " File and syntax
-Plugin 'vimwiki/vimwiki'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'petrbroz/vim-glsl'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'rust-lang/rust.vim'
-Plugin 'cespare/vim-toml'
-Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'fatih/vim-go'
-Plugin 'jansedivy/jai.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'lifepillar/pgsql.vim'
-Plugin 'shime/vim-livedown'
-Plugin 'aklt/plantuml-syntax'
+Plug 'vimwiki/vimwiki'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'gabrielelana/vim-markdown'
+Plug 'petrbroz/vim-glsl'
+Plug 'rhysd/vim-clang-format'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'fatih/vim-go'
+Plug 'jansedivy/jai.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'lifepillar/pgsql.vim'
+Plug 'shime/vim-livedown'
+Plug 'aklt/plantuml-syntax'
+Plug 'ryanolsonx/vim-lsp-javascript'
 
-call vundle#end()
+call plug#end()
 
 " Generic settings
 set enc=utf-8
