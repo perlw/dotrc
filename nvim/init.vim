@@ -30,6 +30,7 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
+Plug 'sainnhe/vim-color-forest-night'
 
 " File and syntax
 Plug 'vimwiki/vimwiki'
@@ -119,7 +120,8 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 let g:gruvbox_vert_split='bg1'
 set background=light
-color solarized8_high
+" color solarized8_high
+color forest-night
 set fillchars=vert:\ 
 
 function! ToggleBackground()
