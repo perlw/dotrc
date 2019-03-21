@@ -1,4 +1,4 @@
-# i3 config file (Per Lönn Wege)
+# sway config file (Per Lönn Wege)
 
 set $mod Mod1
 # set $mod Mod4
@@ -7,13 +7,14 @@ set $browser firefox
 set $altbrowser chromium
 set $editor nvim
 
-exec --no-startup-id ~/.config/i3/local_startup.sh
+exec --no-startup-id systemctl --user import-environment DISPLAY
+exec --no-startup-id xrdb ~/.Xresources
 
-# hide_edge_borders both
 for_window [class="^.*"] border pixel 2
 gaps inner 8
 
 # App rules
+for_window [class="Insomnia"] floating enable
 for_window [class="qutebrowser"] floating enable
 for_window [class="Zeal"] floating enable
 
@@ -26,6 +27,7 @@ font pango:PragmataPro Mono 10
 bar {
   status_command i3blocks
   position top
+  height 20
 }
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -40,15 +42,13 @@ bindsym $mod+Shift+m move scratchpad
 bindsym $mod+m scratchpad show
 
 # start a program launcher
-set $menu dmenu_path | bemenu --fn 'PragmataPro 14' | xargs swaymsg exec --
+set $menu dmenu_path | bemenu --fn 'PragmataPro 10' | xargs swaymsg exec --
 bindsym $mod+d exec $menu
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# exit sway (logs you out of your X session)
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland.' -b 'Yes, exit sway' 'swaymsg exit'"
 bindsym $mod+Shift+Pause exec systemctl poweroff
 
 # switch between last two workspaces
@@ -138,9 +138,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/sway/backlight.sh d
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/sway/backlight.sh inc
 
 # Screenshotting
-#set $scrot_filename '%Y-%m-%d-%H%M%S_$wx$h.png'
-#bindsym Print exec --no-startup-id scrot $scrot_filename -e 'mv $f ~/ScreenGrabs/'
-#bindsym --release Shift+Print exec --no-startup-id scrot -s $scrot_filename -e 'mv $f ~/ScreenGrabs/'
+bindsym Print exec --no-startup-id ~/.config/sway/shot.sh
+bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partial
 
 # Emoji!
 bindsym $mod+u exec --no-startup-id ~/.config/sway/dmenu_unicode.sh
@@ -155,6 +154,11 @@ bindsym $mod+a exec ~/.config/sway/dmenu_aws.sh
 
 # Keyboard
 input 1241:369:USB-HID_Keyboard {
+  xkb_layout se
+  xkb_options caps:escape
+}
+
+input 1:1:AT_Translated_Set_2_keyboard {
   xkb_layout se
   xkb_options caps:escape
 }
