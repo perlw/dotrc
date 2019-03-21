@@ -2,7 +2,7 @@
 
 set $mod Mod1
 # set $mod Mod4
-set $term st
+set $term termite
 set $browser firefox
 set $altbrowser chromium
 set $editor nvim
@@ -143,7 +143,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/sway/backlight.sh inc
 
 # Screenshotting
 bindsym Print exec --no-startup-id ~/.config/sway/shot.sh
-bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partial
+bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partialclipboard
 
 # Emoji!
 bindsym $mod+u exec --no-startup-id ~/.config/sway/dmenu_unicode.sh

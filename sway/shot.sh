@@ -4,6 +4,9 @@ notify() {
 }
 
 case $1 in
+  partialclipboard)
+    grim -g "$(slurp)" - | wl-copy && notify "Saved to clipboard"
+    ;;
   partial)
     shot_date=$(date +%Y-%m-%d-%H%M%S)
     shot_rect=$(slurp)
