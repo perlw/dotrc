@@ -9,14 +9,18 @@ set $editor nvim
 
 exec --no-startup-id systemctl --user import-environment DISPLAY
 exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id unclutter
 
-for_window [class="^.*"] border pixel 2
+default_border pixel 2
 gaps inner 8
+
+exec --no-startup-id swayidle timeout 500 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 
 # App rules
 for_window [class="Insomnia"] floating enable
 for_window [class="qutebrowser"] floating enable
 for_window [class="Zeal"] floating enable
+for_window [class="termite"] border none
 
 # colors
 client.focused #ffa500 #285577 #ffffff #0059ff #ffa500
