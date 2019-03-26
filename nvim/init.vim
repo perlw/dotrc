@@ -86,7 +86,7 @@ let g:LanguageClient_rootMarkers = {
         \ }
 
 let g:LanguageClient_serverCommands = {
-    \ 'go': ['bingo'],
+    \ 'go': ['bingo', '-disable-func-snippet'],
     \ }
 
 function LC_maps()

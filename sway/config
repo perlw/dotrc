@@ -168,8 +168,7 @@ input 1:1:AT_Translated_Set_2_keyboard {
 }
 
 input 1118:71:Microsoft_Microsoft_5-Button_Mouse_with_IntelliEye(TM) {
-  accel_profile flat
-  pointer_accel 1
+  pointer_accel 0.8
 }
 
 # Outputs
