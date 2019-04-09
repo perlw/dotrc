@@ -3,7 +3,7 @@ command=users
 label= 
 interval=10
 
-[volume]
+[bt]
 command=~/.config/i3blocks/scripts/bt.sh 00:00:00:03:8C:08
 label=
 interval=5
@@ -31,10 +31,6 @@ command=~/.config/i3blocks/scripts/disk.sh
 label=💽 /storage 
 DIR=/storage
 interval=30
-
-[weather]
-command=~/.config/i3blocks/scripts/weather.sh
-interval=60
 
 [iface eth0]
 command=~/.config/i3blocks/scripts/iface.sh
