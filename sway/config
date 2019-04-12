@@ -46,7 +46,7 @@ bindsym $mod+Shift+m move scratchpad
 bindsym $mod+m scratchpad show
 
 # start a program launcher
-set $menu dmenu_path | bemenu --fn 'PragmataPro 10' | xargs swaymsg exec --
+set $menu dmenu_path | bemenu -p run --fn 'PragmataPro 10' --tf '#eeeeee' --tb '#666666' --ff '#ffffff' --hf '#ffffff' --hb '#ff9900' | xargs swaymsg exec --
 bindsym $mod+d exec $menu
 
 # reload the configuration file
@@ -54,6 +54,7 @@ bindsym $mod+Shift+c reload
 # exit sway (logs you out of your X session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland.' -b 'Yes, exit sway' 'swaymsg exit'"
 bindsym $mod+Shift+Pause exec systemctl poweroff
+bindsym $mod+Pause exec systemctl suspend
 
 # switch between last two workspaces
 bindsym $mod+Tab workspace back_and_forth
