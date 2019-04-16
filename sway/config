@@ -6,6 +6,7 @@ set $term termite
 set $browser firefox
 set $altbrowser chromium
 set $editor nvim
+set $menu bemenu --fn 'PragmataPro 10' --tf '#4f4f4f' --tb '#e7e8eb' --ff '#777777' --fb '#fafafa' --nf '#777777' --nb '#fafafa' --hf '#ffffff' --hb '#5294e2' -i
 
 exec --no-startup-id systemctl --user import-environment DISPLAY
 exec --no-startup-id xrdb ~/.Xresources
@@ -46,8 +47,8 @@ bindsym $mod+Shift+m move scratchpad
 bindsym $mod+m scratchpad show
 
 # start a program launcher
-set $menu dmenu_path | bemenu -p run --fn 'PragmataPro 10' --tf '#eeeeee' --tb '#666666' --ff '#ffffff' --hf '#ffffff' --hb '#ff9900' | xargs swaymsg exec --
-bindsym $mod+d exec $menu
+set $menu_cmd dmenu_path | $menu -p run | xargs swaymsg exec --
+bindsym $mod+d exec $menu_cmd
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -147,7 +148,7 @@ bindsym Print exec --no-startup-id ~/.config/sway/shot.sh
 bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partialclipboard
 
 # Emoji!
-bindsym $mod+u exec --no-startup-id ~/.config/sway/dmenu_unicode.sh
+bindsym $mod+u exec --no-startup-id MENU="$menu" ~/.config/sway/dmenu_unicode.sh
 
 # Apps
 bindsym $mod+Return exec $term
@@ -155,7 +156,7 @@ bindsym $mod+r exec EDITOR=$editor $term -e ranger
 bindsym $mod+e exec $term -e $editor
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $altbrowser
-bindsym $mod+a exec ~/.config/sway/dmenu_aws.sh
+bindsym $mod+a exec MENU="$menu" ~/.config/sway/dmenu_aws.sh
 
 # Keyboard
 input 1241:369:USB-HID_Keyboard {

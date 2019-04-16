@@ -6,7 +6,8 @@ awsGo() {
 }
 
 services='cp\ncf\ncw\net\ns3\nssm'
-choice=$(echo $services | bemenu -i -p "AWS")
+cmd="$MENU -p AWS"
+choice=$(echo $services | eval $cmd)
 if [[ ! -z $choice ]]; then
   case $choice in
     cp)

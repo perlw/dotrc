@@ -2,7 +2,8 @@
 # Give dmenu list of all unicode characters to copy.
 # Shows the selected character in dunst if running.
 
-chosen=$(grep -v "#" ~/.config/sway/emoji | bemenu -i -l 20)
+cmd="$MENU -p emoji -l 20"
+chosen=$(grep -v "#" ~/.config/sway/emoji | eval $cmd)
 
 [ "$chosen" != "" ] || exit
 
