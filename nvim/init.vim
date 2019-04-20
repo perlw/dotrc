@@ -24,10 +24,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'KabbAmine/zeavim.vim'
 Plug 'jodosha/vim-godebug'
 Plug 'ryanoasis/vim-devicons'
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
+"Plug 'autozimu/LanguageClient-neovim', {
+"  \ 'branch': 'next',
+"  \ 'do': 'bash install.sh',
+"  \ }
+Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'sainnhe/vim-color-forest-night'
