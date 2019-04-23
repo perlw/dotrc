@@ -111,7 +111,7 @@ AWSlinestate() {
         Succeeded)
           OUTPUT="$OUTPUT %F{green}$STATUS%f"
           ;;
-        "In Progress")
+        InProgress)
           OUTPUT="$OUTPUT %F{yellow}$STATUS%f"
           ;;
         *)
