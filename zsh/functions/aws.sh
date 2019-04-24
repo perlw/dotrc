@@ -66,44 +66,34 @@ AWStaskenv() {
 }
 
 AWSpipe() {
-  err=0
   if [[ $# -gt 1 ]]; then
-    case $1 in
+    case $2 in
       approve)
-        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Approved --token {}
-        err=$?
+        aws codepipeline get-pipeline-state --name $1 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Approved --token {}
+        print -P '%F{red}could not approve%f'
+        return -1
         ;;
       reject)
-        aws codepipeline get-pipeline-state --name $2 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Rejected --token {}
-        err=$?
+        aws codepipeline get-pipeline-state --name $1 | jq -r ".stageStates[].actionStates[].latestExecution.token | select(. != null)" | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Rejected --token {}
+        print -P '%F{red}could not reject%f'
+        return -1
         ;;
       *)
-        err=1
+        print -P '$0 <pipeline> [approve|reject]'
         ;;
-    esac
-  else
-    err=1
-  fi
-
-  if [[ $err -eq 0 ]]; then
-    print -P '%F{green}Done!%f'
-  else
-    print -P '$0 <approve|reject> <pipeline>'
-  fi
-}
-
-AWSlinestate() {
-  if [[ $# -gt 0 ]]; then
+        esac
+  elif [[ $# -gt 0 ]]; then
     DATA=$(aws codepipeline get-pipeline-state --name $1)
     if [[ $? -ne 0 ]]; then
       print -P '%F{red}no such pipe%f'
       return -1
     fi
 
-    for STATE in $(echo $DATA | jq -cr ".stageStates[].actionStates[]"); do
+    echo $DATA | jq -cr ".stageStates[].actionStates[]" | while read STATE; do
       NAME=$(echo $STATE | jq -r ".actionName")
       STATUS=$(echo $STATE | jq -r ".latestExecution.status")
       SUMMARY=$(echo $STATE | jq -r ".latestExecution.summary")
+      REVISION=$(echo $STATE | jq -r ".revisionUrl")
       TIMESTAMP=$(echo $STATE | jq -r ".latestExecution.lastStatusChange" | xargs -I foo date -d @foo)
 
       OUTPUT="$NAME ➡"
@@ -121,12 +111,15 @@ AWSlinestate() {
       if [ $SUMMARY != "null" ]; then
         OUTPUT="$OUTPUT\n├$SUMMARY"
       fi
+      if [ $REVISION != "null" ]; then
+        OUTPUT="$OUTPUT\n├$REVISION"
+      fi
       OUTPUT="$OUTPUT\n└$TIMESTAMP"
 
       print -P "$OUTPUT\n"
     done
   else
-    print -P '$0 <pipeline>'
+    print -P '$0 <pipeline> [approve|reject]'
   fi
 }
 
@@ -135,4 +128,3 @@ alias aws-kick='AWSkick'
 alias aws-state='AWSstate'
 alias aws-task-env='AWStaskenv'
 alias aws-pipe='AWSpipe'
-alias aws-line-state='AWSlinestate'
