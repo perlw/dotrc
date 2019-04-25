@@ -91,7 +91,7 @@ AWSpipe() {
 
     echo $1
     echo "https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/$1/view"
-    echo $DATA | jq -cr ".stageStates[].actionStates[]" | while read STATE; do
+    echo -E $DATA | sed 's/\\n/ /g' | sed 's/\\\"//g' | jq -cr ".stageStates[].actionStates[]" | while read STATE; do
       NAME=$(echo $STATE | jq -r ".actionName")
       STATUS=$(echo $STATE | jq -r ".latestExecution.status")
       SUMMARY=$(echo $STATE | jq -r ".latestExecution.summary")
