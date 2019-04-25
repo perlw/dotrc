@@ -89,6 +89,8 @@ AWSpipe() {
       return -1
     fi
 
+    echo $1
+    echo "https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/$1/view"
     echo $DATA | jq -cr ".stageStates[].actionStates[]" | while read STATE; do
       NAME=$(echo $STATE | jq -r ".actionName")
       STATUS=$(echo $STATE | jq -r ".latestExecution.status")
@@ -103,6 +105,11 @@ AWSpipe() {
           ;;
         InProgress)
           OUTPUT="$OUTPUT %F{yellow}$STATUS%f"
+          ;;
+        Failed)
+          OUTPUT="$OUTPUT %F{red}$STATUS%f"
+          ERRURL=$(echo $STATE | jq -r ".latestExecution.externalExecutionUrl")
+          OUTPUT="$OUTPUT\n├$ERRURL"
           ;;
         *)
           OUTPUT="$OUTPUT %F{red}$STATUS%f"
