@@ -153,7 +153,8 @@ bindsym $mod+u exec --no-startup-id MENU="$menu" ~/.config/sway/dmenu_unicode.sh
 # Apps
 bindsym $mod+Return exec $term
 bindsym $mod+r exec EDITOR=$editor $term -e ranger
-bindsym $mod+e exec $term -e $editor
+#bindsym $mod+e exec $term -e $editor
+bindsym $mod+e exec code
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $altbrowser
 bindsym $mod+a exec MENU="$menu" ~/.config/sway/dmenu_aws.sh

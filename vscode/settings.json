@@ -18,6 +18,8 @@
     "window.menuBarVisibility": "toggle",
     "editor.minimap.enabled": false,
     "editor.rulers": [120],
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
 
     // VIM
     "vim.easymotion": false,
@@ -27,27 +29,8 @@
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ],
-        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "d"
-            ],
-            "after": [
-                "d",
-                "d"
-            ],
-        },
         {
             "before": [
                 "<leader>",
@@ -64,6 +47,11 @@
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.surround": true,
 
+    // Go
+    "go.buildOnSave": "off",
+    "go.vetOnSave": "off",
+    "go.gopath": "/home/perlw/Go",
+    "go.autocompleteUnimportedPackages": true,
     "go.useLanguageServer": true,
     "go.languageServerExperimentalFeatures": {
         "diagnostics": true
@@ -79,11 +67,6 @@
         "usePlaceholders": true,
         "enhancedHover": true,
     },
-
-    // Go
-    "go.buildOnSave": "off",
-    "go.vetOnSave": "off",
-    "go.gopath": "/home/perlw/Go",
 
     // Statusbarerror
     "statusbarerror.gutter.show": false,
