@@ -1,11 +1,12 @@
 {
-    "editor.fontSize": 15,
+    "editor.fontSize": 16,
     "editor.fontFamily": "'PragmataPro Mono'",
+    "terminal.integrated.fontFamily": "'PragmataPro Mono'",
+    "terminal.integrated.fontSize": 16,
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
     "editor.renderIndentGuides": false,
-    "workbench.colorTheme": "Solarized Light",
     "workbench.tips.enabled": false,
     "explorer.openEditors.visible": 0,
     "window.titleBarStyle": "custom",
@@ -20,6 +21,8 @@
     "editor.rulers": [120],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
+    "editor.find.autoFindInSelection": true,
+    "editor.wordWrap": "off",
 
     // VIM
     "vim.easymotion": false,
@@ -154,4 +157,6 @@
             },
         ],
     },
+    "workbench.iconTheme": "vs-nomo-dark",
+    "workbench.colorTheme": "One Monokai 80s",
 }
