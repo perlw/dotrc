@@ -100,7 +100,7 @@ AWSpipe() {
       STATUS=$(echo $STATE | jq -r ".latestExecution.status")
       SUMMARY=$(echo $STATE | jq -r ".latestExecution.summary")
       REVISION=$(echo $STATE | jq -r ".revisionUrl")
-      TIMESTAMP=$(echo $STATE | jq -r ".latestExecution.lastStatusChange" | xargs -I foo date -d @foo)
+      TIMESTAMP=$(echo $STATE | jq -r ".latestExecution.lastStatusChange")
 
       OUTPUT="$NAME ➡"
       case $STATUS in
@@ -125,7 +125,9 @@ AWSpipe() {
       if [ $REVISION != "null" ]; then
         OUTPUT="$OUTPUT\n├$REVISION"
       fi
-      OUTPUT="$OUTPUT\n└$TIMESTAMP"
+      if [ $TIMESTAMP != "null" ]; then
+        OUTPUT="$OUTPUT\n└$(date -d @$TIMESTAMP)"
+      fi
 
       print -P "$OUTPUT\n"
     done
