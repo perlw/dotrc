@@ -23,6 +23,7 @@
     "editor.autoClosingQuotes": "never",
     "editor.find.autoFindInSelection": true,
     "editor.wordWrap": "off",
+    "gitlens.codeLens.enabled": false,
 
     // VIM
     "vim.easymotion": false,
@@ -159,4 +160,10 @@
     },
     "workbench.iconTheme": "vs-nomo-dark",
     "workbench.colorTheme": "Nord",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
 }
