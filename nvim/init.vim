@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'nanotech/jellybeans.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'nazo/pt.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -24,10 +25,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'KabbAmine/zeavim.vim'
 Plug 'jodosha/vim-godebug'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'autozimu/LanguageClient-neovim', {
-"  \ 'branch': 'next',
-"  \ 'do': 'bash install.sh',
-"  \ }
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
