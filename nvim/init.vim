@@ -1,5 +1,7 @@
 set nocompatible
 filetype plugin on
+set modelines=0
+set nomodeline
 
 let mapleader=','
 
@@ -119,7 +121,8 @@ let g:gruvbox_contrast_light='soft'
 let g:gruvbox_vert_split='bg1'
 set background=light
 " color solarized8_high
-color forest-night
+"color forest-night
+color nord
 set fillchars=vert:\ 
 
 function! ToggleBackground()
