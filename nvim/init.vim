@@ -9,12 +9,7 @@ let mapleader=','
 call plug#begin('~/.config/nvim/bundle')
 
 " Vim settings/improvements
-Plug 'nanotech/jellybeans.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
 Plug 'nazo/pt.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'ntpeters/vim-better-whitespace'
@@ -30,6 +25,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
+
+" Style/sexy
+Plug 'nanotech/jellybeans.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/vim-color-forest-night'
 
 " File and syntax
@@ -47,7 +48,6 @@ Plug 'fatih/vim-go'
 Plug 'jansedivy/jai.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'lifepillar/pgsql.vim'
-Plug 'shime/vim-livedown'
 Plug 'aklt/plantuml-syntax'
 Plug 'ryanolsonx/vim-lsp-javascript'
 
@@ -216,28 +216,11 @@ set completeopt-=preview
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
-let g:livedown_autorun = 0
-let g:livedown_open = 1
-let g:livedown_port = 1337
-let g:livedown_browser = "firefox"
-au Filetype markdown nnoremap <c-p> :LivedownToggle<cr>
-au Filetype markdown vnoremap <c-p> :LivedownToggle<cr>
 
 " GLSL
 au BufNewFile,BufRead *.glsl set filetype=glsl
 au BufNewFile,BufRead *.frag set filetype=glsl
 au BufNewFile,BufRead *.vert set filetype=glsl
-
-" NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeShowLineNumbers = 1
-let NERDTreeMapOpenSplit = 's'
-let NERDTreeMapOpenPreviewSplit = 'gs'
-let NERDTreeMapOpenVSplit = 'i'
-let NERDTreeMapOpenPreviewVSplit = 'gi'
-let NERDTreeShowHidden = 1
-nnoremap <leader>n :NERDTreeToggle<cr>
-nnoremap <leader>f :NERDTreeFind<cr>
 
 " Tagbar
 nnoremap <leader>t :TagbarToggle<cr>
