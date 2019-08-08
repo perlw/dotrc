@@ -6,7 +6,7 @@ set $term termite
 set $browser firefox
 set $altbrowser chromium
 set $editor nvim
-set $menu bemenu --fn 'PragmataPro 10' --tf '#4f4f4f' --tb '#e7e8eb' --ff '#777777' --fb '#fafafa' --nf '#777777' --nb '#fafafa' --hf '#ffffff' --hb '#5294e2' -i
+set $menu bemenu --fn 'PragmataPro 12' --tf '#4f4f4f' --tb '#e7e8eb' --ff '#777777' --fb '#fafafa' --nf '#777777' --nb '#fafafa' --hf '#ffffff' --hb '#5294e2' -i
 
 exec --no-startup-id systemctl --user import-environment DISPLAY
 exec --no-startup-id xrdb ~/.Xresources
@@ -27,12 +27,12 @@ for_window [class="Zeal"] floating enable
 client.focused #ffa500 #285577 #ffffff #0059ff #ffa500
 client.urgent #aa0000 #285577 #ffffff #00abab #aa0000
 
-font pango:PragmataPro Mono 10
+font pango:PragmataPro Mono 12
 
 bar {
   status_command i3blocks
   position top
-  height 20
+  height 26
 }
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -145,7 +145,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/sway/backlight.sh inc
 
 # Screenshotting
 bindsym Print exec --no-startup-id ~/.config/sway/shot.sh
-bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partialclipboard
+# bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partialclipboard
+bindsym --release Shift+Print exec --no-startup-id ~/.config/sway/shot.sh partial
 
 # Emoji!
 bindsym $mod+u exec --no-startup-id MENU="$menu" ~/.config/sway/dmenu_unicode.sh

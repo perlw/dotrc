@@ -8,5 +8,6 @@ chosen=$(grep -v "#" ~/.config/sway/emoji | eval $cmd)
 [ "$chosen" != "" ] || exit
 
 c=$(echo "$chosen" | sed "s/ .*//")
-echo "$c" | tr -d '\n' | wl-copy
+# echo "$c" | tr -d '\n' | wl-copy
+echo "$c" | tr -d '\n' | xclip -selection c
 notify-send "'$c' copied to clipboard." &
