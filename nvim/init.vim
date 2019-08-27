@@ -27,11 +27,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 
 " Style/sexy
-Plug 'nanotech/jellybeans.vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
-Plug 'sainnhe/vim-color-forest-night'
 
 " File and syntax
 Plug 'vimwiki/vimwiki'
@@ -116,13 +114,9 @@ vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
 " Eyecandy
 set cursorline
 set termguicolors
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='soft'
-let g:gruvbox_vert_split='bg1'
 set background=light
-" color solarized8_high
-"color forest-night
-color nord
+" color nord
+color gruvbox-material
 set fillchars=vert:\ 
 
 function! ToggleBackground()
@@ -131,7 +125,7 @@ function! ToggleBackground()
     color solarized8_high
   else
     set background=dark
-    color gruvbox
+    color gruvbox-material
   endif
 endfunction
 nnoremap <f2> :call ToggleBackground()<cr>
