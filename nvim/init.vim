@@ -130,9 +130,6 @@ function! ToggleBackground()
 endfunction
 nnoremap <f2> :call ToggleBackground()<cr>
 
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE
-
 " Searching
 nnoremap <leader><leader> :nohl<cr>
 
