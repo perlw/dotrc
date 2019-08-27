@@ -129,9 +129,9 @@ function! ToggleBackground()
   endif
 endfunction
 nnoremap <f2> :call ToggleBackground()<cr>
-if !empty($DARK)
-  call ToggleBackground()
-endif
+
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
 
 " Searching
 nnoremap <leader><leader> :nohl<cr>

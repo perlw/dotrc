@@ -44,33 +44,48 @@ scrollbar = off
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
+# background = #282828
+background = rgba(40, 40, 40, 0.95)
 
 # If unset, will reverse foreground and background
 highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
-color0 = #132132
-color1 = #ff6a6f
-color2 = #a9dd9d
-color3 = #fedf81
-color4 = #7098e6
-color5 = #605779
-color6 = #a8d2eb
-color7 = #fffeeb
-color8 = #4c5866
-color9 = #fd8489
-color10 = #c9fd88
-color11 = #f0eaaa
-color12 = #98b8e6
-color13 = #e7d5ff
-color14 = #a8d2eb
-color15 = #ffffff
+color0 = #665c54
+color1 = #ea6962
+color2 = #a9b665
+color3 = #e78a4e
+color4 = #7daea3
+color5 = #d3869b
+color6 = #89b482
+color7 = #dfbf8e
+color8 = #928374
+color9 = #ea6962
+color10 = #a9b665
+color11 = #e3a84e
+color12 = #7daea3
+color13 = #d3869b
+color14 = #89b482
+color15 = #dfbf8e
+
+#color0 = #132132
+#color1 = #ff6a6f
+#color2 = #a9dd9d
+#color3 = #fedf81
+#color4 = #7098e6
+#color5 = #605779
+#color6 = #a8d2eb
+#color7 = #fffeeb
+#color8 = #4c5866
+#color9 = #fd8489
+#color10 = #c9fd88
+#color11 = #f0eaaa
+#color12 = #98b8e6
+#color13 = #e7d5ff
+#color14 = #a8d2eb
+#color15 = #ffffff
 
 [hints]
 #font = PragmataPro Mono 12
