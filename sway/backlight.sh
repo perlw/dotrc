@@ -1,15 +1,16 @@
 #!/bin/zsh
-op="+"
 if [[ $# -gt 0 ]]; then
   case $1 in
     inc)
-      op="+"
+      brightnessctl s +10%
       ;;
     dec)
-      op="-"
+      current=`brightnessctl -m | cut -d , -f 3`
+      if [[ $current -gt 150 ]]; then
+        brightnessctl s 10%-
+      fi
       ;;
   esac
 fi
-xbacklight $op 10
-current=`xbacklight`
-notify-send "Backlight $(( current | 0 ))%" --icon=dialog-information
+current=`brightnessctl -m | cut -d , -f 4`
+notify-send "Backlight $current" --icon=dialog-information
