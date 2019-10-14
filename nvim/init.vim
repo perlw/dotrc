@@ -25,6 +25,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
+Plug 'tpope/vim-vinegar'
 
 " Style/sexy
 Plug 'lifepillar/vim-solarized8'
@@ -74,6 +75,9 @@ syn on
 set cc=120
 set lazyredraw
 set maxmempattern=20000
+
+" netrw
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
