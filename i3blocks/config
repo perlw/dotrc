@@ -42,6 +42,7 @@ interval=10
 command=~/.config/i3blocks/scripts/iface.sh
 label=📶 
 IFACE=wlp2s0
+WIRELESS=true
 interval=10
 
 [iface wg0]

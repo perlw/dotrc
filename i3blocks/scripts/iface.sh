@@ -66,5 +66,12 @@ esac
 
 #------------------------------------------------------------------------
 
-echo "$LABEL$IPADDR" # full text
-echo "$LABEL$IPADDR" # short text
+ESSID=""
+if [[ "$WIRELESS" = "true" ]]; then
+  ESSID=" ($(iwgetid -r))"
+fi
+
+#------------------------------------------------------------------------
+
+echo "$LABEL$IPADDR$ESSID" # full text
+echo "$LABEL$IPADDR$ESSID" # short text
