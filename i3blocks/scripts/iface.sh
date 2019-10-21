@@ -66,12 +66,15 @@ esac
 
 #------------------------------------------------------------------------
 
-ESSID=""
+WIFI=""
 if [[ "$WIRELESS" = "true" ]]; then
-  ESSID=" ($(iwgetid -r))"
+  QUAL=$(iwconfig $IFACE | grep Quality | cut -d = -f 2 | cut -d ' ' -f 1)
+  A=$(echo $QUAL | cut -d / -f 1)
+  B=$(echo $QUAL | cut -d / -f 2)
+  WIFI=" ($(iwgetid -r) $(bc <<< 'scale=1; (A / B) * 100')%)"
 fi
 
 #------------------------------------------------------------------------
 
-echo "$LABEL$IPADDR$ESSID" # full text
-echo "$LABEL$IPADDR$ESSID" # short text
+echo "$LABEL$IPADDR$WIFI" # full text
+echo "$LABEL$IPADDR$WIFI" # short text

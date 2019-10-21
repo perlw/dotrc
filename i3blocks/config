@@ -32,10 +32,10 @@ label=💽 /storage
 DIR=/storage
 interval=30
 
-[iface eth0]
+[iface enp62s0u1u4]
 command=~/.config/i3blocks/scripts/iface.sh
 label=🖧 
-IFACE=eth0
+IFACE=enp62s0u1u4
 interval=10
 
 [iface wlp2s0]

@@ -12,5 +12,5 @@ if [[ $# -gt 0 ]]; then
       ;;
   esac
 fi
-current=`brightnessctl -m | cut -d , -f 4`
-notify-send "Backlight $current" --icon=dialog-information
+#current=`brightnessctl -m | cut -d , -f 4`
+#notify-send "Backlight $current" --icon=dialog-information

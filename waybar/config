@@ -1,0 +1,97 @@
+{
+  "layer": "bottom",
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": [
+    "tray",
+    "custom/users",
+    "pulseaudio",
+    "network#eth",
+    "network#wifi",
+    "network#wg",
+    "disk#root",
+    "disk#home",
+    "backlight",
+    "temperature",
+    "battery",
+    "clock"
+  ],
+  "sway/window": {
+    "max-length": 50,
+    "on-scroll-up": "swaymsg workspace prev",
+    "on-scroll-down": "swaymsg workspace next"
+  },
+  "custom/users": {
+    "exec": "users",
+    "format": " {}",
+    "max-length": 40,
+    "interval": 10
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "network#eth": {
+    "interface": "enp62s0u1u4",
+    "format": "",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "no eth",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-ethernet": "{ifname} ",
+    "max-length": 50
+  },
+  "network#wifi": {
+    "interface": "wlp2s0",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-disconnected": "",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "max-length": 50
+  },
+  "network#wg": {
+    "interface": "wg0",
+    "format": "{ifname}",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-ethernet": "{ifname} ",
+    "max-length": 50
+  },
+  "disk#root": {
+    "interval": 30,
+    "format": "Only {percentage_free}% remaining on {path}",
+    "path": "/"
+  },
+  "disk#home": {
+    "interval": 30,
+    "format": "Only {percentage_free}% remaining on {path}",
+    "path": "/"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+  },
+  "temperature": {
+    "format": "{temperatureC}°C "
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "format": "{:%a, %d. %b  %H:%M}"
+  }
+}

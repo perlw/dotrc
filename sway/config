@@ -30,9 +30,7 @@ client.urgent #aa0000 #285577 #ffffff #00abab #aa0000
 font pango:PragmataPro Mono 12
 
 bar {
-  status_command i3blocks
-  position top
-  height 26
+  swaybar_command waybar
 }
 
 # Use Mouse+$mod to drag floating windows to their wanted position
