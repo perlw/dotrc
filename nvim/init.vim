@@ -2,6 +2,7 @@ set nocompatible
 filetype plugin on
 set modelines=0
 set nomodeline
+set title
 
 let mapleader=','
 

@@ -19,7 +19,8 @@
   "sway/window": {
     "max-length": 50,
     "on-scroll-up": "swaymsg workspace prev",
-    "on-scroll-down": "swaymsg workspace next"
+    "on-scroll-down": "swaymsg workspace next",
+    "tooltip": false
   },
   "custom/users": {
     "exec": "users",

@@ -161,4 +161,5 @@ label:focus {
 
 #tray {
     background-color: #2980b9;
+    border-bottom: 3px solid #479DD7;
 }
