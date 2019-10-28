@@ -24,6 +24,14 @@
     "editor.find.autoFindInSelection": true,
     "editor.wordWrap": "off",
     "gitlens.codeLens.enabled": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "vendor/": true
+    },
 
     // VIM
     "vim.easymotion": false,
@@ -78,7 +86,6 @@
     },
     "gopls": {
         "usePlaceholders": true,
-        "enhancedHover": true,
     },
 
     // Statusbarerror
@@ -168,7 +175,7 @@
         ],
     },
     "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Gruvbox Material Soft Dark",
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -228,4 +235,28 @@
             "value": "#42b883"
         }
     ],
+    "liveshare.featureSet": "stable",
+
+    // Cloudformation
+    "yaml.customTags": [
+        "!And",
+        "!If",
+        "!Not",
+        "!Equals",
+        "!Or",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Join sequence"
+    ],
+    // Enable/disable default YAML formatter (requires restart)
+    "yaml.format.enable": true,
 }
