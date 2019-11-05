@@ -1,29 +1,36 @@
 {
     "editor.fontSize": 16,
     "editor.fontFamily": "'PragmataPro Mono'",
-    "terminal.integrated.fontFamily": "'PragmataPro Mono'",
-    "terminal.integrated.fontSize": 16,
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
     "editor.renderIndentGuides": false,
-    "workbench.tips.enabled": false,
-    "explorer.openEditors.visible": 0,
-    "window.titleBarStyle": "custom",
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "breadcrumbs.enabled": false,
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "none",
-    "window.menuBarVisibility": "toggle",
     "editor.minimap.enabled": false,
     "editor.rulers": [120],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.find.autoFindInSelection": true,
     "editor.wordWrap": "off",
-    "gitlens.codeLens.enabled": false,
+    "editor.links": false,
+
+    "terminal.integrated.fontFamily": "'PragmataPro Mono'",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.shellArgs.linux": ["--login"],
+
+    "workbench.tips.enabled": false,
+    "workbench.iconTheme": "vs-nomo-dark",
+    "workbench.colorTheme": "Gruvbox Material Soft Dark",
+
+    "explorer.openEditors.visible": 0,
+
+    "window.titleBarStyle": "custom",
+    "window.menuBarVisibility": "toggle",
+
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -32,6 +39,99 @@
         "**/.DS_Store": true,
         "vendor/": true
     },
+
+    "breadcrumbs.enabled": false,
+
+    "gitlens.codeLens.enabled": false,
+
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+
+    "liveshare.featureSet": "stable",
+
+    // Peacock
+    "peacock.favoriteColors": [
+        {
+            "name": "Angular Red",
+            "value": "#b52e31"
+        },
+        {
+            "name": "Auth0 Orange",
+            "value": "#eb5424"
+        },
+        {
+            "name": "Azure Blue",
+            "value": "#007fff"
+        },
+        {
+            "name": "C# Purple",
+            "value": "#68217A"
+        },
+        {
+            "name": "Gatsby Purple",
+            "value": "#639"
+        },
+        {
+            "name": "Java Blue-Gray",
+            "value": "#557c9b"
+        },
+        {
+            "name": "JavaScript Yellow",
+            "value": "#f9e64f"
+        },
+        {
+            "name": "Mandalorian Blue",
+            "value": "#1857a4"
+        },
+        {
+            "name": "Node Green",
+            "value": "#215732"
+        },
+        {
+            "name": "React Blue",
+            "value": "#00b3e6"
+        },
+        {
+            "name": "Something Different",
+            "value": "#832561"
+        },
+        {
+            "name": "Vue Green",
+            "value": "#42b883"
+        }
+    ],
+
+    // Cloudformation
+    "yaml.customTags": [
+        "!And",
+        "!If",
+        "!Not",
+        "!Equals",
+        "!Or",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Join sequence"
+    ],
+    "yaml.format.enable": true,
+
+    // TODO Tree
+    "todo-tree.highlights.enabled": true,
 
     // VIM
     "vim.easymotion": false,
@@ -84,16 +184,9 @@
             "source.organizeImports": true
         },
     },
-    "gopls": {
-        "usePlaceholders": true,
-    },
-
-    // Statusbarerror
-    "statusbarerror.gutter.show": false,
 
     // Journal
     "journal.base": "/home/perlw/journal",
-
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -174,89 +267,4 @@
             },
         ],
     },
-    "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Gruvbox Material Soft Dark",
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "peacock.favoriteColors": [
-        {
-            "name": "Angular Red",
-            "value": "#b52e31"
-        },
-        {
-            "name": "Auth0 Orange",
-            "value": "#eb5424"
-        },
-        {
-            "name": "Azure Blue",
-            "value": "#007fff"
-        },
-        {
-            "name": "C# Purple",
-            "value": "#68217A"
-        },
-        {
-            "name": "Gatsby Purple",
-            "value": "#639"
-        },
-        {
-            "name": "Java Blue-Gray",
-            "value": "#557c9b"
-        },
-        {
-            "name": "JavaScript Yellow",
-            "value": "#f9e64f"
-        },
-        {
-            "name": "Mandalorian Blue",
-            "value": "#1857a4"
-        },
-        {
-            "name": "Node Green",
-            "value": "#215732"
-        },
-        {
-            "name": "React Blue",
-            "value": "#00b3e6"
-        },
-        {
-            "name": "Something Different",
-            "value": "#832561"
-        },
-        {
-            "name": "Vue Green",
-            "value": "#42b883"
-        }
-    ],
-    "liveshare.featureSet": "stable",
-
-    // Cloudformation
-    "yaml.customTags": [
-        "!And",
-        "!If",
-        "!Not",
-        "!Equals",
-        "!Or",
-        "!FindInMap sequence",
-        "!Base64",
-        "!Cidr",
-        "!Ref",
-        "!Sub",
-        "!GetAtt",
-        "!GetAZs",
-        "!ImportValue",
-        "!Select",
-        "!Select sequence",
-        "!Split",
-        "!Join sequence"
-    ],
-    // Enable/disable default YAML formatter (requires restart)
-    "yaml.format.enable": true,
 }
