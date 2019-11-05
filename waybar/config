@@ -1,7 +1,7 @@
 {
   "layer": "bottom",
-  "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": ["sway/window"],
+  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-center": [],
   "modules-right": [
     "tray",
     "custom/users",
@@ -17,7 +17,6 @@
     "clock"
   ],
   "sway/window": {
-    "max-length": 50,
     "on-scroll-up": "swaymsg workspace prev",
     "on-scroll-down": "swaymsg workspace next",
     "tooltip": false
@@ -25,7 +24,6 @@
   "custom/users": {
     "exec": "users",
     "format": " {}",
-    "max-length": 40,
     "interval": 10
   },
   "pulseaudio": {
@@ -50,16 +48,14 @@
     "format-ethernet": "{ifname} ",
     "format-disconnected": "no eth",
     "tooltip-format": "{ifname}",
-    "tooltip-format-ethernet": "{ifname} ",
-    "max-length": 50
+    "tooltip-format-ethernet": "{ifname} "
   },
   "network#wifi": {
     "interface": "wlp2s0",
     "format-wifi": "{essid} ({signalStrength}%) ",
     "format-disconnected": "",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} ",
-    "max-length": 50
+    "tooltip-format-ethernet": "{ifname} "
   },
   "network#wg": {
     "interface": "wg0",
@@ -67,18 +63,17 @@
     "format-ethernet": "{ifname} ",
     "format-disconnected": "",
     "tooltip-format": "{ifname}",
-    "tooltip-format-ethernet": "{ifname} ",
-    "max-length": 50
+    "tooltip-format-ethernet": "{ifname} "
   },
   "disk#root": {
     "interval": 30,
-    "format": "Only {percentage_free}% remaining on {path}",
+    "format": "{path} {percentage_free}%",
     "path": "/"
   },
   "disk#home": {
     "interval": 30,
-    "format": "Only {percentage_free}% remaining on {path}",
-    "path": "/"
+    "format": "{path} {percentage_free}%",
+    "path": "/home"
   },
   "backlight": {
     "device": "intel_backlight",
