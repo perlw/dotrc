@@ -102,6 +102,12 @@ window#waybar.firefox {
     border-bottom: 3px solid #2DC86E;
 }
 
+#disk {
+    color: #ffffff;
+    background-color: #26A65B;
+    border-bottom: 3px solid #2DC86E;
+}
+
 @keyframes blink {
     to {
         background-color: #ffffff;

@@ -1,7 +1,7 @@
 {
   "layer": "bottom",
-  "modules-left": ["sway/workspaces", "sway/window"],
-  "modules-center": [],
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["sway/window"],
   "modules-right": [
     "tray",
     "custom/users",
@@ -12,7 +12,6 @@
     "disk#root",
     "disk#home",
     "backlight",
-    "temperature",
     "battery",
     "clock"
   ],
@@ -42,14 +41,6 @@
     "scroll-step": 5,
     "on-click": "pavucontrol"
   },
-  "network#eth": {
-    "interface": "enp62s0u1u4",
-    "format": "",
-    "format-ethernet": "{ifname} ",
-    "format-disconnected": "no eth",
-    "tooltip-format": "{ifname}",
-    "tooltip-format-ethernet": "{ifname} "
-  },
   "network#wifi": {
     "interface": "wlp2s0",
     "format-wifi": "{essid} ({signalStrength}%) ",
@@ -67,21 +58,20 @@
   },
   "disk#root": {
     "interval": 30,
-    "format": "{path} {percentage_free}%",
-    "path": "/"
+    "format": " {free}",
+    "path": "/",
+    "on-click": "termite -d /"
   },
   "disk#home": {
     "interval": 30,
-    "format": "{path} {percentage_free}%",
-    "path": "/home"
+    "format": " {free}",
+    "path": "/home",
+    "on-click": "termite -d /home"
   },
   "backlight": {
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
     "format-icons": ["", ""]
-  },
-  "temperature": {
-    "format": "{temperatureC}°C "
   },
   "battery": {
     "format": "{capacity}% {icon}",
