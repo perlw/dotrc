@@ -6,7 +6,6 @@
     "tray",
     "custom/users",
     "pulseaudio",
-    "network#eth",
     "network#wifi",
     "network#wg",
     "disk#root",

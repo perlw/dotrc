@@ -18,20 +18,16 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'KabbAmine/zeavim.vim'
 Plug 'jodosha/vim-godebug'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
 Plug 'tpope/vim-vinegar'
 
 " Style/sexy
 Plug 'lifepillar/vim-solarized8'
 Plug 'sainnhe/gruvbox-material'
-Plug 'arcticicestudio/nord-vim'
 
 " File and syntax
 Plug 'vimwiki/vimwiki'
@@ -119,8 +115,6 @@ vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
 " Eyecandy
 set cursorline
 set termguicolors
-set background=light
-" color nord
 color gruvbox-material
 set fillchars=vert:\ 
 
