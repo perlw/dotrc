@@ -172,3 +172,5 @@ alias aws-kick='AWSkick'
 alias aws-state='AWSstate'
 alias aws-task-env='AWStaskenv'
 alias aws-pipe='AWSpipe'
+
+# aws ecs update-service --cluster testing --service stableboy --desired-count 0
