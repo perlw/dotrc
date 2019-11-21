@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 function codepipeline() {
+  awsGo 'codepipeline'
 }
 
 function cloudformation() {
