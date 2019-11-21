@@ -189,9 +189,24 @@ AWScount() {
   fi
 }
 
+AWSservices() {
+  err=0
+  if [[ $# -gt 0 ]]; then
+    aws ecs list-services --cluster $1 | jq -r '[.serviceArns[] | capture("\/(?<name>.*)").name] | sort'
+    err=$?
+  else
+    err=1
+  fi
+
+  if [[ $err -ne 0 ]]; then
+    print -P '$0 <cluster>'
+  fi
+}
+
 alias aws-env='setupAWSEnv'
 alias aws-kick='AWSkick'
 alias aws-state='AWSstate'
 alias aws-task-env='AWStaskenv'
 alias aws-pipe='AWSpipe'
 alias aws-set-count='AWScount'
+alias aws-services='AWSservices'
