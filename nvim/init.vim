@@ -154,8 +154,11 @@ function! ScmStatus()
   endif
   return '⌥('.head.')'
 endfunction
+function! CwdBase()
+  return fnamemodify(getcwd(), ':t')
+endfunction
 set statusline=
-set statusline+=[%n]\ %f
+set statusline+=[%n]%#identifier#\ %{CwdBase()}\ %*\ %f
 set statusline+=%m%r
 set statusline+=\ %{ScmStatus()}
 set statusline+=%=
