@@ -11,9 +11,11 @@
     "editor.rulers": [120],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
-    "editor.find.autoFindInSelection": true,
+    "editor.find.autoFindInSelection": "always",
     "editor.wordWrap": "off",
     "editor.links": false,
+
+    "keyboard.dispatch": "keyCode",
 
     "terminal.integrated.fontFamily": "'PragmataPro Mono'",
     "terminal.integrated.fontSize": 16,
@@ -27,6 +29,7 @@
 
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
 
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
@@ -134,6 +137,8 @@
     "todo-tree.highlights.enabled": true,
 
     // VIM
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    /*
     "vim.easymotion": false,
     "vim.sneak": false,
     "vim.incsearch": true,
@@ -167,10 +172,12 @@
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.surround": true,
+    */
 
     // Go
-    "go.buildOnSave": "off",
-    "go.vetOnSave": "off",
+    "go.buildOnSave": "workspace",
+    "go.vetOnSave": "workspace",
+    "go.lintOnSave": "workspace",
     "go.gopath": "/home/perlw/Go",
     "go.autocompleteUnimportedPackages": true,
     "go.useLanguageServer": true,
@@ -183,88 +190,5 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         },
-    },
-
-    // Journal
-    "journal.base": "/home/perlw/journal",
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": "text.html.markdown.journal.task.open.bullet",
-                "settings": {
-                    "foreground": "#CC3300"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.open.marker",
-                "settings": {
-                    "foreground": "#CC3300"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.open.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.open.text",
-                "settings": {}
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.marker",
-                "settings": {
-                    "foreground": "#AAAAAA"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.text",
-                "settings": {
-                    "foreground": "#AAAAAA"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.bullet",
-                "settings": {
-                    "foreground": "#CC3300"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.memo.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.memo.bullet",
-                "settings": {
-                    "foreground": "#CC3300"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.scope",
-                "settings": {
-                    "foreground": "#CC3300"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.link.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.link.bullet",
-                "settings": {
-                    "foreground": "#CC3300"
-                }
-            },
-        ],
     },
 }

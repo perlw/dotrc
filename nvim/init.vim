@@ -5,6 +5,8 @@ set nomodeline
 set title
 
 let mapleader=','
+" Searching
+nnoremap <leader><leader> :nohl<cr>
 
 " Plug
 call plug#begin('~/.config/nvim/bundle')
@@ -49,252 +51,242 @@ Plug 'ryanolsonx/vim-lsp-javascript'
 
 call plug#end()
 
-" Generic settings
-set enc=utf-8
-set relativenumber
-set number
-set nowrap
-au InsertEnter * :set norelativenumber
-au InsertLeave * set number | :set relativenumber
-au FileType make set noexpandtab
-au FileType rust set ts=4 sw=4 sts=4
-au FileType c set ts=2 sw=2 sts=2
-au BufRead,BufNewFile *.rs set ts=4 sw=4 sts=4
-au BufRead,BufNewFile *.c set ts=2 sw=2 sts=2
-au BufRead,BufNewFile *.h set ts=2 sw=2 sts=2
-set nobackup
-set noswapfile
-set mouse=n
-set path+=**
-set wildmenu
-filetype indent plugin on
-syn on
-set cc=120
-set lazyredraw
-set maxmempattern=20000
+if exists('g:vscode')
+  nnoremap <leader>t :<C-u>call VSCodeNotify('outline.focus')><cr>
+else
+  " Generic settings
+  set enc=utf-8
+  set relativenumber
+  set number
+  set nowrap
+  au InsertEnter * :set norelativenumber
+  au InsertLeave * set number | :set relativenumber
+  au FileType make set noexpandtab
+  au FileType rust set ts=4 sw=4 sts=4
+  au FileType c set ts=2 sw=2 sts=2
+  au BufRead,BufNewFile *.rs set ts=4 sw=4 sts=4
+  au BufRead,BufNewFile *.c set ts=2 sw=2 sts=2
+  au BufRead,BufNewFile *.h set ts=2 sw=2 sts=2
+  set nobackup
+  set noswapfile
+  set mouse=n
+  set path+=**
+  set wildmenu
+  filetype indent plugin on
+  syn on
+  set cc=120
+  set lazyredraw
+  set maxmempattern=20000
 
-" netrw
-let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+  " netrw
+  let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
-" Deoplete
-let g:deoplete#enable_at_startup=1
+  " Deoplete
+  let g:deoplete#enable_at_startup=1
 
-" LanguageClient
-let g:LanguageClient_rootMarkers = {
-        \ 'go': ['.git', 'go.mod'],
+  " LanguageClient
+  let g:LanguageClient_rootMarkers = {
+          \ 'go': ['.git', 'go.mod'],
+          \ }
+
+  " Neosnippet
+  let g:neosnippet#disable_runtime_snippets={
+        \ '_' : 1,
         \ }
+  let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
 
-let g:LanguageClient_serverCommands = {
-    \ 'go': ['bingo', '-disable-func-snippet'],
+  " plantuml call
+  nnoremap <leader>u :! plantuml -tutxt %<cr>
+  vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
+
+  " graph-easy call
+  nnoremap <leader>g :! graph-easy --as=boxart %<cr>
+  vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
+
+  " Eyecandy
+  set cursorline
+  set termguicolors
+  color gruvbox-material
+  set fillchars=vert:\
+
+  function! ToggleBackground()
+    if &background ==# 'dark'
+      set background=light
+      color solarized8_high
+    else
+      set background=dark
+      color gruvbox-material
+    endif
+  endfunction
+  nnoremap <f2> :call ToggleBackground()<cr>
+
+  " Statusline
+  function! InsertStatuslineColor(mode)
+    if a:mode == 'i'
+      hi statusline ctermbg=darkgreen guibg=darkgreen cterm=NONE gui=NONE
+    elseif a:mode == 'r'
+      hi statusline ctermbg=darkmagenta guibg=darkmagenta cterm=NONE gui=NONE
+    else
+      hi statusline ctermbg=red guibg=red cterm=NONE gui=NONE
+    endif
+  endfunction
+  au InsertEnter * call InsertStatuslineColor(v:insertmode)
+  au InsertChange * call InsertStatuslineColor(v:insertmode)
+  au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+  hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+
+  function! ScmStatus()
+    let head = '-'
+    if exists('b:git_dir')
+      let head = fugitive#head()
+    endif
+    return '⌥('.head.')'
+  endfunction
+  function! CwdBase()
+    return fnamemodify(getcwd(), ':t')
+  endfunction
+  set statusline=
+  set statusline+=%#identifier#\ %{CwdBase()}\ %*%f
+  set statusline+=%m%r
+  set statusline+=\ %{ScmStatus()}
+  set statusline+=%=
+  set statusline+=%y
+  set statusline+=┊%P[%c@%l/%L]
+
+  " Go
+  au Filetype go nnoremap <c-k> :GoDef<cr>
+  au Filetype go vnoremap <c-k> :GoDef<cr>
+  au Filetype go nnoremap <c-l> :GoDefPop<cr>
+  au Filetype go vnoremap <c-l> :GoDefPop<cr>
+  au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
+  au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
+  au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
+  au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
+  let g:go_fmt_fail_silently = 1
+  let g:go_fmt_command = "goimports"
+  let g:go_fmt_options = {
+    \ 'goimports': '-local do/',
     \ }
+  let g:go_test_prepend_name = 1
+  let g:go_list_type = "quickfix"
+  let g:go_auto_type_info = 0
+  let g:go_auto_sameids = 0
+  let g:go_info_mode = "gocode"
 
-function LC_maps()
-  if has_key(g:LanguageClient_serverCommands, &filetype)
-    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  endif
-endfunction
-autocmd FileType * call LC_maps()
+  let g:go_def_mode = "godef"
+  let g:go_echo_command_info = 1
+  let g:go_autodetect_gopath = 1
+  let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+  let g:go_metalinter_enabled = ['vet', 'golint']
 
-" Neosnippet
-let g:neosnippet#disable_runtime_snippets={
-      \ '_' : 1,
-      \ }
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+  let g:go_highlight_space_tab_error = 0
+  let g:go_highlight_array_whitespace_error = 0
+  let g:go_highlight_trailing_whitespace_error = 0
+  let g:go_highlight_extra_types = 0
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_types = 0
+  let g:go_highlight_operators = 1
+  let g:go_highlight_format_strings = 0
+  let g:go_highlight_function_calls = 0
+  let g:go_gocode_propose_source = 1
 
-" plantuml call
-nnoremap <leader>u :! plantuml -tutxt %<cr>
-vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
+  let g:go_modifytags_transform = 'camelcase'
+  let g:go_fold_enable = []
 
-" graph-easy call
-nnoremap <leader>g :! graph-easy --as=boxart %<cr>
-vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
+  set completeopt-=preview
 
-" Eyecandy
-set cursorline
-set termguicolors
-color gruvbox-material
-set fillchars=vert:\ 
+  " Markdown
+  let g:markdown_fenced_languages = ['html']
 
-function! ToggleBackground()
-  if &background ==# 'dark'
-    set background=light
-    color solarized8_high
-  else
-    set background=dark
-    color gruvbox-material
-  endif
-endfunction
-nnoremap <f2> :call ToggleBackground()<cr>
+  " GLSL
+  au BufNewFile,BufRead *.glsl set filetype=glsl
+  au BufNewFile,BufRead *.frag set filetype=glsl
+  au BufNewFile,BufRead *.vert set filetype=glsl
 
-" Searching
-nnoremap <leader><leader> :nohl<cr>
+  " Tagbar
+  nnoremap <leader>t :TagbarToggle<cr>
 
-" Statusline
-function! InsertStatuslineColor(mode)
-  if a:mode == 'i'
-    hi statusline ctermbg=darkgreen guibg=darkgreen cterm=NONE gui=NONE
-  elseif a:mode == 'r'
-    hi statusline ctermbg=darkmagenta guibg=darkmagenta cterm=NONE gui=NONE
-  else
-    hi statusline ctermbg=red guibg=red cterm=NONE gui=NONE
-  endif
-endfunction
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
-hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+  " Tabs
+  set tabstop=2
+  set shiftwidth=2
+  set softtabstop=2
+  set expandtab
+  set smarttab
 
-function! ScmStatus()
-  let head = '-'
-  if exists('b:git_dir')
-    let head = fugitive#head()
-  endif
-  return '⌥('.head.')'
-endfunction
-function! CwdBase()
-  return fnamemodify(getcwd(), ':t')
-endfunction
-set statusline=
-set statusline+=%#identifier#\ %{CwdBase()}\ %*%f
-set statusline+=%m%r
-set statusline+=\ %{ScmStatus()}
-set statusline+=%=
-set statusline+=%y
-set statusline+=┊%P[%c@%l/%L]
+  " Splits
+  set splitbelow
+  set splitright
+  nnoremap <c-y> :vert res +10<cr>
+  nnoremap <c-o> :vert res -10<cr>
 
-" Go
-au Filetype go nnoremap <c-k> :GoDef<cr>
-au Filetype go vnoremap <c-k> :GoDef<cr>
-au Filetype go nnoremap <c-l> :GoDefPop<cr>
-au Filetype go vnoremap <c-l> :GoDefPop<cr>
-au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
-au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
-au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
-au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
-let g:go_fmt_options = {
-  \ 'goimports': '-local do/',
-  \ }
-let g:go_test_prepend_name = 1
-let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 0
-let g:go_auto_sameids = 0
-let g:go_info_mode = "gocode"
+  " Make
+  nnoremap <leader>m :silent make\|redraw\|cwindow<cr>
+  nnoremap <leader>b :GoBuild<cr>
 
-let g:go_def_mode = "godef"
-let g:go_echo_command_info = 1
-let g:go_autodetect_gopath = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint']
+  " Clang format
+  let g:clang_format#style_options = {
+    \ 'AccessModifierOffset': -4,
+    \ 'AlignAfterOpenBracket': 'DontAlign',
+    \ 'AlignConsecutiveAssignments': 'false',
+    \ 'AlignOperands': 'true',
+    \ 'AlignTrailingComments': 'false',
+    \ 'AllowAllParametersOfDeclarationOnNextLine': 'false',
+    \ 'AllowShortBlocksOnASingleLine': 'false',
+    \ 'AllowShortCaseLabelsOnASingleLine': 'false',
+    \ 'AllowShortFunctionsOnASingleLine': 'None',
+    \ 'AllowShortIfStatementsOnASingleLine': 'false',
+    \ 'AllowShortLoopsOnASingleLine': 'false',
+    \ 'AlwaysBreakAfterReturnType': 'None',
+    \ 'AlwaysBreakTemplateDeclarations': 'false',
+    \ 'BinPackArguments': 'true',
+    \ 'BinPackParameters': 'true',
+    \ 'BreakBeforeBinaryOperators': 'NonAssignment',
+    \ 'BreakBeforeBraces': 'Custom',
+    \ 'BraceWrapping': {
+      \ 'AfterClass': 'false',
+      \ 'AfterControlStatement': 'false',
+      \ 'AfterEnum': 'false',
+      \ 'AfterFunction': 'false',
+      \ 'AfterNamespace': 'false',
+      \ 'AfterObjCDeclaration': 'false',
+      \ 'AfterStruct': 'false',
+      \ 'AfterUnion': 'false',
+      \ 'BeforeCatch': 'false',
+      \ 'BeforeElse': 'false',
+      \ 'IndentBraces': 'false',
+      \ },
+    \ 'BreakBeforeTernaryOperators': 'true',
+    \ 'ColumnLimit': 0,
+    \ 'ContinuationIndentWidth': 2,
+    \ 'Cpp11BracedListStyle': 'false',
+    \ 'DerivePointerAlignment': 'false',
+    \ 'IndentCaseLabels': 'true',
+    \ 'IndentWidth': 2,
+    \ 'IndentWrappedFunctionNames': 'false',
+    \ 'KeepEmptyLinesAtTheStartOfBlocks': 'false',
+    \ 'MaxEmptyLinesToKeep': 1,
+    \ 'PointerAlignment': 'Right',
+    \ 'SpaceAfterCStyleCast': 'false',
+    \ 'SpaceBeforeAssignmentOperators': 'true',
+    \ 'SpaceBeforeParens': 'ControlStatements',
+    \ 'SpaceInEmptyParentheses': 'false',
+    \ 'SpacesInCStyleCastParentheses': 'false',
+    \ 'SpacesInContainerLiterals': 'false',
+    \ 'SpacesInParentheses': 'false',
+    \ 'SpacesInSquareBrackets': 'false',
+    \ 'Standard': 'Cpp11',
+    \ 'UseTab': 'Never',
+    \ }
+  let g:clang_format#detect_style_file = 1
+  let g:clang_format#auto_formatexpr = 1
+  " autocmd FileType c ClangFormatAutoEnable
 
-let g:go_highlight_space_tab_error = 0
-let g:go_highlight_array_whitespace_error = 0
-let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_extra_types = 0
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_types = 0
-let g:go_highlight_operators = 1
-let g:go_highlight_format_strings = 0
-let g:go_highlight_function_calls = 0
-let g:go_gocode_propose_source = 1
-
-let g:go_modifytags_transform = 'camelcase'
-let g:go_fold_enable = []
-
-set completeopt-=preview
-
-" Markdown
-let g:markdown_fenced_languages = ['html']
-
-" GLSL
-au BufNewFile,BufRead *.glsl set filetype=glsl
-au BufNewFile,BufRead *.frag set filetype=glsl
-au BufNewFile,BufRead *.vert set filetype=glsl
-
-" Tagbar
-nnoremap <leader>t :TagbarToggle<cr>
-
-" Tabs
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set smarttab
-
-" Splits
-set splitbelow
-set splitright
-nnoremap <c-y> :vert res +10<cr>
-nnoremap <c-o> :vert res -10<cr>
-
-" Make
-nnoremap <leader>m :silent make\|redraw\|cwindow<cr>
-nnoremap <leader>b :GoBuild<cr>
-
-" Clang format
-let g:clang_format#style_options = {
-  \ 'AccessModifierOffset': -4,
-  \ 'AlignAfterOpenBracket': 'DontAlign',
-  \ 'AlignConsecutiveAssignments': 'false',
-  \ 'AlignOperands': 'true',
-  \ 'AlignTrailingComments': 'false',
-  \ 'AllowAllParametersOfDeclarationOnNextLine': 'false',
-  \ 'AllowShortBlocksOnASingleLine': 'false',
-  \ 'AllowShortCaseLabelsOnASingleLine': 'false',
-  \ 'AllowShortFunctionsOnASingleLine': 'None',
-  \ 'AllowShortIfStatementsOnASingleLine': 'false',
-  \ 'AllowShortLoopsOnASingleLine': 'false',
-  \ 'AlwaysBreakAfterReturnType': 'None',
-  \ 'AlwaysBreakTemplateDeclarations': 'false',
-  \ 'BinPackArguments': 'true',
-  \ 'BinPackParameters': 'true',
-  \ 'BreakBeforeBinaryOperators': 'NonAssignment',
-  \ 'BreakBeforeBraces': 'Custom',
-  \ 'BraceWrapping': {
-    \ 'AfterClass': 'false',
-    \ 'AfterControlStatement': 'false',
-    \ 'AfterEnum': 'false',
-    \ 'AfterFunction': 'false',
-    \ 'AfterNamespace': 'false',
-    \ 'AfterObjCDeclaration': 'false',
-    \ 'AfterStruct': 'false',
-    \ 'AfterUnion': 'false',
-    \ 'BeforeCatch': 'false',
-    \ 'BeforeElse': 'false',
-    \ 'IndentBraces': 'false',
-    \ },
-  \ 'BreakBeforeTernaryOperators': 'true',
-  \ 'ColumnLimit': 0,
-  \ 'ContinuationIndentWidth': 2,
-  \ 'Cpp11BracedListStyle': 'false',
-  \ 'DerivePointerAlignment': 'false',
-  \ 'IndentCaseLabels': 'true',
-  \ 'IndentWidth': 2,
-  \ 'IndentWrappedFunctionNames': 'false',
-  \ 'KeepEmptyLinesAtTheStartOfBlocks': 'false',
-  \ 'MaxEmptyLinesToKeep': 1,
-  \ 'PointerAlignment': 'Right',
-  \ 'SpaceAfterCStyleCast': 'false',
-  \ 'SpaceBeforeAssignmentOperators': 'true',
-  \ 'SpaceBeforeParens': 'ControlStatements',
-  \ 'SpaceInEmptyParentheses': 'false',
-  \ 'SpacesInCStyleCastParentheses': 'false',
-  \ 'SpacesInContainerLiterals': 'false',
-  \ 'SpacesInParentheses': 'false',
-  \ 'SpacesInSquareBrackets': 'false',
-  \ 'Standard': 'Cpp11',
-  \ 'UseTab': 'Never',
-  \ }
-let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_formatexpr = 1
-" autocmd FileType c ClangFormatAutoEnable
-
-" Rust
-let g:rustfmt_autosave = 1
+  " Rust
+  let g:rustfmt_autosave = 1
+endif
 
 " Time func
 let g:time_stamp_enabled = 0

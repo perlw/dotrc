@@ -1,18 +1,17 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "capslock",
-        "command": "extension.vim_escape",
-        "when": "editorTextFocus && vim.active && !inDebugRepl"
-    },
-    {
         "key": "ctrl+k",
         "command": "editor.action.goToDeclaration",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor",
     },
     {
         "key": "ctrl+l",
         "command": "workbench.action.navigateBack",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    }
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor",
+    },
+    {
+        "key": "ctrl+-",
+        "command": "workbench.action.terminal.toggleTerminal",
+    },
 ]
