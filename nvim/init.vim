@@ -11,43 +11,45 @@ nnoremap <leader><leader> :nohl<cr>
 " Plug
 call plug#begin('~/.config/nvim/bundle')
 
-" Vim settings/improvements
-Plug 'nazo/pt.vim'
-Plug 'majutsushi/tagbar'
-Plug 'mhinz/vim-signify'
+if !exists('g:vscode')
+  " Vim settings/improvements
+  Plug 'nazo/pt.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'mhinz/vim-signify'
+  Plug 'tpope/vim-speeddating'
+  Plug 'tpope/vim-surround'
+  Plug 'w0rp/ale'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'KabbAmine/zeavim.vim'
+  Plug 'jodosha/vim-godebug'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
+  " Style/sexy
+  Plug 'lifepillar/vim-solarized8'
+  Plug 'sainnhe/gruvbox-material'
+  "
+  " File and syntax
+  Plug 'vimwiki/vimwiki'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'gabrielelana/vim-markdown'
+  Plug 'petrbroz/vim-glsl'
+  Plug 'rhysd/vim-clang-format'
+  Plug 'rust-lang/rust.vim'
+  Plug 'cespare/vim-toml'
+  Plug 'tpope/vim-fugitive'
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'fatih/vim-go'
+  Plug 'jansedivy/jai.vim'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'lifepillar/pgsql.vim'
+  Plug 'aklt/plantuml-syntax'
+  Plug 'ryanolsonx/vim-lsp-javascript'
+endif
+
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'KabbAmine/zeavim.vim'
-Plug 'jodosha/vim-godebug'
-Plug 'ryanoasis/vim-devicons'
-Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
 Plug 'tpope/vim-vinegar'
-
-" Style/sexy
-Plug 'lifepillar/vim-solarized8'
-Plug 'sainnhe/gruvbox-material'
-
-" File and syntax
-Plug 'vimwiki/vimwiki'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'gabrielelana/vim-markdown'
-Plug 'petrbroz/vim-glsl'
-Plug 'rhysd/vim-clang-format'
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'fatih/vim-go'
-Plug 'jansedivy/jai.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'lifepillar/pgsql.vim'
-Plug 'aklt/plantuml-syntax'
-Plug 'ryanolsonx/vim-lsp-javascript'
 
 call plug#end()
 
