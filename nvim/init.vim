@@ -54,6 +54,7 @@ Plug 'tpope/vim-vinegar'
 call plug#end()
 
 if exists('g:vscode')
+  nnoremap <leader>s :<C-u>call VSCodeNotify('workbench.action.toggleSidebarVisibility')><cr>
   nnoremap <leader>t :<C-u>call VSCodeNotify('outline.focus')><cr>
 else
   " Generic settings

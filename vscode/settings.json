@@ -191,4 +191,5 @@
             "source.organizeImports": true
         },
     },
+    "workbench.activityBar.visible": true,
 }

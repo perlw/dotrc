@@ -11,7 +11,11 @@
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor",
     },
     {
-        "key": "ctrl+-",
+        "key": "ctrl+shift+-",
         "command": "workbench.action.terminal.toggleTerminal",
+    },
+    {
+        "key": "ctrl+backspace",
+        "command": "workbench.action.focusActiveEditorGroup",
     },
 ]
