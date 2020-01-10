@@ -18,4 +18,40 @@
         "key": "ctrl+backspace",
         "command": "workbench.action.focusActiveEditorGroup",
     },
+    {
+        "key": "ctrl+numpad_add",
+        "command": "-workbench.action.zoomIn",
+    },
+    {
+        "key": "ctrl+shift+=",
+        "command": "-workbench.action.zoomIn",
+    },
+    {
+        "key": "ctrl+=",
+        "command": "-workbench.action.zoomIn",
+    },
+    {
+        "key": "ctrl+numpad_subtract",
+        "command": "-workbench.action.zoomOut",
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.zoomOut",
+    },
+    {
+        "key": "ctrl+numpad0",
+        "command": "-workbench.action.zoomReset",
+    },
+    {
+        "key": "ctrl+0",
+        "command": "workbench.action.zoomReset",
+    },
+    {
+        "key": "ctrl++",
+        "command": "workbench.action.zoomIn",
+    },
+    {
+        "key": "ctrl+'",
+        "command": "workbench.action.zoomOut",
+    },
 ]
