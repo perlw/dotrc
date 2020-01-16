@@ -24,6 +24,7 @@
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
     "workbench.colorTheme": "Gruvbox Material Medium Dark",
+    "workbench.activityBar.visible": true,
 
     "explorer.openEditors.visible": 0,
 
@@ -34,7 +35,18 @@
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
+    "files.associations": {
+        "*.tpl": "html",
+    },
     "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "vendor/": true
+    },
+    "files.watcherExclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -44,8 +56,6 @@
     },
 
     "breadcrumbs.enabled": false,
-
-    "gitlens.codeLens.enabled": false,
 
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -58,58 +68,6 @@
     },
 
     "liveshare.featureSet": "stable",
-
-    // Peacock
-    "peacock.favoriteColors": [
-        {
-            "name": "Angular Red",
-            "value": "#b52e31"
-        },
-        {
-            "name": "Auth0 Orange",
-            "value": "#eb5424"
-        },
-        {
-            "name": "Azure Blue",
-            "value": "#007fff"
-        },
-        {
-            "name": "C# Purple",
-            "value": "#68217A"
-        },
-        {
-            "name": "Gatsby Purple",
-            "value": "#639"
-        },
-        {
-            "name": "Java Blue-Gray",
-            "value": "#557c9b"
-        },
-        {
-            "name": "JavaScript Yellow",
-            "value": "#f9e64f"
-        },
-        {
-            "name": "Mandalorian Blue",
-            "value": "#1857a4"
-        },
-        {
-            "name": "Node Green",
-            "value": "#215732"
-        },
-        {
-            "name": "React Blue",
-            "value": "#00b3e6"
-        },
-        {
-            "name": "Something Different",
-            "value": "#832561"
-        },
-        {
-            "name": "Vue Green",
-            "value": "#42b883"
-        }
-    ],
 
     // Cloudformation
     "yaml.customTags": [
@@ -138,41 +96,6 @@
 
     // VIM
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
-    /*
-    "vim.easymotion": false,
-    "vim.sneak": false,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "<leader>"
-            ],
-            "commands": [
-                ":nohl"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "n"
-            ],
-            "commands": [
-                "workbench.action.toggleSidebarVisibility"
-            ],
-        }
-    ],
-    "vim.leader": ",",
-    "vim.handleKeys": {},
-    "vim.enableNeovim": true,
-    "vim.neovimPath": "/usr/bin/nvim",
-    "vim.surround": true,
-    */
 
     // Go
     "go.buildOnSave": "workspace",
@@ -191,5 +114,4 @@
             "source.organizeImports": true
         },
     },
-    "workbench.activityBar.visible": true,
 }
