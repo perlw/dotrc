@@ -1,6 +1,6 @@
 {
-    "editor.fontSize": 16,
-    "editor.fontFamily": "'PragmataPro Mono Liga'",
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'JetBrains Mono",
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
@@ -17,20 +17,20 @@
 
     "keyboard.dispatch": "keyCode",
 
-    "terminal.integrated.fontFamily": "'PragmataPro Mono'",
-    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "'JetBrains Mono'",
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.shellArgs.linux": ["--login"],
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Gruvbox Material Medium Dark",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.activityBar.visible": true,
 
     "explorer.openEditors.visible": 0,
 
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
 
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
