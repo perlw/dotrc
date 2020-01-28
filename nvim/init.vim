@@ -113,7 +113,7 @@ else
   set cursorline
   set termguicolors
   color gruvbox-material
-  set fillchars=vert:\
+  set fillchars=vert:┃
 
   function! ToggleBackground()
     if &background ==# 'dark'
