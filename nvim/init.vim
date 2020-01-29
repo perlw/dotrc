@@ -146,7 +146,7 @@ else
     if exists('b:git_dir')
       let head = fugitive#head()
     endif
-    return '⌥('.head.')'
+    return '⌥ ('.head.')'
   endfunction
   function! CwdBase()
     return fnamemodify(getcwd(), ':t')
