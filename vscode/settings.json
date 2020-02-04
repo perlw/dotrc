@@ -114,10 +114,4 @@
             "source.organizeImports": true
         },
     },
-
-    // Gitlens
-    "gitlens.codeLens.authors.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.enabled": false,
-    "gitlens.statusBar.enabled": false,
 }
