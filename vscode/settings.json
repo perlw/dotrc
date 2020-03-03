@@ -25,6 +25,7 @@
     "workbench.iconTheme": "vs-nomo-dark",
     "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.activityBar.visible": true,
+    "workbench.startupEditor": "none",
 
     "explorer.openEditors.visible": 0,
 
@@ -93,6 +94,7 @@
 
     // TODO Tree
     "todo-tree.highlights.enabled": true,
+    "todo-tree.tree.showScanModeButton": false,
 
     // VIM
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
@@ -114,5 +116,4 @@
             "source.organizeImports": true
         },
     },
-    "todo-tree.tree.showScanModeButton": false,
 }
