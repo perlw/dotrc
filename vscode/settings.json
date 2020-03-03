@@ -114,4 +114,5 @@
             "source.organizeImports": true
         },
     },
+    "todo-tree.tree.showScanModeButton": false,
 }

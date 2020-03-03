@@ -25,5 +25,7 @@ alias gv="go mod tidy && go mod vendor"
 alias wttr="curl wttr.in/Malmö"
 
 # Work
-alias wgu="wg-quick up $HOME/.config/wireguard/wg0.conf"
-alias wgd="wg-quick down $HOME/.config/wireguard/wg0.conf"
+alias wgu="wg-quick up $HOME/.config/wireguard/some/wg0.conf"
+alias wgd="wg-quick down $HOME/.config/wireguard/some/wg0.conf"
+alias wgua="wg-quick up $HOME/.config/wireguard/all/wg0.conf"
+alias wgda="wg-quick down $HOME/.config/wireguard/all/wg0.conf"
