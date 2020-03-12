@@ -38,6 +38,7 @@
     "files.insertFinalNewline": true,
     "files.associations": {
         "*.tpl": "html",
+        "Dockerfile.*": "dockerfile",
     },
     "files.exclude": {
         "**/.git": true,
