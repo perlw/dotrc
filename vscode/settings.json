@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 14,
+    "editor.fontSize": 17,
     "editor.fontFamily": "'JetBrains Mono",
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
@@ -18,7 +18,7 @@
     "keyboard.dispatch": "keyCode",
 
     "terminal.integrated.fontFamily": "'JetBrains Mono'",
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 17,
     "terminal.integrated.shellArgs.linux": ["--login"],
 
     "workbench.tips.enabled": false,
@@ -31,7 +31,6 @@
 
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 1,
 
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
