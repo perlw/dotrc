@@ -8,7 +8,7 @@
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
-    "editor.rulers": [120],
+    "editor.rulers": [80, 120],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.find.autoFindInSelection": "always",
@@ -23,13 +23,13 @@
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.colorTheme": "Gruvbox Material Light",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
 
     "explorer.openEditors.visible": 0,
 
-    "window.titleBarStyle": "custom",
+    //"window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
 
     "files.trimTrailingWhitespace": true,
@@ -116,4 +116,5 @@
             "source.organizeImports": true
         },
     },
+    "explorer.confirmDragAndDrop": false,
 }
