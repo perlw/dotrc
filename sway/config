@@ -174,21 +174,35 @@ input 1118:71:Microsoft_Microsoft_5-Button_Mouse_with_IntelliEye(TM) {
 }
 
 # Outputs
+# @Work
+#output eDP-1 {
+#  pos 4000 0
+#  res 1920x1080
+#  bg ~/.config/wall.png fill
+#}
+#
+#output HDMI-A-1 {
+#  pos 1440 0
+#  res 2560 1440
+#  bg ~/.config/wall.png fill
+#}
+#
+#output DP-2 {
+#  pos 0 0
+#  res 2560 1440
+#  transform 90
+#  bg ~/.config/wall.png fill
+#}
+
+# @Home
 output eDP-1 {
-  pos 4000 0
+  pos 3440 0
   res 1920x1080
-  bg ~/.config/wall.png fill
+  bg ~/.config/wall5.png fill
 }
 
 output HDMI-A-1 {
-  pos 1440 0
-  res 2560 1440
-  bg ~/.config/wall.png fill
-}
-
-output DP-2 {
   pos 0 0
-  res 2560 1440
-  transform 90
-  bg ~/.config/wall.png fill
+  res 3440 1440
+  bg ~/.config/wall5.png fill
 }
