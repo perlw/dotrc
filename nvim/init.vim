@@ -77,7 +77,7 @@ else
   set wildmenu
   filetype indent plugin on
   syn on
-  set cc=120
+  set cc=80
   set lazyredraw
   set maxmempattern=20000
 
