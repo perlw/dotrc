@@ -1,4 +1,7 @@
 # ZSH Theme - Preview: https://gyazo.com/8becc8a7ed5ab54a0262a470555c3eed.png
+if [[ ! -v BIRA_COLOR ]]; then
+  BIRA_COLOR="green"
+fi
 local ret_status="%(?:%{$reset_color%}:%{$fg_bold[red]%})%?"
 local jobs_status="%{$reset_color%}%j"
 
@@ -6,7 +9,7 @@ if [[ $UID -eq 0 ]]; then
     local user_host='%{$terminfo[bold]$fg[red]%}%n@%m %{$reset_color%}'
     local user_symbol='#'
 else
-    local user_host='%{$terminfo[bold]$fg[green]%}%n@%m %{$reset_color%}'
+    local user_host='%{$terminfo[bold]$fg[$BIRA_COLOR]%}%n@%m %{$reset_color%}'
     local user_symbol='$'
 fi
 
