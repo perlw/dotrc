@@ -3,6 +3,7 @@ filetype plugin on
 set modelines=0
 set nomodeline
 set title
+set nospell
 
 let mapleader=','
 " Searching
@@ -100,14 +101,6 @@ else
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
   xmap <C-k> <Plug>(neosnippet_expand_target)
-
-  " plantuml call
-  nnoremap <leader>u :! plantuml -tutxt %<cr>
-  vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
-
-  " graph-easy call
-  nnoremap <leader>g :! graph-easy --as=boxart %<cr>
-  vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
 
   " Eyecandy
   set cursorline
@@ -304,3 +297,12 @@ function! TimeStamp()
     \<SPACE>\<SPACE>—\<SPACE>\<SPACE>\<ESC>o\<SPACE>\<SPACE>\<SPACE>\<SPACE>\
     \<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>"
 endfunction
+
+" plantuml call
+nnoremap <leader>u :! plantuml -tutxt %<cr>
+vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
+
+" graph-easy call
+nnoremap <leader>g :! graph-easy --as=boxart %<cr>
+vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
+

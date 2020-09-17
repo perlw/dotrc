@@ -1,14 +1,16 @@
 {
-    "editor.fontSize": 17,
+    "editor.fontSize": 15,
     "editor.fontFamily": "'JetBrains Mono",
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
     "editor.renderIndentGuides": false,
     "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "none",
+    "editor.renderWhitespace": "trailing",
     "editor.minimap.enabled": false,
-    "editor.rulers": [80, 120],
+    "editor.rulers": [
+        80,
+    ],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.find.autoFindInSelection": "always",
@@ -18,12 +20,12 @@
     "keyboard.dispatch": "keyCode",
 
     "terminal.integrated.fontFamily": "'JetBrains Mono'",
-    "terminal.integrated.fontSize": 17,
+    "terminal.integrated.fontSize": 15,
     "terminal.integrated.shellArgs.linux": ["--login"],
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Gruvbox Material Light",
+    "workbench.colorTheme": "Solarized Light",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
 
@@ -88,7 +90,17 @@
         "!Select",
         "!Select sequence",
         "!Split",
-        "!Join sequence"
+        "!Join sequence",
+        "!And sequence",
+        "!If sequence",
+        "!Not sequence",
+        "!Equals sequence",
+        "!Or sequence",
+        "!FindInMap",
+        "!Join",
+        "!Sub sequence",
+        "!ImportValue sequence",
+        "!Split sequence"
     ],
     "yaml.format.enable": true,
 
@@ -97,7 +109,7 @@
     "todo-tree.tree.showScanModeButton": false,
 
     // VIM
-    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
 
     // Go
     "go.buildOnSave": "workspace",
@@ -117,4 +129,5 @@
         },
     },
     "explorer.confirmDragAndDrop": false,
+    "yaml.validate": false,
 }
