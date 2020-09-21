@@ -13,6 +13,7 @@ PWD=`dirname $0`
 source "$PWD/functions/aur.sh"
 source "$PWD/functions/aws.sh"
 source "$PWD/functions/creds.sh"
+source "$PWD/functions/utils.sh"
 
 # Zsh
 alias sz="source $HOME/.zshrc"
