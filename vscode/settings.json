@@ -110,6 +110,7 @@
 
     // VIM
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim-nightly/current/bin/nvim.exe",
 
     // Go
     "go.buildOnSave": "workspace",
