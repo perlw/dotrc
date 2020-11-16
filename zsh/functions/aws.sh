@@ -70,7 +70,7 @@ AWSpipe() {
     case $2 in
       approve)
         aws codepipeline get-pipeline-state --name $1 --query "stageStates[*].actionStates[*].latestExecution.token" \
-          --output text | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod \
+          --output text | xargs -I {} aws codepipeline put-approval-result --pipeline-name $1 \
           --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Approved --token {}
         if [[ $? -ne 0 ]]; then
           print -P '%F{red}could not approve%f'
@@ -79,7 +79,7 @@ AWSpipe() {
         ;;
       reject)
         aws codepipeline get-pipeline-state --name $1 --query "stageStates[*].actionStates[*].latestExecution.token" \
-          --output text | xargs -I {} aws codepipeline put-approval-result --pipeline-name schedmail-prod \
+          --output text | xargs -I {} aws codepipeline put-approval-result --pipeline-name $1 \
           --stage-name Deploy --action-name ApproveChangeSet --result summary=auto,status=Rejected --token {}
         if [[ $? -ne 0 ]]; then
           print -P '%F{red}could not reject%f'

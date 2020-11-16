@@ -7,12 +7,11 @@ setupDiaryTemplate() {
   fi
 
   filename="$(date +%Y-%m-%d).md"
-  if [ -f "$filename" ]; then
-    print -P '%F{red}a file for the day already exists!%f'
-    return 1
+  if [ ! -f "$filename" ]; then
+    cp template.md $filename
   fi
 
-  cp template.md $filename
+  $EDITOR $filename
 }
 
 fixInput() {
