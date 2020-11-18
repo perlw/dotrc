@@ -25,14 +25,16 @@
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
 
     "explorer.openEditors.visible": 0,
+    "explorer.confirmDragAndDrop": false,
 
-    //"window.titleBarStyle": "custom",
+    "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
+    "window.title": "${folderName}",
 
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
@@ -103,10 +105,7 @@
         "!Split sequence"
     ],
     "yaml.format.enable": true,
-
-    // TODO Tree
-    "todo-tree.highlights.enabled": true,
-    "todo-tree.tree.showScanModeButton": false,
+    "yaml.validate": false,
 
     // VIM
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
@@ -129,6 +128,4 @@
             "source.organizeImports": true
         },
     },
-    "explorer.confirmDragAndDrop": false,
-    "yaml.validate": false,
 }
