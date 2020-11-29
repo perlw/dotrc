@@ -1,3 +1,4 @@
+
 {
     "editor.fontSize": 15,
     "editor.fontFamily": "'JetBrains Mono",
@@ -16,6 +17,7 @@
     "editor.find.autoFindInSelection": "always",
     "editor.wordWrap": "off",
     "editor.links": false,
+    "editor.cursorBlinking": "solid",
 
     "keyboard.dispatch": "keyCode",
 
