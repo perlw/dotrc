@@ -22,6 +22,7 @@
     "terminal.integrated.fontFamily": "'JetBrains Mono'",
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.shellArgs.linux": ["--login"],
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
@@ -115,7 +116,7 @@
     "go.buildOnSave": "workspace",
     "go.vetOnSave": "workspace",
     "go.lintOnSave": "workspace",
-    "go.gopath": "/home/perlw/Go",
+    // "go.gopath": "/home/perlw/Go",
     "go.autocompleteUnimportedPackages": true,
     "go.useLanguageServer": true,
     "go.languageServerExperimentalFeatures": {
@@ -128,4 +129,7 @@
             "source.organizeImports": true
         },
     },
+
+    // gitlens
+    "gitlens.codeLens.enabled": false,
 }
