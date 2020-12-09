@@ -28,7 +28,7 @@
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "vs-nomo-dark",
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.colorTheme": "Remedy - Dark (Straight)",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
 
@@ -118,7 +118,6 @@
     "go.buildOnSave": "workspace",
     "go.vetOnSave": "workspace",
     "go.lintOnSave": "workspace",
-    // "go.gopath": "/home/perlw/Go",
     "go.autocompleteUnimportedPackages": true,
     "go.useLanguageServer": true,
     "go.languageServerExperimentalFeatures": {

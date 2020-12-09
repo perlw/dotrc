@@ -28,7 +28,7 @@ if !exists('g:vscode')
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
-  "
+  Plug 'aonemd/kuroi.vim'
   " File and syntax
   Plug 'vimwiki/vimwiki'
   Plug 'mustache/vim-mustache-handlebars'
@@ -105,7 +105,8 @@ else
   " Eyecandy
   set cursorline
   set termguicolors
-  color gruvbox-material
+  " color gruvbox-material
+  color kuroi
   set fillchars=vert:┃
 
   function! ToggleBackground()
