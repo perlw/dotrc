@@ -18,6 +18,11 @@
     "editor.wordWrap": "off",
     "editor.links": false,
     "editor.cursorBlinking": "solid",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.scrollBeyondLastLine": false,
+    "editor.formatOnSave": true,
 
     "keyboard.dispatch": "keyCode",
 
@@ -72,7 +77,7 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "vscode.typescript-language-features",
     },
 
     "liveshare.featureSet": "stable",
