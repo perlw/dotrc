@@ -67,6 +67,7 @@
         "**/.DS_Store": true,
         "vendor/": true
     },
+    "files.eol": "\n",
 
     "breadcrumbs.enabled": false,
 
