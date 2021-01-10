@@ -1,4 +1,3 @@
-
 {
     "editor.fontSize": 15,
     "editor.fontFamily": "'JetBrains Mono",
@@ -78,7 +77,15 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[c]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "xaver.clang-format"
     },
 
     "liveshare.featureSet": "stable",
