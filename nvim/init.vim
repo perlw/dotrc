@@ -25,6 +25,8 @@ if !exists('g:vscode')
   Plug 'jodosha/vim-godebug'
   Plug 'ryanoasis/vim-devicons'
   Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'tpope/vim-vinegar'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
@@ -48,9 +50,7 @@ if !exists('g:vscode')
   Plug 'ryanolsonx/vim-lsp-javascript'
 endif
 
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-vinegar'
 
 call plug#end()
 
@@ -223,60 +223,10 @@ else
   nnoremap <leader>m :silent make\|redraw\|cwindow<cr>
   nnoremap <leader>b :GoBuild<cr>
 
+  " ALE
+  let g:ale_linters = {'cpp': ['clang']}
+
   " Clang format
-  let g:clang_format#style_options = {
-    \ 'AccessModifierOffset': -4,
-    \ 'AlignAfterOpenBracket': 'DontAlign',
-    \ 'AlignConsecutiveAssignments': 'false',
-    \ 'AlignOperands': 'true',
-    \ 'AlignTrailingComments': 'false',
-    \ 'AllowAllParametersOfDeclarationOnNextLine': 'false',
-    \ 'AllowShortBlocksOnASingleLine': 'false',
-    \ 'AllowShortCaseLabelsOnASingleLine': 'false',
-    \ 'AllowShortFunctionsOnASingleLine': 'None',
-    \ 'AllowShortIfStatementsOnASingleLine': 'false',
-    \ 'AllowShortLoopsOnASingleLine': 'false',
-    \ 'AlwaysBreakAfterReturnType': 'None',
-    \ 'AlwaysBreakTemplateDeclarations': 'false',
-    \ 'BinPackArguments': 'true',
-    \ 'BinPackParameters': 'true',
-    \ 'BreakBeforeBinaryOperators': 'NonAssignment',
-    \ 'BreakBeforeBraces': 'Custom',
-    \ 'BraceWrapping': {
-      \ 'AfterClass': 'false',
-      \ 'AfterControlStatement': 'false',
-      \ 'AfterEnum': 'false',
-      \ 'AfterFunction': 'false',
-      \ 'AfterNamespace': 'false',
-      \ 'AfterObjCDeclaration': 'false',
-      \ 'AfterStruct': 'false',
-      \ 'AfterUnion': 'false',
-      \ 'BeforeCatch': 'false',
-      \ 'BeforeElse': 'false',
-      \ 'IndentBraces': 'false',
-      \ },
-    \ 'BreakBeforeTernaryOperators': 'true',
-    \ 'ColumnLimit': 0,
-    \ 'ContinuationIndentWidth': 2,
-    \ 'Cpp11BracedListStyle': 'false',
-    \ 'DerivePointerAlignment': 'false',
-    \ 'IndentCaseLabels': 'true',
-    \ 'IndentWidth': 2,
-    \ 'IndentWrappedFunctionNames': 'false',
-    \ 'KeepEmptyLinesAtTheStartOfBlocks': 'false',
-    \ 'MaxEmptyLinesToKeep': 1,
-    \ 'PointerAlignment': 'Right',
-    \ 'SpaceAfterCStyleCast': 'false',
-    \ 'SpaceBeforeAssignmentOperators': 'true',
-    \ 'SpaceBeforeParens': 'ControlStatements',
-    \ 'SpaceInEmptyParentheses': 'false',
-    \ 'SpacesInCStyleCastParentheses': 'false',
-    \ 'SpacesInContainerLiterals': 'false',
-    \ 'SpacesInParentheses': 'false',
-    \ 'SpacesInSquareBrackets': 'false',
-    \ 'Standard': 'Cpp11',
-    \ 'UseTab': 'Never',
-    \ }
   let g:clang_format#detect_style_file = 1
   let g:clang_format#auto_formatexpr = 1
   " autocmd FileType c ClangFormatAutoEnable
