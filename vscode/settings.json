@@ -21,7 +21,7 @@
         "source.fixAll.eslint": true
     },
     "editor.scrollBeyondLastLine": false,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.parameterHints.enabled": false,
 
     "keyboard.dispatch": "keyCode",
