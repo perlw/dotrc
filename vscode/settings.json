@@ -22,6 +22,7 @@
     },
     "editor.scrollBeyondLastLine": false,
     "editor.formatOnSave": true,
+    "editor.parameterHints.enabled": false,
 
     "keyboard.dispatch": "keyCode",
 
@@ -68,7 +69,7 @@
     },
     "files.eol": "\n",
 
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
 
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
