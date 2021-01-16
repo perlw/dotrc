@@ -21,18 +21,18 @@
         "source.fixAll.eslint": true
     },
     "editor.scrollBeyondLastLine": false,
-    "editor.formatOnSave": false,
     "editor.parameterHints.enabled": false,
 
     "keyboard.dispatch": "keyCode",
-
     "terminal.integrated.fontFamily": "'JetBrains Mono'",
     "terminal.integrated.fontSize": 15,
-    "terminal.integrated.shellArgs.linux": ["--login"],
+    "terminal.integrated.shellArgs.linux": [
+        "--login"
+    ],
     "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
 
     "workbench.tips.enabled": false,
-    "workbench.iconTheme": "vs-nomo-dark",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Default Dark+",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
@@ -42,7 +42,7 @@
 
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "toggle",
-    "window.title": "${folderName}",
+    "window.title": "${rootName}${separator}${activeEditorMedium}${dirty}",
 
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
@@ -127,7 +127,6 @@
     // VIM
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim-nightly/current/bin/nvim.exe",
-
     // Go
     "go.buildOnSave": "workspace",
     "go.vetOnSave": "workspace",
@@ -147,4 +146,7 @@
 
     // gitlens
     "gitlens.codeLens.enabled": false,
+
+    // C/CPP
+    "C_Cpp.updateChannel": "Insiders",
 }
