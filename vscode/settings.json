@@ -149,4 +149,42 @@
 
     // C/CPP
     "C_Cpp.updateChannel": "Insiders",
+
+    // TODOhighlight
+    "todohighlight.keywords": [
+        {
+            "text": "NOTE:",
+            "color": "#aaffaa",
+            "backgroundColor": "green",
+        },
+        {
+            "text": "IMPORTANT:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "textDecoration": "underline",
+        },
+        {
+            "text": "STUDY:",
+            "color": "#bbbbff",
+            "backgroundColor": "darkblue",
+        },
+        {
+            "text": "FIXME:",
+            "color": "#ffeeee",
+            "backgroundColor": "red",
+            "textDecoration": "underline",
+        },
+        {
+            "text": "TODO:",
+            "color": "olive",
+            "backgroundColor": "orange",
+            "textDecoration": "underline",
+        },
+    ],
+    "todohighlight.defaultStyle": {
+        "cursor": "pointer",
+        "borderRadius": "2px",
+        "overviewRulerColor": "grey",
+        "fontWeight": "bold",
+    },
 }
