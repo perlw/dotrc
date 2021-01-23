@@ -150,41 +150,44 @@
     // C/CPP
     "C_Cpp.updateChannel": "Insiders",
 
-    // TODOhighlight
-    "todohighlight.keywords": [
-        {
-            "text": "NOTE:",
-            "color": "#aaffaa",
-            "backgroundColor": "green",
-        },
-        {
-            "text": "IMPORTANT:",
-            "color": "#ff0000",
-            "backgroundColor": "yellow",
-            "textDecoration": "underline",
-        },
-        {
-            "text": "STUDY:",
-            "color": "#bbbbff",
-            "backgroundColor": "darkblue",
-        },
-        {
-            "text": "FIXME:",
-            "color": "#ffeeee",
-            "backgroundColor": "red",
-            "textDecoration": "underline",
-        },
-        {
-            "text": "TODO:",
-            "color": "olive",
-            "backgroundColor": "orange",
-            "textDecoration": "underline",
-        },
+    // Todo Tree
+    // NOTE:
+    // IMPORTANT:
+    // STUDY:
+    // FIXME:
+    // TODO:
+    "todo-tree.general.tags": [
+        "NOTE",
+        "IMPORTANT",
+        "STUDY",
+        "FIXME",
+        "TODO",
     ],
-    "todohighlight.defaultStyle": {
-        "cursor": "pointer",
-        "borderRadius": "2px",
-        "overviewRulerColor": "grey",
-        "fontWeight": "bold",
+    "todo-tree.highlights.customHighlight": {
+        "NOTE": {
+            "foreground": "#aaffaa",
+            "background": "green",
+        },
+        "IMPORTANT": {
+            "icon": "warning",
+            "gutterIcon":true,
+            "foreground": "#ff0000",
+            "background": "yellow",
+            "textDecoration": "underline",
+        },
+        "STUDY": {
+            "icon": "beaker",
+            "foreground": "#bbbbff",
+            "background": "darkblue",
+        },
+        "FIXME": {
+            "icon": "flame",
+            "foreground": "#ffeeee",
+            "background": "red",
+            "textDecoration": "underline",
+        },
+        "TODO":{
+            "textDecoration": "underline",
+        },
     },
 }
