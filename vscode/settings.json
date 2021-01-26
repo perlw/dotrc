@@ -9,7 +9,7 @@
     "editor.renderWhitespace": "trailing",
     "editor.minimap.enabled": false,
     "editor.rulers": [
-        80,
+        100,
     ],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
@@ -151,11 +151,6 @@
     "C_Cpp.updateChannel": "Insiders",
 
     // Todo Tree
-    // NOTE:
-    // IMPORTANT:
-    // STUDY:
-    // FIXME:
-    // TODO:
     "todo-tree.general.tags": [
         "NOTE",
         "IMPORTANT",
