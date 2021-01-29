@@ -48,6 +48,8 @@ if !exists('g:vscode')
   Plug 'lifepillar/pgsql.vim'
   Plug 'aklt/plantuml-syntax'
   Plug 'ryanolsonx/vim-lsp-javascript'
+  " Others
+  Plug 'wakatime/vim-wakatime'
 endif
 
 Plug 'tpope/vim-sensible'
