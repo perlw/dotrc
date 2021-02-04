@@ -36,6 +36,8 @@
     "workbench.colorTheme": "Default Dark+",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
+    "workbench.editor.decorations.badges": true,
+    "workbench.editor.decorations.colors": true,
 
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
@@ -87,6 +89,9 @@
     "[cpp]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[powershell]": {
+        "editor.formatOnSave": true,
     },
 
     "liveshare.featureSet": "stable",
