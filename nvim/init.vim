@@ -14,12 +14,9 @@ call plug#begin('~/.config/nvim/bundle')
 
 if !exists('g:vscode')
   " Vim settings/improvements
-  Plug 'nazo/pt.vim'
-  Plug 'majutsushi/tagbar'
   Plug 'mhinz/vim-signify'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
-  Plug 'w0rp/ale'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'KabbAmine/zeavim.vim'
   Plug 'jodosha/vim-godebug'
@@ -27,6 +24,8 @@ if !exists('g:vscode')
   Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-vinegar'
+  Plug 'sakshamgupta05/vim-todo-highlight'
+  Plug 'jremmen/vim-ripgrep'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
@@ -48,6 +47,7 @@ if !exists('g:vscode')
   Plug 'lifepillar/pgsql.vim'
   Plug 'aklt/plantuml-syntax'
   Plug 'ryanolsonx/vim-lsp-javascript'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   " Others
   Plug 'wakatime/vim-wakatime'
 endif
@@ -80,7 +80,7 @@ else
   set wildmenu
   filetype indent plugin on
   syn on
-  set cc=80
+  set cc=100
   set lazyredraw
   set maxmempattern=20000
 
@@ -222,19 +222,38 @@ else
   nnoremap <c-o> :vert res -10<cr>
 
   " Make
-  nnoremap <leader>m :silent make\|redraw\|cwindow<cr>
-  nnoremap <leader>b :GoBuild<cr>
+  nnoremap <leader>m :silent make\|redraw\|botright cwindow<cr>
 
-  " ALE
-  let g:ale_linters = {'cpp': ['clang']}
+  nnoremap <leader>n :call CocAction('diagnosticNext')<cr>
 
-  " Clang format
+  " C/C++
   let g:clang_format#detect_style_file = 1
   let g:clang_format#auto_formatexpr = 1
-  " autocmd FileType c ClangFormatAutoEnable
+  autocmd FileType c ClangFormatAutoEnable
+  autocmd FileType cpp ClangFormatAutoEnable
+  let g:cpp_class_scope_highlight = 1
+  let g:cpp_member_variable_highlight = 1
+  let g:cpp_class_decl_highlight = 1
 
-  " Rust
-  let g:rustfmt_autosave = 1
+  " Todo highlight
+  let g:todo_highlight_config = {
+        \   'NOTE': {
+        \     'gui_fg_color': '#ffffff',
+        \     'gui_bg_color': '#2abdff',
+        \     'cterm_fg_color': 'white',
+        \     'cterm_bg_color': '214'
+        \   }
+        \ }
+
+  " Treesitter
+lua <<EOF
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = {"c", "cpp", "go"},
+    highlight = {
+      enable = true,
+    },
+  }
+EOF
 endif
 
 " Time func
