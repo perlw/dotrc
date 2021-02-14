@@ -31,8 +31,9 @@ if !exists('g:vscode')
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
-  Plug 'jremmen/vim-ripgrep'
   Plug 'preservim/tagbar'
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
@@ -156,7 +157,7 @@ else
   set statusline+=┊%P[%c@%l/%L]
 
   " Tagbar
-  nnoremap <leader>t :TagbarToggle<cr>
+  nnoremap <leader>t :TagbarOpenAutoClose<cr>
 
   " Go
   au Filetype go nnoremap <c-k> :GoDef<cr>
@@ -222,7 +223,7 @@ else
   nnoremap <c-o> :vert res -10<cr>
 
   " Make
-  nnoremap <leader>m :silent make\|redraw\|botright cwindow\|echo "Done..."<cr>
+  nnoremap <leader>m :echo "Building..."\|silent make\|redraw\|botright cwindow\|echo "Done!"<cr>
 
   " C/C++
   let g:clang_format#detect_style_file = 1
@@ -233,6 +234,7 @@ else
   let g:cpp_member_variable_highlight = 1
   let g:cpp_class_decl_highlight = 1
   nnoremap <leader>n :call CocAction('diagnosticNext')<cr>
+  nnoremap <leader>f :CocFix<cr>
 
   " Todo highlight
   let g:todo_highlight_config = {
