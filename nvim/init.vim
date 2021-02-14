@@ -5,6 +5,11 @@ set nomodeline
 set title
 set nospell
 
+if has('win32')
+  " Can't suspend on Windows at the moment.
+  nmap <C-z> <Nop>
+endif
+
 let mapleader=','
 " Searching
 nnoremap <leader><leader> :nohl<cr>
@@ -205,9 +210,6 @@ else
   au BufNewFile,BufRead *.frag set filetype=glsl
   au BufNewFile,BufRead *.vert set filetype=glsl
 
-  " Tagbar
-  nnoremap <leader>t :TagbarToggle<cr>
-
   " Tabs
   set tabstop=2
   set shiftwidth=2
@@ -224,8 +226,6 @@ else
   " Make
   nnoremap <leader>m :silent make\|redraw\|botright cwindow<cr>
 
-  nnoremap <leader>n :call CocAction('diagnosticNext')<cr>
-
   " C/C++
   let g:clang_format#detect_style_file = 1
   let g:clang_format#auto_formatexpr = 1
@@ -234,6 +234,7 @@ else
   let g:cpp_class_scope_highlight = 1
   let g:cpp_member_variable_highlight = 1
   let g:cpp_class_decl_highlight = 1
+  nnoremap <leader>n :call CocAction('diagnosticNext')<cr>
 
   " Todo highlight
   let g:todo_highlight_config = {
