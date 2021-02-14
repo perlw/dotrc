@@ -224,7 +224,7 @@ else
   nnoremap <c-o> :vert res -10<cr>
 
   " Make
-  nnoremap <leader>m :silent make\|redraw\|botright cwindow<cr>
+  nnoremap <leader>m :silent make\|redraw\|botright cwindow\|echo "Done..."<cr>
 
   " C/C++
   let g:clang_format#detect_style_file = 1
