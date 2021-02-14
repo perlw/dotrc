@@ -32,6 +32,7 @@ if !exists('g:vscode')
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
   Plug 'jremmen/vim-ripgrep'
+  Plug 'preservim/tagbar'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
@@ -101,15 +102,6 @@ else
           \ 'go': ['.git', 'go.mod'],
           \ }
 
-  " Neosnippet
-  let g:neosnippet#disable_runtime_snippets={
-        \ '_' : 1,
-        \ }
-  let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-
   " Eyecandy
   set cursorline
   set termguicolors
@@ -162,6 +154,9 @@ else
   set statusline+=%=
   set statusline+=%y
   set statusline+=┊%P[%c@%l/%L]
+
+  " Tagbar
+  nnoremap <leader>t :TagbarToggle<cr>
 
   " Go
   au Filetype go nnoremap <c-k> :GoDef<cr>
