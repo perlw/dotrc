@@ -4,6 +4,7 @@ set modelines=0
 set nomodeline
 set title
 set nospell
+set updatetime=100
 
 if has('win32')
   " Can't suspend on Windows at the moment.
@@ -19,7 +20,7 @@ call plug#begin('~/.config/nvim/bundle')
 
 if !exists('g:vscode')
   " Vim settings/improvements
-  Plug 'mhinz/vim-signify'
+  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'editorconfig/editorconfig-vim'
@@ -142,12 +143,14 @@ else
   au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
   hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 
+  autocmd BufWritePost * GitGutter
   function! ScmStatus()
-    let head = '-'
     if exists('b:git_dir')
       let head = fugitive#head()
+      let [added, modified, removed] = GitGutterGetHunkSummary()
+      return printf('⌥ (%s) +%d ~%d -%d', head, added, modified, removed)
     endif
-    return '⌥ ('.head.')'
+    return ''
   endfunction
   function! CwdBase()
     return fnamemodify(getcwd(), ':t')
