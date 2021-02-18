@@ -92,6 +92,9 @@ else
   set lazyredraw
   set maxmempattern=20000
 
+  " local vim config support
+  silent! so .vimlocal
+
   " netrw
   let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
@@ -223,7 +226,7 @@ else
   nnoremap <c-o> :vert res -10<cr>
 
   " Make
-  nnoremap <leader>m :echo "Building..."\|silent make\|redraw\|botright cwindow\|echo "Done!"<cr>
+  nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Done!"<cr>
 
   " C/C++
   let g:clang_format#detect_style_file = 1
