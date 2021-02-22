@@ -282,3 +282,6 @@ vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
 nnoremap <leader>g :! graph-easy --as=boxart %<cr>
 vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
 
+" strikethrough
+nnoremap <leader>- :s/./&̶/g<cr>:nohl<cr>
+
