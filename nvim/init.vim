@@ -39,7 +39,6 @@ if !exists('g:vscode')
   Plug 'sainnhe/gruvbox-material'
   Plug 'aonemd/kuroi.vim'
   " File and syntax
-  Plug 'vimwiki/vimwiki'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'
