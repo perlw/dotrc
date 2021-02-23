@@ -235,8 +235,12 @@ else
   let g:cpp_class_scope_highlight = 1
   let g:cpp_member_variable_highlight = 1
   let g:cpp_class_decl_highlight = 1
-  nnoremap <leader>n :call CocAction('diagnosticNext')<cr>
+
+  " Coc
+  nnoremap <leader>n :call CocActionAsync('diagnosticNext')<cr>
   nnoremap <leader>f :CocFix<cr>
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gr <Plug>(coc-references)
 
   " Todo highlight
   let g:todo_highlight_config = {
