@@ -32,6 +32,7 @@ if !exists('g:vscode')
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
   Plug 'preservim/tagbar'
+  Plug 'liuchengxu/vista.vim'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   " Style/sexy
@@ -137,7 +138,6 @@ else
   au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
   hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 
-  autocmd BufWritePost * GitGutter
   function! ScmStatus()
     if exists('b:git_dir')
       let head = fugitive#head()
@@ -149,9 +149,17 @@ else
   function! CwdBase()
     return fnamemodify(getcwd(), ':t')
   endfunction
+  function! CurrentFunctionVista()
+    let func = get(b:, 'vista_nearest_method_or_function', '')
+    if func != ''
+      return '[' . func . ']'
+    endif
+    return ''
+  endfunction
   set statusline=
   set statusline+=%#identifier#\ %{CwdBase()}\ %*%f
   set statusline+=%m%r
+  set statusline+=\ %{CurrentFunctionVista()}
   set statusline+=\ %{ScmStatus()}
   set statusline+=%=
   set statusline+=%y
@@ -159,6 +167,13 @@ else
 
   " Tagbar
   nnoremap <leader>t :TagbarOpenAutoClose<cr>
+
+  " vista
+  nnoremap <leader>v :Vista<cr>
+  autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+  " gitgutter
+  autocmd BufWritePost * GitGutter
 
   " Go
   au Filetype go nnoremap <c-k> :GoDef<cr>
