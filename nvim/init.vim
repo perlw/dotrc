@@ -107,6 +107,8 @@ else
 
   " Eyecandy
   set cursorline
+  autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
+  autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
   set termguicolors
   " color gruvbox-material
   color kuroi
