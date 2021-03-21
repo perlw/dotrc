@@ -112,7 +112,7 @@ else
   set termguicolors
   " color gruvbox-material
   color kuroi
-  set fillchars=vert:┃
+  set fillchars=vert:\|
 
   function! ToggleBackground()
     if &background ==# 'dark'
