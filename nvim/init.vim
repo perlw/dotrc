@@ -54,6 +54,7 @@ if !exists('g:vscode')
   Plug 'leafgarland/typescript-vim'
   Plug 'lifepillar/pgsql.vim'
   Plug 'aklt/plantuml-syntax'
+  Plug 'PProvost/vim-ps1'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   " Others
   Plug 'wakatime/vim-wakatime'
