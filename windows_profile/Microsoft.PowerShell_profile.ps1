@@ -7,7 +7,7 @@ function GitPrompt() {
     return ""
   }
 
-  $result = " ⌥ "
+  $result = " ⌥"
   $result += Foreground Blue "("
 
   try {
