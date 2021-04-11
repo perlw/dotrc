@@ -680,7 +680,7 @@ alt_send_esc: false
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -768,6 +768,7 @@ alt_send_esc: false
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+  - { key: N,              mods: Control,                    action: SpawnNewInstance }
 
   # (macOS only)
   #- { key: K,              mods: Command, mode: ~Vi|~Search, chars: "\x0c"            }
