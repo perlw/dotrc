@@ -272,7 +272,7 @@ else
   " Treesitter
 lua <<EOF
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"c", "cpp", "go"},
+    ensure_installed = {"c", "cpp", "go", "elm", "html", "javascript", "lua"},
     highlight = {
       enable = true,
     },
