@@ -238,8 +238,6 @@ else
   " Splits
   set splitbelow
   set splitright
-  nnoremap <c-y> :vert res +10<cr>
-  nnoremap <c-o> :vert res -10<cr>
 
   " Make
   nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Done!"<cr>
@@ -272,7 +270,7 @@ else
   " Treesitter
 lua <<EOF
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"c", "cpp", "go", "elm", "html", "javascript", "lua"},
+    ensure_installed = {"c", "cpp", "go", "elm", "html", "javascript", "lua", "typescript"},
     highlight = {
       enable = true,
     },
