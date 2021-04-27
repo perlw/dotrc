@@ -35,6 +35,7 @@ if !exists('g:vscode')
   Plug 'liuchengxu/vista.vim'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/vim-easy-align'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
@@ -56,6 +57,7 @@ if !exists('g:vscode')
   Plug 'aklt/plantuml-syntax'
   Plug 'PProvost/vim-ps1'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'ekalinin/Dockerfile.vim'
   " Others
   Plug 'wakatime/vim-wakatime'
 endif

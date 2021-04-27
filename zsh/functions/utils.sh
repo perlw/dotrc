@@ -21,3 +21,5 @@ fixInput() {
 
 alias diary='setupDiaryTemplate'
 alias fix-input='fixInput'
+
+alias lt='ls -lT --git-ignore --git'
