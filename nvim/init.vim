@@ -90,7 +90,7 @@ else
   set wildmenu
   filetype indent plugin on
   syn on
-  set cc=100
+  set cc=120
   set lazyredraw
   set maxmempattern=20000
 
@@ -290,20 +290,6 @@ lua <<EOF
 EOF
 endif
 
-" Time func
-let g:time_stamp_enabled = 0
-command! TimeStampToggle let g:time_stamp_enabled = !g:time_stamp_enabled
-
-inoremap <expr> <CR> g:time_stamp_enabled ? "\<ESC>:call TimeStamp()\<CR>a" : "\<CR>"
-
-function! TimeStamp()
-  let l:current_time = strftime("%H:%M:%S")
-  execute "normal! 0i\<SPACE>\<ESC>0dwi\
-    \<C-R>=l:current_time\<CR>\
-    \<SPACE>\<SPACE>—\<SPACE>\<SPACE>\<ESC>o\<SPACE>\<SPACE>\<SPACE>\<SPACE>\
-    \<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>\<SPACE>"
-endfunction
-
 " plantuml call
 nnoremap <leader>u :! plantuml -tutxt %<cr>
 vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
@@ -315,3 +301,6 @@ vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
 " strikethrough
 nnoremap <leader>- :s/./&̶/g<cr>:nohl<cr>
 
+" easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
