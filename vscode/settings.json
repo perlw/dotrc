@@ -1,4 +1,5 @@
 {
+    "explorer.compactFolders": false,
     "editor.fontSize": 15,
     "editor.fontFamily": "'JetBrains Mono",
     "editor.tabSize": 2,
@@ -10,6 +11,7 @@
     "editor.minimap.enabled": false,
     "editor.rulers": [
         100,
+        140,
     ],
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
@@ -33,7 +35,7 @@
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Base16 Dark Oceanic Next",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
     "workbench.editor.decorations.badges": true,
@@ -71,7 +73,7 @@
     },
     "files.eol": "\n",
 
-    "breadcrumbs.enabled": true,
+    "breadcrumbs.enabled": false,
 
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -130,8 +132,10 @@
     "yaml.validate": false,
 
     // VIM
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim-nightly/current/bin/nvim.exe",
+
     // Go
     "go.buildOnSave": "workspace",
     "go.vetOnSave": "workspace",
@@ -158,27 +162,15 @@
     // Todo Tree
     "todo-tree.general.tags": [
         "NOTE",
-        "IMPORTANT",
-        "STUDY",
         "FIXME",
         "TODO",
+        "[ ]",
+        "[x]"
     ],
     "todo-tree.highlights.customHighlight": {
         "NOTE": {
             "foreground": "#aaffaa",
             "background": "green",
-        },
-        "IMPORTANT": {
-            "icon": "warning",
-            "gutterIcon":true,
-            "foreground": "#ff0000",
-            "background": "yellow",
-            "textDecoration": "underline",
-        },
-        "STUDY": {
-            "icon": "beaker",
-            "foreground": "#bbbbff",
-            "background": "darkblue",
         },
         "FIXME": {
             "icon": "flame",
@@ -190,4 +182,5 @@
             "textDecoration": "underline",
         },
     },
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
 }
