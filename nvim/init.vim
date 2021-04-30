@@ -25,21 +25,20 @@ if !exists('g:vscode')
   Plug 'tpope/vim-surround'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'KabbAmine/zeavim.vim'
-  Plug 'jodosha/vim-godebug'
   Plug 'ryanoasis/vim-devicons'
   Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
-  Plug 'preservim/tagbar'
   Plug 'liuchengxu/vista.vim'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/vim-easy-align'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
   Plug 'aonemd/kuroi.vim'
+  Plug 'ayu-theme/ayu-vim'
+  Plug 'Yggdroot/indentLine'
   " File and syntax
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'gabrielelana/vim-markdown'
@@ -63,6 +62,7 @@ if !exists('g:vscode')
 endif
 
 Plug 'tpope/vim-sensible'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -114,8 +114,11 @@ else
   autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
   set termguicolors
   " color gruvbox-material
-  color kuroi
+  " color kuroi
+  let ayucolor="mirage"
+  color ayu
   set fillchars=vert:\|
+  hi! VertSplit guifg=gray
 
   function! ToggleBackground()
     if &background ==# 'dark'
@@ -304,3 +307,9 @@ nnoremap <leader>- :s/./&̶/g<cr>:nohl<cr>
 " easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" indent-guide
+let g:indentLine_char = '¦'
+let g:indentLine_first_char = '¦'
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
