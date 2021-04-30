@@ -8,6 +8,8 @@
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "trailing",
     "editor.minimap.enabled": false,
+    "editor.renderLineHighlight": "all",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
     "editor.rulers": [
         100,
         140,
