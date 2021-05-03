@@ -30,9 +30,10 @@ if !exists('g:vscode')
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
-  Plug 'liuchengxu/vista.vim'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'preservim/nerdtree'
+  Plug 'preservim/tagbar'
   " Style/sexy
   Plug 'lifepillar/vim-solarized8'
   Plug 'sainnhe/gruvbox-material'
@@ -157,17 +158,9 @@ else
   function! CwdBase()
     return fnamemodify(getcwd(), ':t')
   endfunction
-  function! CurrentFunctionVista()
-    let func = get(b:, 'vista_nearest_method_or_function', '')
-    if func != ''
-      return '[' . func . ']'
-    endif
-    return ''
-  endfunction
   set statusline=
   set statusline+=%#identifier#\ %{CwdBase()}\ %*%f
   set statusline+=%m%r
-  set statusline+=\ %{CurrentFunctionVista()}
   set statusline+=\ %{ScmStatus()}
   set statusline+=%=
   set statusline+=%y
@@ -176,9 +169,8 @@ else
   " Tagbar
   nnoremap <leader>t :TagbarOpenAutoClose<cr>
 
-  " vista
-  nnoremap <leader>v :Vista<cr>
-  autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+  " NERDTree
+  nnoremap <leader>s :NERDTreeToggle<cr>
 
   " gitgutter
   autocmd BufWritePost * GitGutter
