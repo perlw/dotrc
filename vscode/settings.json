@@ -1,6 +1,6 @@
 {
-    "editor.fontSize": 15,
-    "editor.fontFamily": "'JetBrains Mono",
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'JetBrains Mono'",
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
@@ -28,7 +28,7 @@
 
     "keyboard.dispatch": "keyCode",
     "terminal.integrated.fontFamily": "'JetBrains Mono'",
-    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontSize": 16,
     "terminal.integrated.shellArgs.linux": [
         "--login"
     ],
