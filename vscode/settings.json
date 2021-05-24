@@ -35,7 +35,7 @@
     "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
 
     "workbench.tips.enabled": false,
-    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
@@ -186,5 +186,7 @@
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 
-    "bracket-pair-colorizer-2.colors": [ "gold" ],
+    "bracket-pair-colorizer-2.colors": [
+        "gold"
+    ]
 }
