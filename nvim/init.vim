@@ -181,7 +181,10 @@ else
   nnoremap <leader>s :NERDTreeToggle<cr>
 
   " gitgutter
-  autocmd BufWritePost * GitGutter
+  " autocmd BufWritePost * GitGutter
+  set signcolumn=yes
+  let g:gitgutter_highlight_linenrs=1
+  let g:gitgutter_async=1
 
   " Go
   au Filetype go nnoremap <c-k> :GoDef<cr>
