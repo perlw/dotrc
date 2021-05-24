@@ -95,6 +95,14 @@ else
   set lazyredraw
   set maxmempattern=20000
 
+  " Autoreload changed files
+  " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+  set autoread
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+  autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
   " local vim config support
   silent! so .vimlocal
 
