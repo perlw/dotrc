@@ -35,9 +35,6 @@ if !exists('g:vscode')
   Plug 'preservim/nerdtree'
   Plug 'preservim/tagbar'
   " Style/sexy
-  Plug 'lifepillar/vim-solarized8'
-  Plug 'sainnhe/gruvbox-material'
-  Plug 'aonemd/kuroi.vim'
   Plug 'ayu-theme/ayu-vim'
   " File and syntax
   Plug 'mustache/vim-mustache-handlebars'
@@ -121,38 +118,33 @@ else
   autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
   autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
   set termguicolors
-  " color gruvbox-material
-  " color kuroi
   let ayucolor="mirage"
   color ayu
-  set fillchars=vert:\|
-  hi! VertSplit guifg=gray
-
-  function! ToggleBackground()
-    if &background ==# 'dark'
-      set background=light
-      color solarized8_high
-    else
-      set background=dark
-      color gruvbox-material
-    endif
-  endfunction
-  nnoremap <f2> :call ToggleBackground()<cr>
+  set fillchars=vert:\│
+  hi! VertSplit guifg=darkgray
 
   " Statusline
   function! InsertStatuslineColor(mode)
-    if a:mode == 'i'
-      hi statusline ctermbg=darkgreen guibg=darkgreen cterm=NONE gui=NONE
-    elseif a:mode == 'r'
-      hi statusline ctermbg=darkmagenta guibg=darkmagenta cterm=NONE gui=NONE
+    if a:mode ==? 'i'
+      hi User1 ctermbg=darkgreen guibg=darkgreen
+      hi User2 ctermfg=darkgreen guifg=darkgreen
+    elseif a:mode ==? 'r'
+      hi User1 ctermbg=darkmagenta guibg=darkmagenta
+      hi User2 ctermfg=darkmagenta guifg=darkmagenta
     else
-      hi statusline ctermbg=red guibg=red cterm=NONE gui=NONE
+      hi User1 ctermbg=red guibg=red
+      hi User2 ctermfg=red guifg=red
     endif
+  endfunction
+  function! InitialStatuslineColors()
+    hi statusline ctermbg=grey ctermfg=yellow guibg=grey guifg=yellow
+    hi User1 ctermbg=darkgrey ctermfg=yellow guibg=darkgrey guifg=yellow
+    hi User2 ctermbg=gray ctermfg=darkgrey guibg=grey guifg=darkgrey
   endfunction
   au InsertEnter * call InsertStatuslineColor(v:insertmode)
   au InsertChange * call InsertStatuslineColor(v:insertmode)
-  au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
-  hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
+  au InsertLeave * call InitialStatuslineColors()
+  call InitialStatuslineColors()
 
   function! ScmBranch()
     if exists('b:git_dir')
@@ -160,7 +152,7 @@ else
       if len(head) > 20
         let head = head[0:17] . "..."
       endif
-      return printf('⌥ (%s)', head)
+      return printf('%s', head)
     endif
     return ''
   endfunction
@@ -169,12 +161,12 @@ else
   endfunction
 
   set statusline=
-  set statusline+=%#identifier#\ %{CwdBase()}\ %*%t
+  set statusline+=%1*\ %{CwdBase()}%2*%*%t
   set statusline+=%m%r
   set statusline+=\ %{ScmBranch()}
   set statusline+=%=
-  set statusline+=%y
-  set statusline+=┊%c#%l/%L
+  set statusline+=%2*%1*%y
+  set statusline+=┊%c#%l/%L%*
 
   " Tagbar
   nnoremap <leader>t :TagbarOpenAutoClose<cr>
