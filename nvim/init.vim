@@ -39,7 +39,6 @@ if !exists('g:vscode')
   Plug 'sainnhe/gruvbox-material'
   Plug 'aonemd/kuroi.vim'
   Plug 'ayu-theme/ayu-vim'
-  Plug 'Yggdroot/indentLine'
   " File and syntax
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'gabrielelana/vim-markdown'
@@ -155,24 +154,27 @@ else
   au InsertLeave * hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
   hi statusline ctermbg=grey guibg=grey ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 
-  function! ScmStatus()
+  function! ScmBranch()
     if exists('b:git_dir')
       let head = fugitive#head()
-      let [added, modified, removed] = GitGutterGetHunkSummary()
-      return printf('⌥ (%s) +%d ~%d -%d', head, added, modified, removed)
+      if len(head) > 20
+        let head = head[0:17] . "..."
+      endif
+      return printf('⌥ (%s)', head)
     endif
     return ''
   endfunction
   function! CwdBase()
     return fnamemodify(getcwd(), ':t')
   endfunction
+
   set statusline=
-  set statusline+=%#identifier#\ %{CwdBase()}\ %*%f
+  set statusline+=%#identifier#\ %{CwdBase()}\ %*%t
   set statusline+=%m%r
-  set statusline+=\ %{ScmStatus()}
+  set statusline+=\ %{ScmBranch()}
   set statusline+=%=
   set statusline+=%y
-  set statusline+=┊%P[%c@%l/%L]
+  set statusline+=┊%c#%l/%L
 
   " Tagbar
   nnoremap <leader>t :TagbarOpenAutoClose<cr>
@@ -310,9 +312,3 @@ nnoremap <leader>- :s/./&̶/g<cr>:nohl<cr>
 " easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" indent-guide
-let g:indentLine_char = '¦'
-let g:indentLine_first_char = '¦'
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
