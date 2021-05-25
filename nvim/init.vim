@@ -149,8 +149,8 @@ else
   function! ScmBranch()
     if exists('b:git_dir')
       let head = fugitive#head()
-      if len(head) > 20
-        let head = head[0:17] . "..."
+      if len(head) > 30
+        let head = head[0:27] . "..."
       endif
       return printf('%s', head)
     endif
@@ -161,12 +161,12 @@ else
   endfunction
 
   set statusline=
-  set statusline+=%1*\ %{CwdBase()}%2*%*%t
+  set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %t
   set statusline+=%m%r
   set statusline+=\ %{ScmBranch()}
   set statusline+=%=
-  set statusline+=%2*%1*%y
-  set statusline+=┊%c#%l/%L%*
+  set statusline+=%2*%1*\ %y
+  set statusline+=\ %c#%l/%L\ %*
 
   " Tagbar
   nnoremap <leader>t :TagbarOpenAutoClose<cr>
