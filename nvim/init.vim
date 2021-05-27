@@ -24,25 +24,24 @@ if !exists('g:vscode')
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'KabbAmine/zeavim.vim'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() }}
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdtree'
   Plug 'preservim/tagbar'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   " Style/sexy
   Plug 'ayu-theme/ayu-vim'
   " File and syntax
-  Plug 'mustache/vim-mustache-handlebars'
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'
   Plug 'rhysd/vim-clang-format'
-  Plug 'rust-lang/rust.vim'
-  Plug 'cespare/vim-toml'
   Plug 'tpope/vim-fugitive'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
@@ -52,7 +51,6 @@ if !exists('g:vscode')
   Plug 'lifepillar/pgsql.vim'
   Plug 'aklt/plantuml-syntax'
   Plug 'PProvost/vim-ps1'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'ekalinin/Dockerfile.vim'
   " Others
   Plug 'wakatime/vim-wakatime'
@@ -220,8 +218,6 @@ else
   let g:go_modifytags_transform = 'camelcase'
   let g:go_fold_enable = []
 
-  set completeopt-=preview
-
   " Markdown
   let g:markdown_fenced_languages = ['html']
 
@@ -253,21 +249,41 @@ else
   let g:cpp_member_variable_highlight = 1
   let g:cpp_class_decl_highlight = 1
 
-  " Coc
-  nnoremap <leader>n :call CocActionAsync('diagnosticNext')<cr>
-  nnoremap <leader>f :CocFix<cr>
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gr <Plug>(coc-references)
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " compe
+  inoremap <silent><expr> <C-Space> compe#complete()
+  inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+  inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+  inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+lua <<EOF
+  vim.o.completeopt = "menuone,noselect"
+  require'compe'.setup {
+    enabled = true;
+    autocomplete = true;
+    debug = false;
+    min_length = 1;
+    preselect = 'enable';
+    throttle_time = 80;
+    source_timeout = 200;
+    incomplete_delay = 400;
+    max_abbr_width = 100;
+    max_kind_width = 100;
+    max_menu_width = 100;
+    documentation = true;
 
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
+    source = {
+      path = true;
+      buffer = true;
+      calc = true;
+      tags = true;
+      nvim_lsp = true;
+      nvim_lua = true;
+      emoji = true;
+      --vsnip = true;
+      --ultisnips = true;
+    };
+  }
+EOF
 
   " Todo highlight
   let g:todo_highlight_config = {
@@ -288,6 +304,40 @@ lua <<EOF
     },
   }
 EOF
+
+  " lspconfig
+lua <<EOF
+  local nvim_lsp = require('lspconfig')
+  local on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    --Enable completion triggered by <c-x><c-o>
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
+
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<leader>n', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  end
+
+  local servers = { "clangd", "gopls", "tsserver" }
+  for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup { on_attach = on_attach }
+  end
+EOF
+
+  " telescope
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 endif
 
 " plantuml call
