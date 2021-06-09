@@ -33,6 +33,7 @@ if !exists('g:vscode')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'glepnir/lspsaga.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -103,14 +104,6 @@ else
   " netrw
   let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
-  " Deoplete
-  let g:deoplete#enable_at_startup=1
-
-  " LanguageClient
-  let g:LanguageClient_rootMarkers = {
-          \ 'go': ['.git', 'go.mod'],
-          \ }
-
   " Eyecandy
   set cursorline
   autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
@@ -173,20 +166,12 @@ else
   nnoremap <leader>s :NERDTreeToggle<cr>
 
   " gitgutter
-  " autocmd BufWritePost * GitGutter
+  autocmd BufWritePost * GitGutter
   set signcolumn=yes
   let g:gitgutter_highlight_linenrs=1
   let g:gitgutter_async=1
 
   " Go
-  au Filetype go nnoremap <c-k> :GoDef<cr>
-  au Filetype go vnoremap <c-k> :GoDef<cr>
-  au Filetype go nnoremap <c-l> :GoDefPop<cr>
-  au Filetype go vnoremap <c-l> :GoDefPop<cr>
-  au BufNewFile,BufRead *.go nnoremap <c-k> :GoDef<cr>
-  au BufNewFile,BufRead *.go vnoremap <c-k> :GoDef<cr>
-  au BufNewFile,BufRead *.go nnoremap <c-l> :GoDefPop<cr>
-  au BufNewFile,BufRead *.go vnoremap <c-l> :GoDefPop<cr>
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
   let g:go_fmt_options = {
@@ -270,7 +255,6 @@ lua <<EOF
     max_kind_width = 100;
     max_menu_width = 100;
     documentation = true;
-
     source = {
       path = true;
       buffer = true;
@@ -285,13 +269,33 @@ lua <<EOF
   }
 EOF
 
+  " saga
+  nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
+  nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
+  nnoremap <silent><leader>gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+  nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+  vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+  nnoremap <silent><leader>p <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
+  nnoremap <silent><leader>n <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
+  nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+  nnoremap <silent> gr <cmd>lua require('lspsaga.rename').rename()<CR>
+  nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+  nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+  nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+  nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+lua <<EOF
+  require('lspsaga').init_lsp_saga()
+EOF
+
   " Todo highlight
   let g:todo_highlight_config = {
         \   'NOTE': {
-        \     'gui_fg_color': '#ffffff',
         \     'gui_bg_color': '#2abdff',
-        \     'cterm_fg_color': 'white',
         \     'cterm_bg_color': '214'
+        \   },
+        \   'FIXME': {
+        \     'gui_bg_color': '#d35b5b',
+        \     'cterm_bg_color': 'red'
         \   }
         \ }
 
@@ -318,19 +322,50 @@ lua <<EOF
     -- Mappings.
     local opts = { noremap=true, silent=true }
 
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<leader>n', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   end
 
   local servers = { "clangd", "gopls", "tsserver" }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
   end
+
+  nvim_lsp.diagnosticls.setup {
+    on_attach = on_attach,
+    filetypes = vim.tbl_keys({
+      javascript = "eslint",
+      javascriptreact = "eslint",
+      typescript = "eslint",
+      typescriptreact = "eslint"
+    }),
+    init_options = {
+      filetypes = {
+        javascript = "eslint",
+        javascriptreact = "eslint",
+        typescript = "eslint",
+        typescriptreact = "eslint"
+      },
+      linters = {
+        eslint = {
+          sourceName = "eslint",
+          command = "./node_modules/.bin/eslint",
+          rootPatterns = {".git"},
+          debounce = 100,
+          args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
+          parseJson = {
+            errorsRoot = "[0].messages",
+            line = "line",
+            column = "column",
+            endLine = "endLine",
+            endColumn = "endColumn",
+            message = "${message} [${ruleId}]",
+            security = "severity"
+          },
+          securities = {[2] = "error", [1] = "warning"}
+        }
+      }
+    }
+  }
 EOF
 
   " telescope
