@@ -30,10 +30,13 @@ if !exists('g:vscode')
   Plug 'sakshamgupta05/vim-todo-highlight'
   Plug 'preservim/nerdtree'
   Plug 'preservim/tagbar'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
-  Plug 'glepnir/lspsaga.nvim'
+  Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -263,8 +266,7 @@ lua <<EOF
       nvim_lsp = true;
       nvim_lua = true;
       emoji = true;
-      --vsnip = true;
-      --ultisnips = true;
+      vsnip = true;
     };
   }
 EOF
