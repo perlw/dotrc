@@ -13,7 +13,7 @@ endif
 
 let mapleader=','
 " Searching
-nnoremap <leader><leader> :nohl<cr>
+nnoremap <leader><leader> :nohl<CR>
 
 " Plug
 call plug#begin('~/.config/nvim/bundle')
@@ -24,12 +24,9 @@ if !exists('g:vscode')
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
-  Plug 'preservim/nerdtree'
-  Plug 'preservim/tagbar'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
   Plug 'hrsh7th/vim-vsnip'
@@ -66,8 +63,8 @@ Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 if exists('g:vscode')
-  nnoremap <leader>s :<C-u>call VSCodeNotify('workbench.action.toggleSidebarVisibility')><cr>
-  nnoremap <leader>t :<C-u>call VSCodeNotify('outline.focus')><cr>
+  nnoremap <leader>s :<C-u>call VSCodeNotify('workbench.action.toggleSidebarVisibility')><CR>
+  nnoremap <leader>t :<C-u>call VSCodeNotify('outline.focus')><CR>
 else
   " Generic settings
   set enc=utf-8
@@ -155,18 +152,12 @@ else
   endfunction
 
   set statusline=
-  set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %t
+  set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %{pathshorten(@%)}
   set statusline+=%m%r
   set statusline+=\ %{ScmBranch()}
   set statusline+=%=
   set statusline+=%2*%1*\ %y
   set statusline+=\ %c#%l/%L\ %*
-
-  " Tagbar
-  nnoremap <leader>t :TagbarOpenAutoClose<cr>
-
-  " NERDTree
-  nnoremap <leader>s :NERDTreeToggle<cr>
 
   " gitgutter
   autocmd BufWritePost * GitGutter
@@ -226,7 +217,7 @@ else
   set splitright
 
   " Make
-  nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Done!"<cr>
+  nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Done!"<CR>
 
   " C/C++
   let g:clang_format#detect_style_file = 1
@@ -327,7 +318,7 @@ lua <<EOF
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   end
 
-  local servers = { "clangd", "gopls", "tsserver" }
+  local servers = { "bashls", "clangd", "gopls", "tsserver" }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
   end
@@ -371,22 +362,22 @@ lua <<EOF
 EOF
 
   " telescope
-  nnoremap <leader>ff <cmd>Telescope find_files<cr>
-  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-  nnoremap <leader>fb <cmd>Telescope buffers<cr>
-  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+  nnoremap <leader>ff <cmd>Telescope find_files<CR>
+  nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+  nnoremap <leader>fb <cmd>Telescope buffers<CR>
+  nnoremap <leader>fh <cmd>Telescope help_tags<CR>
 endif
 
 " plantuml call
-nnoremap <leader>u :! plantuml -tutxt %<cr>
-vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<cr>
+nnoremap <leader>u :! plantuml -tutxt %<CR>
+vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<CR>
 
 " graph-easy call
-nnoremap <leader>g :! graph-easy --as=boxart %<cr>
-vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<cr>
+nnoremap <leader>g :! graph-easy --as=boxart %<CR>
+vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<CR>
 
 " strikethrough
-nnoremap <leader>- :s/./&̶/g<cr>:nohl<cr>
+nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
 
 " easy-align
 xmap ga <Plug>(EasyAlign)
