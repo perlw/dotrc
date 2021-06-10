@@ -8,15 +8,19 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 
 PWD=`dirname $0`
+source "$PWD/prompt.sh"
 
 # Functions
 source "$PWD/functions/aur.sh"
 source "$PWD/functions/aws.sh"
 source "$PWD/functions/creds.sh"
-source "$PWD/functions/utils.sh"
 
 # Zsh
 alias sz="source $HOME/.zshrc"
+
+# ls
+alias ll='ls -la'
+alias lt='ls -lT --git-ignore --git'
 
 # Go
 alias gg="go get -v"
@@ -24,9 +28,3 @@ alias gv="go mod tidy && go mod vendor"
 
 # Misc
 alias wttr="curl wttr.in/Malmö"
-
-# Work
-alias wgu="wg-quick up $HOME/.config/wireguard/some/wg0.conf"
-alias wgd="wg-quick down $HOME/.config/wireguard/some/wg0.conf"
-alias wgua="wg-quick up $HOME/.config/wireguard/all/wg0.conf"
-alias wgda="wg-quick down $HOME/.config/wireguard/all/wg0.conf"
