@@ -118,6 +118,8 @@ else
     return map(files, "{'line': v:val, 'path': v:val}")
   endfunction
 
+  let g:startify_change_to_vcs_root = 1
+
   let g:startify_lists = [
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
         \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
