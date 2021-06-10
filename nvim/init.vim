@@ -16,24 +16,24 @@ let mapleader=','
 " Searching
 nnoremap <leader><leader> :nohl<CR>
 
-source ./config/plugins.vimrc
+runtime ./config/plugins.vimrc
 
 if exists('g:vscode')
   nnoremap <leader>s :<C-u>call VSCodeNotify('workbench.action.toggleSidebarVisibility')><CR>
   nnoremap <leader>t :<C-u>call VSCodeNotify('outline.focus')><CR>
 else
-  source ./config/generic.vimrc
-  source ./config/statusline.vimrc
-  source ./config/plugins/startify.vimrc
-  source ./config/plugins/gitgutter.vimrc
-  source ./config/plugins/go.vimrc
-  source ./config/plugins/c.vimrc
-  source ./config/plugins/compe.vimrc
-  source ./config/plugins/saga.vimrc
-  source ./config/plugins/todo.vimrc
-  source ./config/plugins/treesitter.vimrc
-  source ./config/plugins/lspconfig.vimrc
-  source ./config/plugins/telescope.vimrc
+  runtime ./config/generic.vimrc
+  runtime ./config/statusline.vimrc
+  runtime ./config/plugins/startify.vimrc
+  runtime ./config/plugins/gitgutter.vimrc
+  runtime ./config/plugins/go.vimrc
+  runtime ./config/plugins/c.vimrc
+  runtime ./config/plugins/compe.vimrc
+  runtime ./config/plugins/saga.vimrc
+  runtime ./config/plugins/todo.vimrc
+  runtime ./config/plugins/treesitter.vimrc
+  runtime ./config/plugins/lspconfig.vimrc
+  runtime ./config/plugins/telescope.vimrc
 endif
 
 " plantuml call
