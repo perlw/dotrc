@@ -10,8 +10,8 @@
             "closeOnExit": true,
             "colorScheme": "Gruvbox Material",
             "cursorShape": "filledBox",
-            "fontFace": "JetBrains Mono",
-            "fontSize": 12,
+            "fontFace": "Iosevka NF Thin",
+            "fontSize": 14,
             "padding": "0, 0, 0, 0",
             "useAcrylic": false,
             "bellStyle": "visual"
