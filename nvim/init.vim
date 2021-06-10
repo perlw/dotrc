@@ -37,8 +37,10 @@ if !exists('g:vscode')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'mhinz/vim-startify'
   " Style/sexy
   Plug 'ayu-theme/ayu-vim'
+  Plug 'ryanoasis/vim-devicons'
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'
@@ -152,7 +154,7 @@ else
   endfunction
 
   set statusline=
-  set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %{pathshorten(@%)}
+  set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %{WebDevIconsGetFileTypeSymbol(@%)}\ %{pathshorten(@%)}
   set statusline+=%m%r
   set statusline+=\ %{ScmBranch()}
   set statusline+=%=
