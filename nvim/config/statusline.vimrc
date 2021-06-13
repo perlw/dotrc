@@ -1,8 +1,8 @@
 " Statusline
 function! InsertStatuslineColor(mode)
   if a:mode ==? 'i'
-    hi User1 ctermbg=darkgreen guibg=darkgreen
-    hi User2 ctermfg=darkgreen guifg=darkgreen
+    hi User1 ctermbg=lightgreen guibg=lightgreen
+    hi User2 ctermfg=lightgreen guifg=lightgreen
   elseif a:mode ==? 'r'
     hi User1 ctermbg=darkmagenta guibg=darkmagenta
     hi User2 ctermfg=darkmagenta guifg=darkmagenta
@@ -12,9 +12,9 @@ function! InsertStatuslineColor(mode)
   endif
 endfunction
 function! InitialStatuslineColors()
-  hi statusline ctermbg=grey ctermfg=yellow guibg=grey guifg=yellow
-  hi User1 ctermbg=darkgrey ctermfg=yellow guibg=darkgrey guifg=yellow
-  hi User2 ctermbg=gray ctermfg=darkgrey guibg=grey guifg=darkgrey
+  hi statusline ctermbg=darkmagenta ctermfg=yellow guibg=darkmagenta guifg=yellow
+  hi User1 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
+  hi User2 ctermbg=darkmagenta ctermfg=lightblue guibg=darkmagenta guifg=lightblue
 endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
@@ -30,9 +30,6 @@ function! ScmBranch()
     return printf('%s', head)
   endif
   return ''
-endfunction
-function! CwdBase()
-  return fnamemodify(getcwd(), ':t')
 endfunction
 
 set statusline=

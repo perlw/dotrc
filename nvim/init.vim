@@ -1,12 +1,14 @@
 " Global
+function! CwdBase()
+  return fnamemodify(getcwd(), ':t')
+endfunction
+
 set nocompatible
 filetype plugin on
 set modelines=0
 set nomodeline
-set title
 set nospell
 set updatetime=100
-
 if has('win32')
   " Can't suspend on Windows at the moment.
   nmap <C-z> <Nop>
@@ -34,6 +36,9 @@ else
   runtime ./config/plugins/treesitter.vimrc
   runtime ./config/plugins/lspconfig.vimrc
   runtime ./config/plugins/telescope.vimrc
+
+  au BufEnter * let &titlestring=CwdBase() . " - " . WebDevIconsGetFileTypeSymbol(expand("%:t")) . expand("%:t")
+  set title
 endif
 
 " plantuml call
