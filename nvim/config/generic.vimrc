@@ -32,7 +32,6 @@ set smarttab
 set splitbelow
 set splitright
 
-
 " Autoreload changed files
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 set autoread
@@ -53,7 +52,8 @@ autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
 autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
 set termguicolors
 let ayucolor="mirage"
-color ayu
+" color ayu
+color onehalfdark
 set fillchars=vert:\│
 hi! VertSplit guifg=darkgray
 

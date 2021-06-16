@@ -37,7 +37,7 @@ else
   runtime ./config/plugins/lspconfig.vimrc
   runtime ./config/plugins/telescope.vimrc
 
-  au BufEnter * let &titlestring=CwdBase() . " - " . WebDevIconsGetFileTypeSymbol(expand("%:t")) . expand("%:t")
+  au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
   set title
 endif
 

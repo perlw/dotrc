@@ -23,6 +23,7 @@ if !exists('g:vscode')
   " Style/sexy
   Plug 'ayu-theme/ayu-vim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'
