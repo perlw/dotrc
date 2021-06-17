@@ -38,6 +38,7 @@ if !exists('g:vscode')
   Plug 'aklt/plantuml-syntax'
   Plug 'PProvost/vim-ps1'
   Plug 'ekalinin/Dockerfile.vim'
+  Plug 'hashivim/vim-terraform'
   " Others
   Plug 'wakatime/vim-wakatime'
 endif
