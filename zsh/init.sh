@@ -2,6 +2,16 @@
 
 set -o vi
 
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY_TIME
+setopt EXTENDED_HISTORY
+
 export EDITOR='nvim'
 export BROWSER=firefox
 export GOPATH=$HOME/Go
@@ -21,10 +31,6 @@ alias sz="source $HOME/.zshrc"
 # ls
 alias ll='ls -la'
 alias lt='ls -lT --git-ignore --git'
-
-# Go
-alias gg="go get -v"
-alias gv="go mod tidy && go mod vendor"
 
 # Misc
 alias wttr="curl wttr.in/Malmö"
