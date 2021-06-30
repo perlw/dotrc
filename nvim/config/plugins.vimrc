@@ -20,6 +20,7 @@ if !exists('g:vscode')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'mhinz/vim-startify'
+  Plug 'preservim/tagbar'
   " Style/sexy
   Plug 'ayu-theme/ayu-vim'
   Plug 'ryanoasis/vim-devicons'

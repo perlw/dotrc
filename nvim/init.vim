@@ -39,6 +39,8 @@ else
 
   au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
   set title
+
+  nnoremap <leader>t :TagbarToggle<CR>
 endif
 
 " plantuml call
