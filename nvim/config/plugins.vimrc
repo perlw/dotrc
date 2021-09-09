@@ -42,6 +42,7 @@ if !exists('g:vscode')
   Plug 'hashivim/vim-terraform'
   " Others
   Plug 'wakatime/vim-wakatime'
+  Plug 'vimwiki/vimwiki'
 endif
 
 Plug 'tpope/vim-sensible'
