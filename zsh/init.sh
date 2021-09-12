@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-set -o vi
+# set -o vi
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
