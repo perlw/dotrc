@@ -2,9 +2,9 @@
     "editor.fontSize": 19,
     "editor.fontFamily": "Iosevka",
     "editor.tabSize": 2,
-    "editor.fontLigatures": true,
-    "editor.lineNumbers": "relative",
-    "editor.renderIndentGuides": false,
+    "editor.fontLigatures": false,
+    "editor.lineNumbers": "on",
+    "editor.renderIndentGuides": true,
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "trailing",
     "editor.minimap.enabled": false,
@@ -55,8 +55,8 @@
     "terminal.integrated.defaultProfile.windows": "pwsh",
 
     "workbench.tips.enabled": false,
-    "workbench.colorTheme": "Ayu Mirage",
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Visual Studio Dark",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
     "workbench.editor.decorations.badges": true,
@@ -97,9 +97,6 @@
 
     "breadcrumbs.enabled": false,
 
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
@@ -153,11 +150,6 @@
     "yaml.format.enable": true,
     "yaml.validate": false,
 
-    // VIM
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim-nightly/current/bin/nvim.exe",
-
     // Go
     "go.buildOnSave": "workspace",
     "go.vetOnSave": "workspace",
@@ -208,5 +200,5 @@
 
     "bracket-pair-colorizer-2.colors": [
         "gold"
-    ]
+    ],
 }
