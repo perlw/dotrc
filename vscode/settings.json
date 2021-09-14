@@ -1,6 +1,6 @@
 {
-    "editor.fontSize": 19,
-    "editor.fontFamily": "Iosevka",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "Iosevka Nerd Font Mono",
     "editor.tabSize": 2,
     "editor.fontLigatures": false,
     "editor.lineNumbers": "on",
@@ -27,8 +27,8 @@
     "editor.parameterHints.enabled": true,
 
     "keyboard.dispatch": "keyCode",
-    "terminal.integrated.fontFamily": "Iosevka",
-    "terminal.integrated.fontSize": 19,
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
+    "terminal.integrated.fontSize": 18,
     "terminal.integrated.profiles.osx": {
       "zsh": {
         "path": "zsh",
@@ -56,7 +56,6 @@
 
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Visual Studio Dark",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
     "workbench.editor.decorations.badges": true,

@@ -21,6 +21,7 @@ if !exists('g:vscode')
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'mhinz/vim-startify'
   Plug 'preservim/tagbar'
+  Plug 'junegunn/vim-easy-align'
   " Style/sexy
   Plug 'ayu-theme/ayu-vim'
   Plug 'ryanoasis/vim-devicons'
@@ -42,10 +43,8 @@ if !exists('g:vscode')
   Plug 'hashivim/vim-terraform'
   " Others
   Plug 'wakatime/vim-wakatime'
-  Plug 'vimwiki/vimwiki'
 endif
 
 Plug 'tpope/vim-sensible'
-Plug 'junegunn/vim-easy-align'
 
 call plug#end()

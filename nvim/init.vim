@@ -41,19 +41,12 @@ else
   set title
 
   nnoremap <leader>t :TagbarToggle<CR>
+
+  " strikethrough
+  nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
+
+  " easy-align
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
 endif
 
-" plantuml call
-nnoremap <leader>u :! plantuml -tutxt %<CR>
-vnoremap <leader>u :'<,'>%! plantuml -tutxt -p<CR>
-
-" graph-easy call
-nnoremap <leader>g :! graph-easy --as=boxart %<CR>
-vnoremap <leader>g :'<,'>%! graph-easy --as=boxart<CR>
-
-" strikethrough
-nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
-
-" easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
