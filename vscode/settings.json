@@ -3,7 +3,7 @@
     "editor.fontFamily": "Iosevka Nerd Font Mono",
     "editor.tabSize": 2,
     "editor.fontLigatures": false,
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "relative",
     "editor.renderIndentGuides": true,
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "trailing",
