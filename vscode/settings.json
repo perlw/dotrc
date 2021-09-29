@@ -160,6 +160,7 @@
     "go.languageServerExperimentalFeatures": {
         "diagnostics": true
     },
+    "go.toolsManagement.autoUpdate": true,
     "[go]": {
         "editor.snippetSuggestions": "none",
         "editor.formatOnSave": true,

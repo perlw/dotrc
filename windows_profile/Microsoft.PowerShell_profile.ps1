@@ -1,6 +1,6 @@
-#Set-PSReadlineOption -BellStyle None
-#set-PSReadlineOption -EditMode vi
-#Set-PSReadlineOption -Colors @{ "Parameter" = "White" }
+Set-PSReadlineOption -BellStyle None
+set-PSReadlineOption -EditMode vi
+Set-PSReadlineOption -Colors @{ "Parameter" = "White" }
 
 function GitPrompt() {
   if (!(Test-Path .git)) {
