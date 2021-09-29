@@ -26,7 +26,6 @@
     },
     "editor.scrollBeyondLastLine": false,
     "editor.parameterHints.enabled": true,
-    "editor.bracketPairColorization.enabled": true,
     "editor.matchBrackets": "always",
 
     "keyboard.dispatch": "keyCode",
@@ -199,6 +198,10 @@
         },
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+
+    "bracket-pair-colorizer-2.colors": [
+        "gold"
+    ],
 
     "vim.enableNeovim": true,
     "vim.leader": ",",
