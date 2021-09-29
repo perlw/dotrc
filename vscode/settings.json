@@ -20,11 +20,14 @@
     "editor.wordWrap": "off",
     "editor.links": false,
     "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
     "editor.scrollBeyondLastLine": false,
     "editor.parameterHints.enabled": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.matchBrackets": "always",
 
     "keyboard.dispatch": "keyCode",
     "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
@@ -197,7 +200,21 @@
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 
-    "bracket-pair-colorizer-2.colors": [
-        "gold"
-    ],
+    "vim.enableNeovim": true,
+    "vim.leader": ",",
+    "vim.showMarksInGutter": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before":["<leader>", "<leader>"],
+            "commands": [
+                ":nohl",
+            ]
+        },
+        {
+            "before":["<S-k>"],
+            "commands": [
+                "editor.action.peekTypeDefinition",
+            ]
+        }
+    ]
 }
