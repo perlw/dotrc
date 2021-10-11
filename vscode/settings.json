@@ -27,6 +27,8 @@
     "editor.scrollBeyondLastLine": false,
     "editor.parameterHints.enabled": true,
     "editor.matchBrackets": "always",
+    "editor.guides.indentation": true,
+    "editor.guides.highlightActiveIndentation": true,
 
     "keyboard.dispatch": "keyCode",
     "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
@@ -199,10 +201,6 @@
         },
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-
-    "bracket-pair-colorizer-2.colors": [
-        "gold"
-    ],
 
     "vim.enableNeovim": true,
     "vim.leader": ",",
