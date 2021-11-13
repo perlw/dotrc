@@ -41,6 +41,7 @@ if !exists('g:vscode')
   Plug 'PProvost/vim-ps1'
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'hashivim/vim-terraform'
+  Plug 'ziglang/zig.vim'
   " Others
   Plug 'wakatime/vim-wakatime'
 endif
