@@ -202,21 +202,7 @@
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 
-    "vim.enableNeovim": true,
-    "vim.leader": ",",
-    "vim.showMarksInGutter": true,
-    "vim.normalModeKeyBindings": [
-        {
-            "before":["<leader>", "<leader>"],
-            "commands": [
-                ":nohl",
-            ]
-        },
-        {
-            "before":["<S-k>"],
-            "commands": [
-                "editor.action.peekTypeDefinition",
-            ]
-        }
-    ]
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim-nightly/current/bin/nvim.exe",
 }
