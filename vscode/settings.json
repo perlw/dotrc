@@ -117,6 +117,9 @@
     "[powershell]": {
         "editor.formatOnSave": true,
     },
+    "[zig]": {
+        "editor.formatOnSave": true,
+    },
 
     "liveshare.featureSet": "stable",
 
