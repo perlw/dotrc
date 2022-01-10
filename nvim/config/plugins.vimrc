@@ -26,6 +26,7 @@ if !exists('g:vscode')
   Plug 'ayu-theme/ayu-vim'
   Plug 'ryanoasis/vim-devicons'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
+  Plug 'cocopon/iceberg.vim'
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'

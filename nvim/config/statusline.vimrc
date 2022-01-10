@@ -12,7 +12,7 @@ function! InsertStatuslineColor(mode)
   endif
 endfunction
 function! InitialStatuslineColors()
-  hi statusline ctermbg=darkmagenta ctermfg=yellow guibg=darkmagenta guifg=yellow
+  hi statusline ctermbg=yellow ctermfg=darkmagenta guibg=yellow guifg=darkmagenta
   hi User1 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
   hi User2 ctermbg=darkmagenta ctermfg=lightblue guibg=darkmagenta guifg=lightblue
 endfunction
