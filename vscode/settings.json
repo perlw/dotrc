@@ -58,6 +58,7 @@
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.defaultProfile.windows": "pwsh",
 
+    "workbench.colorTheme": "Iceberg Light",
     "workbench.tips.enabled": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.activityBar.visible": true,
