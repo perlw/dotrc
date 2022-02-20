@@ -32,10 +32,18 @@ function! ScmBranch()
   return ''
 endfunction
 
+function! FileFormatCorrect()
+  return
+    \(&ff == 'unix' && !has('unix')) ||
+    \(&ff == 'dos' && (!has('win32') && !has('win95'))) ||
+    \(&ff == 'mac' && !has('mac'))
+    \ ? ','.&ff : ''
+endfunction
+
 set statusline=
 set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %{WebDevIconsGetFileTypeSymbol(@%)}\ %{pathshorten(@%)}
 set statusline+=%m%r
 set statusline+=\ %{ScmBranch()}
 set statusline+=%=
-set statusline+=%2*%1*\ %y
+set statusline+=%2*%1*\ %y\ %{FileFormatCorrect()}
 set statusline+=\ %c#%l/%L\ %*
