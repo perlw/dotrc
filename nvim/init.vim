@@ -17,6 +17,8 @@ endif
 let mapleader=','
 " Searching
 nnoremap <leader><leader> :nohl<CR>
+" Term
+tnoremap <Esc> <C-\><C-n>
 
 runtime ./config/plugins.vimrc
 
