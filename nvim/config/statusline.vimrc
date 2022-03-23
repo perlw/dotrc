@@ -19,7 +19,7 @@ function! InitialStatuslineColors()
   hi User3 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
   hi User4 ctermbg=grey ctermfg=lightblue guibg=grey guifg=lightblue
   hi User5 ctermbg=darkmagenta ctermfg=yellow guibg=darkmagenta guifg=yellow
-  hi User6 ctermbg=grey ctermfg=darkgrey guibg=grey guifg=darkgrey
+  hi User6 ctermbg=grey ctermfg=lightgrey guibg=grey guifg=lightgrey
 endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
