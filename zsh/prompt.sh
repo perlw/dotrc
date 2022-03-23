@@ -9,7 +9,11 @@ gitinfo () {
     return
   fi
 
-  local branchName=$(git symbolic-ref HEAD | cut -d '/' -f 3)
+  local branchName=$(git symbolic-ref HEAD 2>/dev/null | cut -d '/' -f 3)
+  if [[ -z $branchName ]]; then
+    branchName="detached"
+  fi
+
   local isDirty=0
   if [[ ! -z $gitStatus ]]; then
     isDirty=1
