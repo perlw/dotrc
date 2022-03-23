@@ -18,7 +18,7 @@ let mapleader=','
 " Searching
 nnoremap <leader><leader> :nohl<CR>
 " Term
-tnoremap <Esc> <C-\><C-n>
+tnoremap <leader>- <C-\><C-n>
 
 runtime ./config/plugins.vimrc
 

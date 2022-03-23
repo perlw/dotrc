@@ -1,4 +1,3 @@
-" Statusline
 function! InsertStatuslineColor(mode)
   if a:mode ==? 'i'
     hi User1 ctermbg=lightgreen guibg=lightgreen
@@ -11,11 +10,18 @@ function! InsertStatuslineColor(mode)
     hi User2 ctermfg=red guifg=red
   endif
 endfunction
+
 function! InitialStatuslineColors()
-  hi statusline ctermbg=yellow ctermfg=darkmagenta guibg=yellow guifg=darkmagenta
+  hi statusline ctermbg=yellow ctermfg=grey guibg=yellow guifg=grey
+  hi statuslinenc ctermbg=grey ctermfg=grey guibg=grey guifg=grey
   hi User1 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
   hi User2 ctermbg=darkmagenta ctermfg=lightblue guibg=darkmagenta guifg=lightblue
+  hi User3 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
+  hi User4 ctermbg=grey ctermfg=lightblue guibg=grey guifg=lightblue
+  hi User5 ctermbg=darkmagenta ctermfg=yellow guibg=darkmagenta guifg=yellow
+  hi User6 ctermbg=grey ctermfg=darkgrey guibg=grey guifg=darkgrey
 endfunction
+
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertChange * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * call InitialStatuslineColors()
@@ -40,10 +46,30 @@ function! FileFormatCorrect()
     \ ? ','.&ff : ''
 endfunction
 
-set statusline=
-set statusline+=%1*\ %{CwdBase()}\ %2*%*\ %{WebDevIconsGetFileTypeSymbol(@%)}\ %{pathshorten(@%)}
-set statusline+=%m%r
-set statusline+=\ %{ScmBranch()}
-set statusline+=%=
-set statusline+=%2*%1*\ %y\ %{FileFormatCorrect()}
-set statusline+=\ %c#%l/%L\ %*
+function! Statusline(mode)
+  if a:mode ==? 'active'
+    let l:c1='%1*'
+    let l:c2='%2*'
+    let l:c3='%5*'
+  elseif a:mode ==? 'inactive'
+    let l:c1='%3*'
+    let l:c2='%4*'
+    let l:c3='%6*'
+  endif
+
+  let l:line=''
+  let l:line.='%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %{WebDevIconsGetFileTypeSymbol(@%)} %{pathshorten(@%)}'
+  let l:line.='%m%r'
+  let l:line.=' %{ScmBranch()}'
+  let l:line.='%='
+  let l:line.=c2 . '' . c1 . ' %y %{FileFormatCorrect()}'
+  let l:line.=' %c#%l/%L %4* %*'
+
+  let &l:statusline = l:line
+endfunction
+
+augroup statusline
+  autocmd!
+  autocmd WinEnter,BufEnter * setlocal statusline=%{Statusline('active')}
+  autocmd WinLeave,BufLeave * setlocal statusline=%{Statusline('inactive')}
+augroup END
