@@ -2,12 +2,18 @@ function! InsertStatuslineColor(mode)
   if a:mode ==? 'i'
     hi User1 ctermbg=lightgreen guibg=lightgreen
     hi User2 ctermfg=lightgreen guifg=lightgreen
+    hi User3 ctermbg=lightgreen guibg=lightgreen
+    hi User4 ctermfg=lightgreen guifg=lightgreen
   elseif a:mode ==? 'r'
     hi User1 ctermbg=darkmagenta guibg=darkmagenta
     hi User2 ctermfg=darkmagenta guifg=darkmagenta
+    hi User3 ctermbg=darkmagenta guibg=darkmagenta
+    hi User4 ctermfg=darkmagenta guifg=darkmagenta
   else
     hi User1 ctermbg=red guibg=red
     hi User2 ctermfg=red guifg=red
+    hi User3 ctermbg=red guibg=red
+    hi User4 ctermfg=red guifg=red
   endif
 endfunction
 
