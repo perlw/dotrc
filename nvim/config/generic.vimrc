@@ -42,6 +42,8 @@ autocmd FileChangedShellPost *
 
 if has('win32')
   autocmd bufwritepost *.odin silent execute '!X:/Projects/ols/odinfmt -w <afile>' | e
+else
+  autocmd bufwritepost *.odin silent execute '!odinfmt -w <afile>' | e
 endif
 
 " local vim config support
@@ -57,7 +59,7 @@ autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
 set termguicolors
 " let ayucolor='mirage'
 " color ayu
-set background=light
+set background=dark
 color iceberg
 set fillchars=vert:\│
 hi! VertSplit guifg=darkgray

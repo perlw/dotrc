@@ -13,7 +13,7 @@ lua <<EOF
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   end
 
-  local servers = { "bashls", "clangd", "gopls", "terraformls", "tsserver", "zls" }
+  local servers = { "bashls", "clangd", "gopls", "terraformls", "tsserver", "zls", "ols" }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
   end
