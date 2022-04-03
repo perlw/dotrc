@@ -40,11 +40,7 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-if has('win32')
-  autocmd bufwritepost *.odin silent execute '!X:/Projects/ols/odinfmt -w <afile>' | e
-else
   autocmd bufwritepost *.odin silent execute '!odinfmt -w <afile>' | e
-endif
 
 " local vim config support
 silent! so .vimlocal
