@@ -33,23 +33,21 @@ au InsertChange * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * call InitialStatuslineColors()
 call InitialStatuslineColors()
 
-function! ScmBranch()
-  if exists('b:git_dir')
+function! GitStatus()
+  if empty(FugitiveGitDir(bufnr('')))
+    return ''
+  else
     let head = fugitive#head()
     if len(head) > 30
       let head = head[0:27] . "..."
     endif
-    return printf('%s', head)
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return printf('%s +%d ~%d -%d', head, a, m, r)
   endif
-  return ''
 endfunction
 
-function! FileFormatCorrect()
-  return
-    \(&ff == 'unix' && !has('unix')) ||
-    \(&ff == 'dos' && (!has('win32') && !has('win95'))) ||
-    \(&ff == 'mac' && !has('mac'))
-    \ ? ','.&ff : ''
+function! FileFormat()
+  return &ff
 endfunction
 
 function! Statusline(mode)
@@ -64,11 +62,11 @@ function! Statusline(mode)
   endif
 
   let l:line=''
-  let l:line.='%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %{WebDevIconsGetFileTypeSymbol(@%)} %{pathshorten(@%)}'
+  let l:line.='%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %{WebDevIconsGetFileTypeSymbol(@%)} %t'
   let l:line.='%m%r'
-  let l:line.=' %{ScmBranch()}'
+  let l:line.=' %{GitStatus()}'
   let l:line.='%='
-  let l:line.=c2 . '' . c1 . ' %y %{FileFormatCorrect()}'
+  let l:line.=c2 . '' . c1 . ' %y:%{FileFormat()}'
   let l:line.=' %c#%l/%L %4* %*'
 
   let &l:statusline = l:line
