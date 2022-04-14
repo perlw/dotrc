@@ -55,7 +55,7 @@ autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
 set termguicolors
 " let ayucolor='mirage'
 " color ayu
-set background=dark
+set background=light
 color iceberg
 set fillchars=vert:\│
 hi! VertSplit guifg=darkgray
@@ -70,3 +70,6 @@ au BufNewFile,BufRead *.vert set filetype=glsl
 
 " Make
 nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Done!"<CR>
+
+" signs
+set signcolumn=auto:2

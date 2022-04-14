@@ -22,6 +22,7 @@ if !exists('g:vscode')
   Plug 'mhinz/vim-startify'
   Plug 'preservim/tagbar'
   Plug 'junegunn/vim-easy-align'
+  Plug 'kshenoy/vim-signature'
   " Style/sexy
   Plug 'ayu-theme/ayu-vim'
   Plug 'ryanoasis/vim-devicons'
