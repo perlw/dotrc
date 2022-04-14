@@ -34,3 +34,5 @@ alias lt='ls -lT --git-ignore --git'
 
 # Misc
 alias wttr="curl wttr.in/Malmö"
+alias tt='tt() { echo -n "\033]2;$1\007" };tt'
+alias gg='cd `git rev-parse --show-toplevel`'
