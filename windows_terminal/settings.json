@@ -1,4 +1,5 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -35,7 +36,6 @@
     {
         "defaults": 
         {
-            "acrylicOpacity": 0.5,
             "backgroundImageOpacity": 0.050000000000000003,
             "bellStyle": 
             [
@@ -48,8 +48,9 @@
             "font": 
             {
                 "face": "Iosevka",
-                "size": 14
+                "size": 13
             },
+            "opacity": 100,
             "padding": "0, 0, 0, 0",
             "useAcrylic": false
         },
@@ -69,7 +70,6 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
