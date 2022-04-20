@@ -10,7 +10,7 @@ lua <<EOF
     -- Mappings.
     local opts = { noremap=true, silent=true }
 
-    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   end
 
   local servers = { "bashls", "clangd", "gopls", "terraformls", "tsserver", "zls", "ols" }

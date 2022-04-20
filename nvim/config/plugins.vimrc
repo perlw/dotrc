@@ -10,6 +10,7 @@ if !exists('g:vscode')
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'lewis6991/nvim-treesitter-context'
   Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
@@ -28,6 +29,7 @@ if !exists('g:vscode')
   Plug 'ryanoasis/vim-devicons'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'cocopon/iceberg.vim'
+  Plug 'shaunsingh/nord.nvim'
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'

@@ -53,10 +53,14 @@ set cursorline
 autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
 autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
 set termguicolors
-" let ayucolor='mirage'
-" color ayu
-set background=light
-color iceberg
+" set background=light
+" color iceberg
+set background=dark
+let g:nord_contrast = v:false
+let g:nord_borders = v:true
+let g:nord_disable_background = v:false
+let g:nord_italic = v:false
+color nord
 set fillchars=vert:\│
 hi! VertSplit guifg=darkgray
 
