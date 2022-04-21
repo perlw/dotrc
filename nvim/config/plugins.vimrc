@@ -25,11 +25,9 @@ if !exists('g:vscode')
   Plug 'junegunn/vim-easy-align'
   Plug 'kshenoy/vim-signature'
   " Style/sexy
-  Plug 'ayu-theme/ayu-vim'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'cocopon/iceberg.vim'
-  Plug 'shaunsingh/nord.nvim'
+  Plug 'sainnhe/edge'
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'

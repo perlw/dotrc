@@ -18,8 +18,8 @@ function! InsertStatuslineColor(mode)
 endfunction
 
 function! InitialStatuslineColors()
-  hi statusline ctermbg=yellow ctermfg=grey guibg=yellow guifg=grey
-  hi statuslinenc ctermbg=grey ctermfg=grey guibg=grey guifg=grey
+  hi statusline ctermbg=grey ctermfg=grey guibg=grey guifg=grey
+  hi statuslinenc ctermbg=grey ctermfg=lightgrey guibg=grey guifg=lightgrey
   hi User1 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
   hi User2 ctermbg=darkmagenta ctermfg=lightblue guibg=darkmagenta guifg=lightblue
   hi User3 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
@@ -38,8 +38,8 @@ function! GitStatus()
     return ''
   else
     let head = fugitive#head()
-    if len(head) > 30
-      let head = head[0:27] . "..."
+    if len(head) > 16
+      let head = head[0:14] . ".."
     endif
     let [a,m,r] = GitGutterGetHunkSummary()
     return printf('%s +%d ~%d -%d', head, a, m, r)
