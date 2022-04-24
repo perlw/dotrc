@@ -29,7 +29,7 @@ source "$PWD/functions/creds.sh"
 alias sz="source $HOME/.zshrc"
 
 # ls
-alias ll='ls -la'
+alias ll='ls -oah'
 alias lt='ls -lT --git-ignore --git'
 
 # Misc
