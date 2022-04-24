@@ -19,6 +19,7 @@ let mapleader=','
 nnoremap <leader><leader> :nohl<CR>
 " Term
 tnoremap <leader>- <C-\><C-n>
+nnoremap <leader>l :spl\|lcd %:h\|term<CR>
 
 runtime ./config/plugins.vimrc
 
