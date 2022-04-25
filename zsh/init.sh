@@ -33,7 +33,7 @@ alias ll='ls -oah'
 alias lt='ls -lT --git-ignore --git'
 
 # npm
-alias nscr="cat package.json | jq -r '.scripts | to_entries[] | \"\(.key)\n\t$\(.value)\"'"
+alias nscr="cat package.json | jq -r '.scripts | to_entries[] | \"\u001b[1m\(.key)\u001b[0m\n    $\(.value)\"'"
 
 # Misc
 alias wttr="curl wttr.in/Malmö"

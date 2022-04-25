@@ -1,6 +1,6 @@
 {
     "editor.fontSize": 18,
-    "editor.fontFamily": "Iosevka",
+    "editor.fontFamily": "Iosevka Nerd Font Mono",
     "editor.tabSize": 2,
     "editor.fontLigatures": false,
     "editor.lineNumbers": "relative",
@@ -32,7 +32,7 @@
     "breadcrumbs.enabled": false,
 
     "keyboard.dispatch": "keyCode",
-    "terminal.integrated.fontFamily": "Iosevka",
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
     "terminal.integrated.fontSize": 18,
     "terminal.integrated.profiles.osx": {
       "zsh": {
