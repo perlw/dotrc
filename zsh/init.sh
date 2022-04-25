@@ -32,6 +32,9 @@ alias sz="source $HOME/.zshrc"
 alias ll='ls -oah'
 alias lt='ls -lT --git-ignore --git'
 
+# npm
+alias nscr="cat package.json | jq -r '.scripts | to_entries[] | \"\(.key)\n\t$\(.value)\"'"
+
 # Misc
 alias wttr="curl wttr.in/Malmö"
 alias tt='tt() { echo -n "\033]2;$1\007" };tt'
