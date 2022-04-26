@@ -21,11 +21,11 @@ if !exists('g:vscode')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'mhinz/vim-startify'
-  Plug 'preservim/tagbar'
   Plug 'junegunn/vim-easy-align'
   Plug 'kshenoy/vim-signature'
+  Plug 'kyazdani42/nvim-tree.lua'
   " Style/sexy
-  Plug 'ryanoasis/vim-devicons'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'cocopon/iceberg.vim'
   Plug 'sainnhe/edge'
   " File and syntax

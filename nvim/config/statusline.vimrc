@@ -50,6 +50,14 @@ function! FileFormat()
   return &ff
 endfunction
 
+function! GetIcon(file)
+  let icon = luaeval("require'nvim-web-devicons'.get_icon(_A)", a:file)
+  if icon !=? "null"
+    return icon
+  endif
+  return ""
+endfunction
+
 function! Statusline(mode)
   if a:mode ==? 'active'
     let l:c1='%1*'
@@ -62,7 +70,7 @@ function! Statusline(mode)
   endif
 
   let l:line=''
-  let l:line.='%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %{WebDevIconsGetFileTypeSymbol(@%)} %t'
+  let l:line.='%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %{GetIcon(@%)} %t'
   let l:line.='%m%r'
   let l:line.=' %{GitStatus()}'
   let l:line.='%='

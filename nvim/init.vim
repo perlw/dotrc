@@ -43,8 +43,6 @@ else
   au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
   set title
 
-  nnoremap <leader>t :TagbarToggle<CR>
-
   " strikethrough
   nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
 
