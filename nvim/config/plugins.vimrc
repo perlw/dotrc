@@ -10,7 +10,6 @@ if !exists('g:vscode')
   Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'lewis6991/nvim-treesitter-context'
   Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
