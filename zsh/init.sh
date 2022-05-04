@@ -21,8 +21,8 @@ PWD=`dirname $0`
 source "$PWD/prompt.sh"
 
 # Functions
-source "$PWD/functions/aur.sh"
 source "$PWD/functions/aws.sh"
+source "$PWD/functions/gcp.sh"
 source "$PWD/functions/creds.sh"
 
 # Zsh
