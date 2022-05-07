@@ -17,8 +17,6 @@ lua <<EOF
       "latex",
       "llvm",
       "lua",
-      "php",
-      "phpdoc",
       "regex",
       "typescript",
       "toml",
