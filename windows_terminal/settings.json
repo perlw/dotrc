@@ -43,7 +43,7 @@
                 "taskbar"
             ],
             "closeOnExit": "graceful",
-            "colorScheme": "Gruvbox Material",
+            "colorScheme": "Edge-Light",
             "cursorShape": "filledBox",
             "font": 
             {
@@ -129,6 +129,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#CCCCCC",
             "yellow": "#C19C00"
+        },
+        {
+            "background": "#FAFAFA",
+            "black": "#4B505B",
+            "blue": "#5079BE",
+            "brightBlack": "#4B505B",
+            "brightBlue": "#5079BE",
+            "brightCyan": "#3A8B84",
+            "brightGreen": "#608E32",
+            "brightPurple": "#B05CCC",
+            "brightRed": "#D05858",
+            "brightWhite": "#DADADA",
+            "brightYellow": "#BE7E05",
+            "cursorColor": "#C0C0C0",
+            "cyan": "#3A8B84",
+            "foreground": "#4B505B",
+            "green": "#608E32",
+            "name": "Edge-Light",
+            "purple": "#B05CCC",
+            "red": "#D05858",
+            "selectionBackground": "#C0C0C0",
+            "white": "#DADADA",
+            "yellow": "#BE7E05"
         },
         {
             "background": "#282828",
