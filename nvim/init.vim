@@ -29,16 +29,7 @@ if exists('g:vscode')
 else
   runtime ./config/generic.vimrc
   runtime ./config/statusline.vimrc
-  runtime ./config/plugins/startify.vimrc
-  runtime ./config/plugins/gitgutter.vimrc
-  runtime ./config/plugins/go.vimrc
-  runtime ./config/plugins/c.vimrc
-  runtime ./config/plugins/compe.vimrc
-  runtime ./config/plugins/saga.vimrc
-  runtime ./config/plugins/todo.vimrc
-  runtime ./config/plugins/treesitter.vimrc
-  runtime ./config/plugins/lspconfig.vimrc
-  runtime ./config/plugins/telescope.vimrc
+  runtime! ./config/plugins/**/*
 
   au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
   set title
