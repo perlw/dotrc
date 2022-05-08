@@ -36,7 +36,10 @@
     {
         "defaults": 
         {
-            "backgroundImageOpacity": 0.050000000000000003,
+            "unfocusedAppearance": {
+              "opacity": 80,
+            },
+            "backgroundImageOpacity": 1.0,
             "bellStyle": 
             [
                 "window",
@@ -50,9 +53,10 @@
                 "face": "Iosevka",
                 "size": 13
             },
-            "opacity": 100,
-            "padding": "0, 0, 0, 0",
-            "useAcrylic": false
+            "opacity": 80,
+            "scrollbarState": "hidden",
+            "padding": "2, 2, 2, 2",
+            "useAcrylic": true
         },
         "list": 
         [
