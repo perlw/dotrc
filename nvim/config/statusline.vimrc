@@ -37,7 +37,7 @@ function! GitStatus()
   if empty(FugitiveGitDir(bufnr('')))
     return ''
   else
-    let head = fugitive#head()
+    let head = FugitiveHead()
     if len(head) > 16
       let head = head[0:14] . ".."
     endif
