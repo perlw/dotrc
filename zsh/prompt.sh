@@ -33,7 +33,7 @@ fi
 
 hostname="%B%F{$PROMPT_COLOR}%m%f%b"
 directory="%F{cyan}%1~%f"
-retval="%(?::%B%F{red})%?%f%b"
+retval="%(?:%B%F{green}✓:%B%F{red}%?)%f%b"
 jobs="%j"
 
 precmd_functions=( _z_precmd )
