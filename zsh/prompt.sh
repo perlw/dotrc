@@ -1,11 +1,12 @@
 #!/bin/zsh
 
-vcsinfo=""
+vcsInfo=""
+dirInfo=""
 
-gitinfo () {
+gitInfo () {
   gitStatus=$(git status --porcelain 2>/dev/null)
   if [[ $? -ne 0 ]]; then
-    vcsinfo=""
+    vcsInfo=""
     return
   fi
 
@@ -24,7 +25,12 @@ gitinfo () {
   if [[ $isDirty -ne 0 ]]; then
     dirtyP="%F{yellow}‼%f"
   fi
-  vcsinfo="%B%F{blue}($branchP%F{blue})%f%b$dirtyP "
+  vcsInfo=" %B%F{blue}($branchP%F{blue})%f%b$dirtyP"
+}
+
+dirCount() {
+  dirCount="$(dirs -p | wc -l | tr -d ' ')"
+  dirInfo=$([[ $dirCount -gt 1 ]] && echo " $dirCount")
 }
 
 if [[ ! -v PROMPT_COLOR ]]; then
@@ -33,10 +39,10 @@ fi
 
 hostname="%B%F{$PROMPT_COLOR}%m%f%b"
 directory="%F{cyan}%1~%f"
-retval="%(?:%B%F{green}✓:%B%F{red}%?)%f%b"
-jobs="%(1j: %B%F{yellow}%j:)%f%b"
+retVal="%(?:%B%F{green}✓:%B%F{red}!%?)%f%b"
+jobs="%(1j: %B%F{yellow}%j:)%f%b"
 
 precmd_functions=( _z_precmd )
-precmd_functions+=( gitinfo )
+precmd_functions+=( gitInfo dirCount )
 setopt prompt_subst
-export PROMPT='($hostname:$directory)[$retval$jobs] $vcsinfo'
+export PROMPT='($hostname:$directory)[$retVal$jobs$dirInfo]$vcsInfo '
