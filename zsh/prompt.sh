@@ -34,7 +34,7 @@ fi
 hostname="%B%F{$PROMPT_COLOR}%m%f%b"
 directory="%F{cyan}%1~%f"
 retval="%(?:%B%F{green}✓:%B%F{red}%?)%f%b"
-jobs="%(1j: %j:)"
+jobs="%(1j: %B%F{yellow}%j:)%f%b"
 
 precmd_functions=( _z_precmd )
 precmd_functions+=( gitinfo )
