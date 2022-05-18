@@ -38,11 +38,16 @@ function! GitStatus()
     return ''
   else
     let head = FugitiveHead()
-    if len(head) > 16
-      let head = head[0:14] . ".."
+    if head == ''
+      let head = 'detached'
+    else
+      if len(head) > 16
+        let head = head[0:14] . '..'
+      endif
     endif
     let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('%s +%d ~%d -%d', head, a, m, r)
+    let isDirty = a || m || r
+    return printf('%s%s', head, (isDirty ? '‼' : ''))
   endif
 endfunction
 
