@@ -34,9 +34,9 @@ fi
 hostname="%B%F{$PROMPT_COLOR}%m%f%b"
 directory="%F{cyan}%1~%f"
 retval="%(?:%B%F{green}✓:%B%F{red}%?)%f%b"
-jobs="%j"
+jobs="%(1j: %j:)"
 
 precmd_functions=( _z_precmd )
 precmd_functions+=( gitinfo )
 setopt prompt_subst
-export PROMPT='($hostname:$directory)[$retval $jobs] $vcsinfo'
+export PROMPT='($hostname:$directory)[$retval$jobs] $vcsinfo'
