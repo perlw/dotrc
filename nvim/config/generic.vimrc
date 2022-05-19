@@ -53,6 +53,7 @@ set cursorline
 autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
 autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
 set termguicolors
+let &t_ut=''
 set background=light
 color edge
 set fillchars=vert:\│
