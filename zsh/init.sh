@@ -29,7 +29,9 @@ source "$PWD/functions/creds.sh"
 alias sz="source $HOME/.zshrc"
 
 # ls
-alias ls='ls --color=auto'
+if [ `uname` = 'Linux' ]; then
+  alias ls='ls --color=auto'
+fi
 alias ll='ls -oah'
 
 # npm

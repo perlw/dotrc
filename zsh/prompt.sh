@@ -42,7 +42,17 @@ directory="%F{cyan}%1~%f"
 retVal="%(?:%B%F{green}✓:%B%F{red}!%?)%f%b"
 jobs="%(1j: %B%F{yellow}%j:)%f%b"
 
+os=''
+un=`uname`
+if [ $un = 'Linux' ]; then
+  os=''
+else
+  if [ $un = 'Darwin' ]; then
+    os=''
+  fi
+fi
+
 precmd_functions=( _z_precmd )
 precmd_functions+=( gitInfo dirCount )
 setopt prompt_subst
-export PROMPT='($hostname:$directory)[$retVal$jobs$dirInfo]$vcsInfo '
+export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo]$vcsInfo '
