@@ -44,6 +44,7 @@ if !exists('g:vscode')
   Plug 'hashivim/vim-terraform'
   Plug 'ziglang/zig.vim'
   Plug 'Tetralux/odin.vim'
+  Plug 'prettier/vim-prettier', { 'do': 'npm install --production' }
   " Others
   Plug 'wakatime/vim-wakatime'
 endif

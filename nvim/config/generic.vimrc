@@ -72,3 +72,7 @@ nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Do
 
 " signs
 set signcolumn=auto:2
+
+" prettier
+let g:prettier#autoformat_require_pragma=0
+let g:prettier#autoformat_config_present=1
