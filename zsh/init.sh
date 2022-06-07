@@ -37,7 +37,12 @@ alias ll='ls -oah'
 # npm
 alias nscr="cat package.json | jq -r '.scripts | to_entries[] | \"\u001b[1m\(.key)\u001b[0m\n    $\(.value)\"'"
 
+ridiculusPushDirModified() {
+  pushd `git ss | grep ^UU | head -n 1 | cut -d ' ' -f 2 | xargs dirname`
+}
+
 # Misc
 alias wttr="curl wttr.in/Malmö"
 alias tt='tt() { echo -n "\033]2;$1\007" };tt'
 alias gg='cd `git rev-parse --show-toplevel`'
+alias puu='ridiculusPushDirModified'
