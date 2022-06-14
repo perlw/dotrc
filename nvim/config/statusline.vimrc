@@ -57,22 +57,22 @@ endfunction
 
 function! Statusline(mode)
   if a:mode ==? 'active'
-    let l:c1='%1*'
-    let l:c2='%2*'
-    let l:c3='%5*'
+    let l:c1 = '%1*'
+    let l:c2 = '%2*'
+    let l:c3 = '%5*'
   elseif a:mode ==? 'inactive'
-    let l:c1='%3*'
-    let l:c2='%4*'
-    let l:c3='%6*'
+    let l:c1 = '%3*'
+    let l:c2 = '%4*'
+    let l:c3 = '%6*'
   endif
 
-  let l:line=''
-  let l:line.='%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %t'
-  let l:line.='%m%r'
-  let l:line.=' %{GitStatus()}'
-  let l:line.='%='
-  let l:line.=c2 . '' . c1 . ' %y:%{FileFormat()}'
-  let l:line.=' %c#%l/%L %4* %*'
+  let l:line = ''
+  let l:line .= '%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %t'
+  let l:line .= '%m%r'
+  let l:line .= ' %{GitStatus()}'
+  let l:line .= '%='
+  let l:line .= c2 . '' . c1 . ' %y:%{FileFormat()}'
+  let l:line .= ' %c#%l/%L %4* %*'
 
   let &l:statusline = l:line
 endfunction

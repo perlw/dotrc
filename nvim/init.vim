@@ -29,6 +29,7 @@ if exists('g:vscode')
 else
   runtime ./config/generic.vimrc
   runtime ./config/statusline.vimrc
+  runtime ./config/tabline.vimrc
   runtime! ./config/plugins/**/*
 
   au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
