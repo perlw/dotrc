@@ -23,6 +23,7 @@ if !exists('g:vscode')
   Plug 'junegunn/vim-easy-align'
   Plug 'kshenoy/vim-signature'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'easymotion/vim-easymotion'
   " Style/sexy
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'cocopon/iceberg.vim'
