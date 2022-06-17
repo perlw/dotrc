@@ -41,7 +41,7 @@ autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " autocmd bufwritepost *.odin silent execute '!odinfmt -w <afile>' | e
-autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
+" autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
 
 " local vim config support
 silent! so .vimlocal
