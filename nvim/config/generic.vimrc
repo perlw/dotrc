@@ -77,3 +77,6 @@ set signcolumn=auto:2
 " prettier
 let g:prettier#autoformat_require_pragma=0
 let g:prettier#autoformat_config_present=1
+
+" easymotion
+map <Leader>. <Plug>(easymotion-prefix)
