@@ -40,10 +40,10 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" autocmd bufwritepost *.odin silent execute '!odinfmt -w <afile>' | e
-" autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
+" NOTE: Update to vim.lsp.buf.format() on nvim 0.8.0
+autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
 
-" local vim config support
+" project local vim config support
 silent! so .vimlocal
 
 " netrw

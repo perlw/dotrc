@@ -9,6 +9,7 @@ set modelines=0
 set nomodeline
 set nospell
 set updatetime=100
+set backupcopy=yes
 if has('win32')
   " Can't suspend on Windows at the moment.
   nmap <C-z> <Nop>
