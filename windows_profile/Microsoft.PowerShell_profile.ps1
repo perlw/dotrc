@@ -59,14 +59,14 @@ enum Colors
 
 function Foreground([Colors]$color, [string]$value) {
   $code = [int]$color
-  return "`e[38;5;${code}m${value}`e[0m"
+  return "`e[1;${code}m${value}`e[0m"
 }
 
 function global:prompt {
   $promptChar = " "
 
-  $prompt = "("
-  $prompt += Foreground Blue $env:COMPUTERNAME
+  $prompt = "("
+  $prompt += Foreground Green $env:COMPUTERNAME.ToLower()
   $prompt += ":"
   $prompt += Foreground Cyan (Split-Path -Path $pwd -Leaf)
   $prompt += ")"
