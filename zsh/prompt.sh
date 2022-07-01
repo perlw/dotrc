@@ -2,6 +2,7 @@
 
 vcsInfo=""
 dirInfo=""
+sessions=""
 
 gitInfo () {
   gitStatus=$(git status --porcelain 2>/dev/null)
@@ -29,8 +30,13 @@ gitInfo () {
 }
 
 dirCount() {
-  dirCount="$(dirs -p | wc -l | tr -d ' ')"
-  dirInfo=$([[ $dirCount -gt 1 ]] && echo " $dirCount")
+  count="$(dirs -p | wc -l | tr -d ' ')"
+  dirInfo=$([[ $count -gt 1 ]] && echo " $count")
+}
+
+tmuxSessionCount() {
+  count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
+  sessions=$([[ $count -gt 1 ]] && echo " %B%F{cyan}$count%f%b")
 }
 
 if [[ ! -v PROMPT_COLOR ]]; then
@@ -53,6 +59,6 @@ else
 fi
 
 precmd_functions=( _z_precmd )
-precmd_functions+=( gitInfo dirCount )
+precmd_functions+=( gitInfo dirCount tmuxSessionCount )
 setopt prompt_subst
-export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo]$vcsInfo '
+export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions]$vcsInfo '
