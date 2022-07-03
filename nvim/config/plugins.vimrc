@@ -25,9 +25,10 @@ if !exists('g:vscode')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'easymotion/vim-easymotion'
   " Style/sexy
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'cocopon/iceberg.vim'
   Plug 'sainnhe/edge'
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
   Plug 'petrbroz/vim-glsl'

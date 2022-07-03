@@ -55,8 +55,10 @@ autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
 autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
 set termguicolors
 let &t_ut=''
-set background=light
-color edge
+" set background=light
+" color edge
+set background=dark
+colorscheme palenight
 set fillchars=vert:\│
 hi! VertSplit guifg=darkgray
 
