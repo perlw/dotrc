@@ -3,6 +3,7 @@
 vcsInfo=""
 dirInfo=""
 sessions=""
+gcloudProjectId=""
 
 gitInfo () {
   gitStatus=$(git status --porcelain 2>/dev/null)
@@ -30,13 +31,19 @@ gitInfo () {
 }
 
 dirCount() {
-  count="$(dirs -p | wc -l | tr -d ' ')"
+  local count="$(dirs -p | wc -l | tr -d ' ')"
   dirInfo=$([[ $count -gt 1 ]] && echo " $count")
 }
 
 tmuxSessionCount() {
-  count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
+  local count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
   sessions=$([[ $count -gt 1 ]] && echo " %B%F{cyan}$count%f%b")
+}
+
+gcloudProject() {
+  local credPath="$HOME/.config/gcloud/application_default_credentials.json"
+  local id=$([ -f $credPath ] && cat $credPath | jq -r .quota_project_id)
+  gcloudProjectId=$([ ! -z $id ] && echo "%B%F{blue}%f$id%b")
 }
 
 if [[ ! -v PROMPT_COLOR ]]; then
@@ -59,6 +66,7 @@ else
 fi
 
 precmd_functions=( _z_precmd )
-precmd_functions+=( gitInfo dirCount tmuxSessionCount )
+precmd_functions+=( gitInfo dirCount tmuxSessionCount gcloudProject )
 setopt prompt_subst
 export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions]$vcsInfo '
+export RPROMPT='$gcloudProjectId'
