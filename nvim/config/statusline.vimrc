@@ -1,31 +1,27 @@
 function! InsertStatuslineColor(mode)
   if a:mode ==? 'i'
-    hi User1 ctermbg=lightgreen guibg=lightgreen
-    hi User2 ctermfg=lightgreen guifg=lightgreen
-    hi User3 ctermbg=lightgreen guibg=lightgreen
-    hi User4 ctermfg=lightgreen guifg=lightgreen
-  elseif a:mode ==? 'r'
-    hi User1 ctermbg=darkmagenta guibg=darkmagenta
-    hi User2 ctermfg=darkmagenta guifg=darkmagenta
-    hi User3 ctermbg=darkmagenta guibg=darkmagenta
-    hi User4 ctermfg=darkmagenta guifg=darkmagenta
+    hi statusline guibg=lightgreen
+    hi statuslinenc guibg=lightgreen
+    hi User1 guibg=lightgreen
+    hi User2 guifg=lightgreen
   else
-    hi User1 ctermbg=red guibg=red
-    hi User2 ctermfg=red guifg=red
-    hi User3 ctermbg=red guibg=red
-    hi User4 ctermfg=red guifg=red
+    hi statusline guibg=red
+    hi statuslinenc guibg=red
+    hi User1 guibg=red
+    hi User2 guifg=red
   endif
 endfunction
 
 function! InitialStatuslineColors()
-  hi statusline ctermbg=grey ctermfg=grey guibg=grey guifg=grey
-  hi statuslinenc ctermbg=grey ctermfg=lightgrey guibg=grey guifg=lightgrey
-  hi User1 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
-  hi User2 ctermbg=darkmagenta ctermfg=lightblue guibg=darkmagenta guifg=lightblue
-  hi User3 ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
-  hi User4 ctermbg=grey ctermfg=lightblue guibg=grey guifg=lightblue
-  hi User5 ctermbg=darkmagenta ctermfg=yellow guibg=darkmagenta guifg=yellow
-  hi User6 ctermbg=grey ctermfg=lightgrey guibg=grey guifg=lightgrey
+  hi statusline guibg=lightblue guifg=grey
+  hi statuslinenc guibg=lightblue guifg=lightgrey
+  hi User1 guibg=lightblue guifg=black
+  hi User2 guibg=#e78f00 guifg=lightblue
+  hi User3 guibg=darkmagenta guifg=yellow
+  hi User4 guibg=grey guifg=lightgrey
+  hi User5 guibg=#e78f00 guifg=lightyellow
+  hi User6 guibg=darkmagenta guifg=#e78f00
+  hi User7 guibg=grey guifg=#e78f00
 endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
@@ -35,7 +31,7 @@ call InitialStatuslineColors()
 
 function! GitStatus()
   if empty(FugitiveGitDir(bufnr('')))
-    return ''
+    return ''
   else
     let head = FugitiveHead()
     if head == ''
@@ -56,23 +52,24 @@ function! FileFormat()
 endfunction
 
 function! Statusline(mode)
+  let l:c1 = '%1*'
+  let l:c2 = '%2*'
   if a:mode ==? 'active'
-    let l:c1 = '%1*'
-    let l:c2 = '%2*'
-    let l:c3 = '%5*'
+    let l:c3 = '%3*'
+    let l:c4 = '%5*'
+    let l:c5 = '%6*'
   elseif a:mode ==? 'inactive'
-    let l:c1 = '%3*'
-    let l:c2 = '%4*'
-    let l:c3 = '%6*'
+    let l:c3 = '%4*'
+    let l:c4 = '%5*'
+    let l:c5 = '%7*'
   endif
 
   let l:line = ''
-  let l:line .= '%4* ' . c1 . ' %{CwdBase()} ' . c2 . '' . c3 . ' %t'
-  let l:line .= '%m%r'
-  let l:line .= ' %{GitStatus()}'
+  let l:line .= c1 . ' %t%m%r ' . c2 . ''
+  let l:line .= c4 . ' %{GitStatus()} ' . c5 . '' .c3
   let l:line .= '%='
-  let l:line .= c2 . '' . c1 . ' %y:%{FileFormat()}'
-  let l:line .= ' %c#%l/%L %4* %*'
+  let l:line .= c5 . '' . c4 . ' %y:%{FileFormat()} ' . c2 . '' . c1
+  let l:line .= ' %c#%l/%L '
 
   let &l:statusline = l:line
 endfunction
