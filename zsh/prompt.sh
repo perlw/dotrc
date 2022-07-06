@@ -12,22 +12,19 @@ gitInfo () {
     return
   fi
 
-  local branchName=$(git symbolic-ref HEAD 2>/dev/null | cut -d '/' -f 3)
-  if [[ -z $branchName ]]; then
-    branchName="detached"
+  local branchName=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [[ $branchName == "HEAD" ]]; then
+    branchName="%B%F{red}$(git rev-parse --short HEAD 2>/dev/null)"
+  else
+    branchName="%B%F{green}$branchName"
   fi
 
-  local isDirty=0
+  local dirtyFlag=""
   if [[ ! -z $gitStatus ]]; then
-    isDirty=1
+    dirtyFlag="%F{yellow}‼"
   fi
 
-  local branchP="%B%F{red}$branchName%f%b"
-  local dirtyP=""
-  if [[ $isDirty -ne 0 ]]; then
-    dirtyP="%F{yellow}‼%f"
-  fi
-  vcsInfo=" %B%F{blue}($branchP%F{blue})%f%b$dirtyP"
+  vcsInfo=" %B%F{blue}($branchName%F{blue})%f%b$dirtyFlag%f%b"
 }
 
 dirCount() {
@@ -56,13 +53,17 @@ retVal="%(?:%B%F{green}✓:%B%F{red}!%?)%f%b"
 jobs="%(1j: %B%F{yellow}%j:)%f%b"
 
 os=''
-un=`uname`
-if [ $un = 'Linux' ]; then
-  os=''
-else
-  if [ $un = 'Darwin' ]; then
-    os=''
+un=`uname -sr`
+if [ $un =~ 'Linux' ]; then
+  if [ $un =~ 'arch' ]; then # ;D
+    os=''
+  else
+    os=''
   fi
+elif [ $un =~ 'BSD' ]; then
+  os=''
+elif [ $un =~ 'Darwin' ]; then
+  os=''
 fi
 
 precmd_functions=( _z_precmd )
