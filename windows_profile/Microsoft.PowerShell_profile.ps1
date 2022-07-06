@@ -3,7 +3,8 @@ set-PSReadlineOption -EditMode vi
 Set-PSReadlineOption -Colors @{ "Parameter" = "White" }
 
 function GitPrompt() {
-  if (!(Test-Path .git)) {
+  $dirty = git status --porcelain 2>$null
+  if (!$?) {
     return ""
   }
 
@@ -11,26 +12,22 @@ function GitPrompt() {
   $result += Foreground Blue "("
 
   try {
-    $branch = git rev-parse --abbrev-ref HEAD
-    $dirty = git status --porcelain
+    $branch = git rev-parse --abbrev-ref HEAD 2>$null
 
     if ($branch -eq "HEAD") {
-      # we're probably in detached HEAD state, so print the SHA
-      $branch = git rev-parse --short HEAD
+      $branch = git rev-parse --short HEAD 2>$null
       $result += Foreground Red $branch
     } else {
-      # we're on an actual branch, so print it
       $result += Foreground Green $branch
     }
   } catch {
-    # we'll end up here if we're in a newly initiated git repo
     $result += Foreground Yellow "n/a"
   }
 
   $result += Foreground Blue ")"
 
   if ($dirty -ne $null) {
-    $result += Foreground Yellow " ‼"
+    $result += Foreground Yellow "‼"
   }
 
   return $result
@@ -65,12 +62,35 @@ function Foreground([Colors]$color, [string]$value) {
 function global:prompt {
   $promptChar = " "
 
-  $prompt = "("
-  $prompt += Foreground Green $env:COMPUTERNAME.ToLower()
-  $prompt += ":"
-  $prompt += Foreground Cyan (Split-Path -Path $pwd -Leaf)
-  $prompt += ")"
+  $osChar = ""
+  # NOTE: I guess you never know..
+  if ($IsLinux) {
+    $osChar = ""
+  } elseif ($IsMacOS) {
+    $osChar = ""
+  }
+
+  $dirCount = (Get-Location -Stack).Count
+  $dirInfo = ""
+  if ($dirCount -gt 0) {
+    $dirInfo = " $dirCount"
+  }
+  $lastStatus = Foreground Green "✓"
+  if ($Error.Count -gt 0) {
+    $lastStatus = Foreground Red "✖"
+  }
+  $jobCount = (Get-Job).Count
+  $jobs = ""
+  if ($jobCount -gt 0) {
+    $jobs = Foreground Yellow " $jobCount"
+  }
+
+  $prompt = "($osChar$(Foreground Green $env:COMPUTERNAME.ToLower()):$(Foreground Cyan (Split-Path -Path $pwd -Leaf)))"
+  $prompt += "[$lastStatus$jobs$dirInfo]"
   $prompt += GitPrompt
+
+  # NOTE: Hack to be able to check if last execution produced errors. It's bad practice, I know.
+  $Error.Clear()
 
   return $prompt + $promptChar
 }
