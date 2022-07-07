@@ -1,40 +1,45 @@
 function TabLabel(n)
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1])
+  let l:buflist = tabpagebuflist(a:n)
+  let l:winnr = tabpagewinnr(a:n)
+  return bufname(l:buflist[l:winnr - 1])
 endfunction
 
 function Tabline()
-  let line = ''
+  let l:line = ''
 
   for i in range(tabpagenr('$'))
     if i + 1 == tabpagenr()
-      let line ..= '%7*%*'
-      let line ..= '%#TabLineSel#'
+      if i == 0
+        let l:line ..= '%6*%*'
+      else
+        let l:line ..= '%3*%*'
+      endif
+
+      let l:line ..= '%#TabLineSel#'
     else
-      let line ..= '%8*%*'
-      let line ..= '%#TabLine#'
+      if i == 0
+        let l:line ..= '%1*%*'
+      else
+        let l:line ..= '%3*%*'
+      endif
+
+      let l:line ..= '%#TabLine#'
     endif
 
-    let line ..= '%' .. (i + 1) .. 'T'
-
-    let line ..= ' %{TabLabel(' .. (i + 1) .. ')} '
-
-    if i + 1 == tabpagenr()
-      let line ..= '%7*%*'
-    else
-      let line ..= '%8*%*'
-    endif
+    let l:line ..= '%' .. (i + 1) .. 'T'
+    let l:line ..= ' %{TabLabel(' .. (i + 1) .. ')} '
   endfor
+  if i + 1 == tabpagenr()
+    let l:line ..= '%6*%*'
+  else
+    let l:line ..= '%1*%*'
+  endif
 
-  let line ..= '%#TabLineFill#%T'
-
-  return line
+  let l:line ..= '%#TabLineFill#%T'
+  return l:line
 endfunction
 
-hi User7 ctermbg=grey ctermfg=darkmagenta guibg=grey guifg=darkmagenta
-hi User8 ctermbg=grey ctermfg=lightblue guibg=grey guifg=lightblue
-hi tablinesel ctermbg=darkmagenta ctermfg=yellow guibg=darkmagenta guifg=yellow
-hi tabline ctermbg=lightblue ctermfg=black guibg=lightblue guifg=black
-hi tablinefill ctermbg=grey ctermfg=grey guibg=grey guifg=grey
+hi tablinesel guibg=#e78f00 guifg=lightyellow
+hi tabline guibg=lightblue guifg=black
+hi tablinefill guibg=grey guifg=grey
 set tabline=%!Tabline()

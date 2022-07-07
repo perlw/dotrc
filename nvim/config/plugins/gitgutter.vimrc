@@ -1,5 +1,7 @@
-" gitgutter
-autocmd BufWritePost * GitGutter
+augroup gitgutter
+  autocmd!
+  autocmd BufWritePost * GitGutter
+augroup END
 let g:gitgutter_highlight_linenrs=1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_async=1

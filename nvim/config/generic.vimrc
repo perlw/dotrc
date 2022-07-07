@@ -35,13 +35,19 @@ set splitright
 " Autoreload changed files
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 set autoread
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-      \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
-autocmd FileChangedShellPost *
-      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup auto_reload
+  autocmd!
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+  autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup END
 
 " NOTE: Update to vim.lsp.buf.format() on nvim 0.8.0
-autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
+augroup odin
+  autocmd!
+  autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
+augroup END
 
 " project local vim config support
 silent! so .vimlocal
@@ -51,8 +57,11 @@ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
 " Eyecandy
 set cursorline
-autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
-autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
+augroup dynamic_cursorline
+  autocmd!
+  autocmd WinEnter,BufEnter,BufWinEnter * set cursorline
+  autocmd WinLeave,BufLeave,BufWinLeave * set nocursorline
+augroup END
 set termguicolors
 let &t_ut=''
 " set background=light
@@ -66,9 +75,12 @@ hi! VertSplit guifg=darkgray
 let g:markdown_fenced_languages = ['html']
 
 " GLSL
-au BufNewFile,BufRead *.glsl set filetype=glsl
-au BufNewFile,BufRead *.frag set filetype=glsl
-au BufNewFile,BufRead *.vert set filetype=glsl
+augroup custom_glsl_types
+  autocmd!
+  autocmd BufNewFile,BufRead *.glsl set filetype=glsl
+  autocmd BufNewFile,BufRead *.frag set filetype=glsl
+  autocmd BufNewFile,BufRead *.vert set filetype=glsl
+augroup END
 
 " Make
 nnoremap <leader>m :echo "Building..."\|make\|redraw\|botright cwindow\|echo "Done!"<CR>
