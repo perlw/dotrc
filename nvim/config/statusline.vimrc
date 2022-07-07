@@ -1,33 +1,25 @@
+function! InitialStatuslineColors()
+  hi statusline guibg=grey guifg=grey
+  hi statuslinenc guibg=grey guifg=lightgrey
+  hi User1 guibg=grey guifg=lightblue
+  hi User2 guibg=lightblue guifg=black
+  hi User3 guibg=#e78f00 guifg=lightblue
+  hi User4 guibg=#e78f00 guifg=lightyellow
+  hi User5 guibg=darkmagenta guifg=#e78f00
+  hi User6 guibg=grey guifg=#e78f00
+endfunction
+
 function! InsertStatuslineColor(mode)
   if a:mode ==? 'i'
-    hi statusline guibg=lightgreen
-    hi statuslinenc guibg=lightgreen
-    hi User1 guibg=lightgreen
-    hi User2 guifg=lightgreen
+    hi User1 guifg=lightgreen
+    hi User2 guibg=lightgreen
+    hi User3 guifg=lightgreen
   else
-    hi statusline guibg=red
-    hi statuslinenc guibg=red
-    hi User1 guibg=red
-    hi User2 guifg=red
+    hi User1 guifg=red
+    hi User2 guibg=red
+    hi User3 guifg=red
   endif
 endfunction
-
-function! InitialStatuslineColors()
-  hi statusline guibg=lightblue guifg=grey
-  hi statuslinenc guibg=lightblue guifg=lightgrey
-  hi User1 guibg=lightblue guifg=black
-  hi User2 guibg=#e78f00 guifg=lightblue
-  hi User3 guibg=darkmagenta guifg=yellow
-  hi User4 guibg=grey guifg=lightgrey
-  hi User5 guibg=#e78f00 guifg=lightyellow
-  hi User6 guibg=darkmagenta guifg=#e78f00
-  hi User7 guibg=grey guifg=#e78f00
-endfunction
-
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertChange * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * call InitialStatuslineColors()
-call InitialStatuslineColors()
 
 function! GitStatus()
   if empty(FugitiveGitDir(bufnr('')))
@@ -36,10 +28,8 @@ function! GitStatus()
     let head = FugitiveHead()
     if head == ''
       let head = 'detached'
-    else
-      if len(head) > 16
-        let head = head[0:14] . '..'
-      endif
+    elseif len(head) > 16
+      let head = head[0:14] . '..'
     endif
     let [a,m,r] = GitGutterGetHunkSummary()
     let isDirty = a || m || r
@@ -52,30 +42,32 @@ function! FileFormat()
 endfunction
 
 function! Statusline(mode)
-  let l:c1 = '%1*'
-  let l:c2 = '%2*'
+  let l:cEdgeSlant = '%1*'
+  let l:cEdgeContent = '%2*'
+  let l:cMidSlant = '%3*'
+  let l:cMidContent = '%4*'
   if a:mode ==? 'active'
-    let l:c3 = '%3*'
-    let l:c4 = '%5*'
-    let l:c5 = '%6*'
+    let l:cCenterBarSlant = '%5*'
   elseif a:mode ==? 'inactive'
-    let l:c3 = '%4*'
-    let l:c4 = '%5*'
-    let l:c5 = '%7*'
+    let l:cCenterBarSlant = '%6*'
   endif
 
   let l:line = ''
-  let l:line .= c1 . ' %t%m%r ' . c2 . ''
-  let l:line .= c4 . ' %{GitStatus()} ' . c5 . '' .c3
+  let l:line .= cEdgeSlant . ' ' . cEdgeContent . ' %t%m%r ' . cMidSlant . ''
+  let l:line .= cMidContent . ' %{GitStatus()} ' . cCenterBarSlant . ''
   let l:line .= '%='
-  let l:line .= c5 . '' . c4 . ' %y:%{FileFormat()} ' . c2 . '' . c1
-  let l:line .= ' %c#%l/%L '
+  let l:line .= '' . cMidContent . ' %y:%{FileFormat()} ' . cMidSlant . '' . cEdgeContent
+  let l:line .= ' %c#%l/%L ' . cEdgeSlant . '%* '
 
   let &l:statusline = l:line
 endfunction
 
 augroup statusline
   autocmd!
+  autocmd InsertEnter * call InsertStatuslineColor(v:insertmode)
+  autocmd InsertChange * call InsertStatuslineColor(v:insertmode)
+  autocmd InsertLeave * call InitialStatuslineColors()
   autocmd WinEnter,BufEnter * setlocal statusline=%{Statusline('active')}
   autocmd WinLeave,BufLeave * setlocal statusline=%{Statusline('inactive')}
 augroup END
+call InitialStatuslineColors()
