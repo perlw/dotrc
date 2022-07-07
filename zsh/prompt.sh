@@ -34,7 +34,7 @@ dirCount() {
 
 tmuxSessionCount() {
   local count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
-  sessions=$([[ $count -gt 1 ]] && echo " %B%F{cyan}$count%f%b")
+  sessions=$([[ $count -gt 0 ]] && echo " %B%F{cyan}$count%f%b")
 }
 
 gcloudProject() {
