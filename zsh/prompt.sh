@@ -54,15 +54,15 @@ jobs="%(1j: %B%F{yellow}%j:)%f%b"
 
 os=''
 un=`uname -sr`
-if [ $un =~ 'Linux' ]; then
-  if [ $un =~ 'arch' ]; then # ;D
+if [[ $un =~ 'Linux' ]]; then
+  if [[ $un =~ 'arch' ]]; then # ;D
     os=''
   else
     os=''
   fi
-elif [ $un =~ 'BSD' ]; then
+elif [[ $un =~ 'BSD' ]]; then
   os=''
-elif [ $un =~ 'Darwin' ]; then
+elif [[ $un =~ 'Darwin' ]]; then
   os=''
 fi
 
