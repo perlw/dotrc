@@ -49,7 +49,7 @@ fi
 
 hostname="%B%F{$PROMPT_COLOR}%m%f%b"
 directory="%F{cyan}%1~%f"
-retVal="%(?:%B%F{green}✓:%B%F{red}!%?)%f%b"
+retVal="%(?:%B%F{green}✓:%B%F{red}✖%?)%f%b"
 jobs="%(1j: %B%F{yellow}%j:)%f%b"
 
 os=''
