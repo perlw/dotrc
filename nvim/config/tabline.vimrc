@@ -9,31 +9,22 @@ function Tabline()
 
   for i in range(tabpagenr('$'))
     if i + 1 == tabpagenr()
-      if i == 0
-        let l:line ..= '%6*%*'
-      else
-        let l:line ..= '%3*%*'
-      endif
-
+      let l:line ..= '%1*%3*%*'
       let l:line ..= '%#TabLineSel#'
     else
-      if i == 0
-        let l:line ..= '%1*%*'
-      else
-        let l:line ..= '%3*%*'
-      endif
-
+      let l:line ..= '%1*%*'
       let l:line ..= '%#TabLine#'
     endif
 
     let l:line ..= '%' .. (i + 1) .. 'T'
     let l:line ..= ' %{TabLabel(' .. (i + 1) .. ')} '
+
+    if i + 1 == tabpagenr()
+      let l:line ..= '%3*%1*%*'
+    else
+      let l:line ..= '%1*%*'
+    endif
   endfor
-  if i + 1 == tabpagenr()
-    let l:line ..= '%6*%*'
-  else
-    let l:line ..= '%1*%*'
-  endif
 
   let l:line ..= '%#TabLineFill#%T'
   return l:line
