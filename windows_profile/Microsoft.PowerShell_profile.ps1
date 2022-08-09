@@ -2,6 +2,10 @@ Set-PSReadlineOption -BellStyle None
 set-PSReadlineOption -EditMode vi
 Set-PSReadlineOption -Colors @{ "Parameter" = "White" }
 
+function tt([string]$title) {
+  Write-Output "`e]2;$title`a"
+}
+
 function GitPrompt() {
   $dirty = git status --porcelain 2>$null
   if (!$?) {
