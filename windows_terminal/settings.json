@@ -48,7 +48,15 @@
             "font": 
             {
                 "face": "Iosevka",
-                "size": 13
+                "size": 13,
+                "features": {
+                  "calt": 0,
+                  "clig": 0,
+                  "dlig": 0,
+                  "hlig": 0,
+                  "liga": 0,
+                  "rlig": 0
+                }
             },
             "opacity": 100,
             "padding": "2, 2, 2, 2",
