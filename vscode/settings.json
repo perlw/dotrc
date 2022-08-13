@@ -1,6 +1,6 @@
 {
     "editor.fontSize": 18,
-    "editor.fontFamily": "Iosevka Nerd Font Mono",
+    "editor.fontFamily": "Iosevka",
     "editor.tabSize": 2,
     "editor.fontLigatures": false,
     "editor.lineNumbers": "relative",
@@ -32,7 +32,7 @@
     "breadcrumbs.enabled": false,
 
     "keyboard.dispatch": "keyCode",
-    "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
+    "terminal.integrated.fontFamily": "Iosevka",
     "terminal.integrated.fontSize": 18,
     "terminal.integrated.profiles.osx": {
       "zsh": {
@@ -59,9 +59,9 @@
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.defaultProfile.windows": "pwsh",
 
-    "workbench.colorTheme": "Iceberg Light",
+    "workbench.colorTheme": "Palenight (Mild Contrast)",
     "workbench.tips.enabled": false,
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-great-icons",
     "workbench.activityBar.visible": true,
     "workbench.startupEditor": "none",
     "workbench.editor.decorations.badges": true,
@@ -172,7 +172,7 @@
     },
 
     // Zig
-    "zigLanguageClient.path": "X:/Apps/zls/zls.exe",
+    "zigLanguageClient.path": "D:/Apps/zls/zls.exe",
     "[zig]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "tiehuis.zig",
@@ -212,5 +212,7 @@
 
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim-nightly/current/bin/nvim.exe",
+    "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim/current/bin/nvim.exe",
+
+    "ols.server.path": "D:/Projects/ols/ols.exe"
 }
