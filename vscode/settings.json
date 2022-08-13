@@ -6,9 +6,9 @@
     "editor.lineNumbers": "relative",
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "trailing",
-    "editor.minimap.enabled": false,
     "editor.renderLineHighlight": "all",
     "editor.renderLineHighlightOnlyWhenFocus": true,
+    "editor.minimap.enabled": false,
     "editor.rulers": [
         100,
     ],
@@ -29,6 +29,8 @@
     "editor.guides.bracketPairsHorizontal": "active",
     "editor.guides.indentation": true,
     "editor.guides.highlightActiveIndentation": true,
+    "editor.occurrencesHighlight": false,
+
     "breadcrumbs.enabled": false,
 
     "keyboard.dispatch": "keyCode",
@@ -213,6 +215,7 @@
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim/current/bin/nvim.exe",
+    "vscode-neovim.revealCursorScrollLine": true,
 
     "ols.server.path": "D:/Projects/ols/ols.exe"
 }
