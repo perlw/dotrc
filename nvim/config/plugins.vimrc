@@ -7,7 +7,6 @@ if !exists('g:vscode')
   Plug 'tpope/vim-surround'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'tpope/vim-vinegar'
   Plug 'sakshamgupta05/vim-todo-highlight'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
@@ -51,6 +50,7 @@ if !exists('g:vscode')
   Plug 'wakatime/vim-wakatime'
 endif
 
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-sensible'
 
 call plug#end()

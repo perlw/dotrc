@@ -71,4 +71,8 @@
         "key": "ctrl+w",
         "command": "-workbench.action.closeWindow",
     },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenView"
+    },
 ]

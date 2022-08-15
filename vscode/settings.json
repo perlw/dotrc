@@ -68,6 +68,7 @@
     "workbench.startupEditor": "none",
     "workbench.editor.decorations.badges": true,
     "workbench.editor.decorations.colors": true,
+    "workbench.list.automaticKeyboardNavigation": false,
 
     "explorer.compactFolders": false,
     "explorer.openEditors.visible": 0,
@@ -89,16 +90,14 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "**/.DS_Store": true,
-        "vendor/": true
+        "**/.DS_Store": true
     },
     "files.watcherExclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "**/.DS_Store": true,
-        "vendor/": true
+        "**/.DS_Store": true
     },
     "files.eol": "\n",
 
@@ -117,6 +116,9 @@
         "editor.defaultFormatter": "xaver.clang-format"
     },
     "[powershell]": {
+        "editor.formatOnSave": true,
+    },
+    "[odin]": {
         "editor.formatOnSave": true,
     },
 
@@ -184,9 +186,6 @@
     // gitlens
     "gitlens.codeLens.enabled": false,
 
-    // C/CPP
-    "C_Cpp.updateChannel": "Insiders",
-
     // Todo Tree
     "todo-tree.general.tags": [
         "NOTE",
@@ -197,25 +196,38 @@
     ],
     "todo-tree.highlights.customHighlight": {
         "NOTE": {
-            "foreground": "#aaffaa",
-            "background": "green",
+            "foreground": "#2AB",
+            "background": "#006",
         },
         "FIXME": {
-            "icon": "flame",
-            "foreground": "#ffeeee",
-            "background": "red",
+            "foreground": "#D35",
+            "background": "#600",
+            "fontWeight": "bold",
             "textDecoration": "underline",
         },
         "TODO":{
+            "foreground": "#AFA",
+            "background": "#060",
             "textDecoration": "underline",
         },
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.win32": "C:/Users/perlo/scoop/apps/neovim/current/bin/nvim.exe",
-    "vscode-neovim.revealCursorScrollLine": true,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "<leader>"],
+            "after": [":nohl"],
+        }
+    ],
+    "vim.showMarksInGutter": true,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "nvim",
 
     "ols.server.path": "D:/Projects/ols/ols.exe"
 }
