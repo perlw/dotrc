@@ -229,5 +229,5 @@
     "vim.enableNeovim": true,
     "vim.neovimPath": "nvim",
 
-    "ols.server.path": "D:/Projects/ols/ols.exe"
+    "ols.server.path": "ols"
 }
