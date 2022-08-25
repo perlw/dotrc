@@ -1,233 +1,216 @@
 {
-    "editor.fontSize": 18,
-    "editor.fontFamily": "Iosevka",
-    "editor.tabSize": 2,
-    "editor.fontLigatures": false,
-    "editor.lineNumbers": "relative",
-    "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "trailing",
-    "editor.renderLineHighlight": "all",
-    "editor.renderLineHighlightOnlyWhenFocus": true,
-    "editor.minimap.enabled": false,
-    "editor.rulers": [
-        100,
-    ],
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never",
-    "editor.find.autoFindInSelection": "always",
-    "editor.wordWrap": "off",
-    "editor.links": false,
-    "editor.cursorBlinking": "solid",
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "editor.scrollBeyondLastLine": false,
-    "editor.parameterHints.enabled": true,
-    "editor.matchBrackets": "always",
-    "editor.guides.bracketPairs": "active",
-    "editor.guides.bracketPairsHorizontal": "active",
-    "editor.guides.indentation": true,
-    "editor.guides.highlightActiveIndentation": true,
-    "editor.occurrencesHighlight": false,
+  "editor.fontSize": 18,
+  "editor.fontFamily": "Iosevka",
+  "editor.tabSize": 2,
+  "editor.fontLigatures": false,
+  "editor.lineNumbers": "relative",
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "trailing",
+  "editor.renderLineHighlight": "all",
+  "editor.renderLineHighlightOnlyWhenFocus": true,
+  "editor.minimap.enabled": false,
+  "editor.rulers": [100],
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.find.autoFindInSelection": "always",
+  "editor.wordWrap": "off",
+  "editor.links": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.scrollBeyondLastLine": false,
+  "editor.parameterHints.enabled": true,
+  "editor.matchBrackets": "always",
+  "editor.bracketPairColorization.enabled": false,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.guides.indentation": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.occurrencesHighlight": false,
 
-    "breadcrumbs.enabled": false,
-
-    "keyboard.dispatch": "keyCode",
-    "terminal.integrated.fontFamily": "Iosevka",
-    "terminal.integrated.fontSize": 18,
-    "terminal.integrated.profiles.osx": {
-      "zsh": {
-        "path": "zsh",
-        "args": [
-          "--login"
-        ]
-      }
-    },
-    "terminal.integrated.profiles.linux": {
-      "zsh": {
-        "path": "zsh",
-        "args": [
-          "--login"
-        ]
-      }
-    },
-    "terminal.integrated.profiles.windows": {
-      "pwsh": {
-        "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
-      }
-    },
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.defaultProfile.windows": "pwsh",
-
-    "workbench.colorTheme": "Palenight (Mild Contrast)",
-    "workbench.tips.enabled": false,
-    "workbench.iconTheme": "vscode-great-icons",
-    "workbench.activityBar.visible": true,
-    "workbench.startupEditor": "none",
-    "workbench.editor.decorations.badges": true,
-    "workbench.editor.decorations.colors": true,
-    "workbench.list.automaticKeyboardNavigation": false,
-
-    "explorer.compactFolders": false,
-    "explorer.openEditors.visible": 0,
-    "explorer.confirmDragAndDrop": false,
-
-    "window.titleBarStyle": "custom",
-    "window.menuBarVisibility": "toggle",
-    "window.title": "${rootName}${separator}${activeEditorMedium}${dirty}",
-
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "files.associations": {
-        "*.tpl": "html",
-        "Dockerfile.*": "dockerfile",
-    },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
-    },
-    "files.watcherExclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
-    },
-    "files.eol": "\n",
-
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[c]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "xaver.clang-format"
-    },
-    "[cpp]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "xaver.clang-format"
-    },
-    "[powershell]": {
-        "editor.formatOnSave": true,
-    },
-    "[odin]": {
-        "editor.formatOnSave": true,
-    },
-
-    "liveshare.featureSet": "stable",
-
-    // Cloudformation
-    "yaml.customTags": [
-        "!And",
-        "!If",
-        "!Not",
-        "!Equals",
-        "!Or",
-        "!FindInMap sequence",
-        "!Base64",
-        "!Cidr",
-        "!Ref",
-        "!Sub",
-        "!GetAtt",
-        "!GetAZs",
-        "!ImportValue",
-        "!Select",
-        "!Select sequence",
-        "!Split",
-        "!Join sequence",
-        "!And sequence",
-        "!If sequence",
-        "!Not sequence",
-        "!Equals sequence",
-        "!Or sequence",
-        "!FindInMap",
-        "!Join",
-        "!Sub sequence",
-        "!ImportValue sequence",
-        "!Split sequence"
-    ],
-    "yaml.format.enable": true,
-    "yaml.validate": false,
-
-    // Go
-    "go.buildOnSave": "workspace",
-    "go.vetOnSave": "workspace",
-    "go.lintOnSave": "workspace",
-    "go.autocompleteUnimportedPackages": true,
-    "go.useLanguageServer": true,
-    "go.languageServerExperimentalFeatures": {
-        "diagnostics": true
-    },
-    "go.toolsManagement.autoUpdate": true,
-    "[go]": {
-        "editor.snippetSuggestions": "none",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        },
-    },
-
-    // Zig
-    "zigLanguageClient.path": "D:/Apps/zls/zls.exe",
-    "[zig]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "tiehuis.zig",
-        "editor.tabSize": 4,
-    },
-
-    // gitlens
-    "gitlens.codeLens.enabled": false,
-
-    // Todo Tree
-    "todo-tree.general.tags": [
-        "NOTE",
-        "FIXME",
-        "TODO",
-        "[ ]",
-        "[x]"
-    ],
-    "todo-tree.highlights.customHighlight": {
-        "NOTE": {
-            "foreground": "#2AB",
-            "background": "#006",
-        },
-        "FIXME": {
-            "foreground": "#D35",
-            "background": "#600",
-            "fontWeight": "bold",
-            "textDecoration": "underline",
-        },
-        "TODO":{
-            "foreground": "#AFA",
-            "background": "#060",
-            "textDecoration": "underline",
-        },
-    },
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-
-    "vim.easymotion": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.leader": ",",
-    "vim.normalModeKeyBindingsNonRecursive": [
+  "editor.tokenColorCustomizations": {
+    "[Palenight (Mild Contrast)]": {
+      "textMateRules": [
         {
-            "before": ["<leader>", "<leader>"],
-            "after": [":nohl"],
+          "name": "Comment Line",
+          "scope": "comment.line",
+          "settings": {
+            "fontStyle": "bold",
+            "foreground": "#6A6"
+          }
+        },
+        {
+          "name": "Comment Block",
+          "scope": "comment.block",
+          "settings": {
+            "fontStyle": "",
+            "foreground": "#996"
+          }
+        },
+        {
+          "name": "Comment Documentation",
+          "scope": "comment.block.documentation",
+          "settings": {
+            "fontStyle": "",
+            "foreground": "#6A6"
+          }
         }
-    ],
-    "vim.showMarksInGutter": true,
-    "vim.enableNeovim": true,
-    "vim.neovimPath": "nvim",
+      ]
+    }
+  },
 
-    "ols.server.path": "ols"
+  "telemetry.telemetryLevel": "off",
+
+  "breadcrumbs.enabled": false,
+
+  "keyboard.dispatch": "keyCode",
+
+  "terminal.integrated.fontFamily": "Iosevka",
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "zsh",
+      "args": ["--login"]
+    }
+  },
+  "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "zsh",
+      "args": ["--login"]
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "pwsh": {
+      "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "pwsh",
+
+  "workbench.colorTheme": "Palenight (Mild Contrast)",
+  "workbench.tips.enabled": false,
+  "workbench.activityBar.visible": true,
+  "workbench.startupEditor": "none",
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
+  "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.experimental.settingsProfiles.enabled": true,
+
+  "explorer.compactFolders": false,
+  "explorer.openEditors.visible": 0,
+  "explorer.confirmDragAndDrop": false,
+
+  "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${rootName}${separator}${activeEditorMedium}${dirty}",
+
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    "*.tpl": "html",
+    "Dockerfile.*": "dockerfile"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "files.watcherExclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "files.eol": "\n",
+
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[c]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[cpp]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[powershell]": {
+    "editor.formatOnSave": true
+  },
+
+  "ols.server.path": "ols",
+  "[odin]": {
+    "editor.formatOnSave": true
+  },
+
+  "liveshare.featureSet": "stable",
+
+  // Go
+  "go.buildOnSave": "workspace",
+  "go.vetOnSave": "workspace",
+  "go.lintOnSave": "workspace",
+  "go.autocompleteUnimportedPackages": true,
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "diagnostics": true
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[go]": {
+    "editor.snippetSuggestions": "none",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+
+  // gitlens
+  "gitlens.codeLens.enabled": false,
+
+  // Todo Tree
+  "todo-tree.general.tags": ["NOTE", "FIXME", "TODO", "[ ]", "[x]"],
+  "todo-tree.highlights.customHighlight": {
+    "NOTE": {
+      "foreground": "#2AB",
+      "background": "#006"
+    },
+    "FIXME": {
+      "foreground": "#D35",
+      "background": "#600",
+      "fontWeight": "bold",
+      "textDecoration": "underline"
+    },
+    "TODO": {
+      "foreground": "#AFA",
+      "background": "#060",
+      "textDecoration": "underline"
+    }
+  },
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+
+  // Vim
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.leader": ",",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "."],
+      "after": [":nohl"]
+    }
+  ],
+  "vim.showMarksInGutter": true,
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "nvim"
 }
