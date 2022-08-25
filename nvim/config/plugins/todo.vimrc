@@ -1,10 +1,14 @@
 let g:todo_highlight_config = {
       \   'NOTE': {
-      \     'gui_bg_color': '#2abdff',
-      \     'cterm_bg_color': '214'
+      \     'gui_fg_color': '#22AABB',
+      \     'gui_bg_color': '#000066'
       \   },
       \   'FIXME': {
-      \     'gui_bg_color': '#d35b5b',
-      \     'cterm_bg_color': 'red'
+      \     'gui_fg_color': '#DD3355',
+      \     'gui_bg_color': '#660000'
+      \   },
+      \   'TODO': {
+      \     'gui_fg_color': '#AAFFAA',
+      \     'gui_bg_color': '#006600'
       \   }
       \ }
