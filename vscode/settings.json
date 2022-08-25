@@ -212,5 +212,9 @@
   ],
   "vim.showMarksInGutter": true,
   "vim.enableNeovim": true,
-  "vim.neovimPath": "nvim"
+  "vim.neovimPath": "nvim",
+
+  "remote.SSH.remotePlatform": {
+      "primus": "linux"
+  }
 }
