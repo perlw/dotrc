@@ -82,6 +82,7 @@ hi! VertSplit guifg=darkgray
 
 " Markdown
 let g:markdown_fenced_languages = ['html']
+let g:markdown_enable_input_abbreviations = 0
 
 " GLSL
 augroup custom_glsl_types

@@ -8,6 +8,7 @@ filetype plugin on
 set modelines=0
 set nomodeline
 set nospell
+set nodigraph
 set updatetime=100
 set backupcopy=yes
 if has('win32')

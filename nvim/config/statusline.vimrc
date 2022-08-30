@@ -28,8 +28,8 @@ function! GitStatus()
     let head = FugitiveHead()
     if head == ''
       let head = 'detached'
-    elseif len(head) > 16
-      let head = head[0:14] . '..'
+    elseif len(head) > 9
+      let head = head[0:7] . '…'
     endif
     let [a,m,r] = GitGutterGetHunkSummary()
     let isDirty = a || m || r
