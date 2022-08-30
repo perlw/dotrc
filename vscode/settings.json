@@ -37,7 +37,7 @@
           "name": "Comment Line",
           "scope": "comment.line",
           "settings": {
-            "fontStyle": "bold",
+            "fontStyle": "",
             "foreground": "#6A6"
           }
         },
@@ -206,7 +206,7 @@
   "vim.leader": ",",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "."],
+      "before": ["<leader>", "<leader>"],
       "after": [":nohl"]
     }
   ],
@@ -216,5 +216,7 @@
 
   "remote.SSH.remotePlatform": {
       "primus": "linux"
-  }
+  },
+
+  "redhat.telemetry.enabled": false
 }
