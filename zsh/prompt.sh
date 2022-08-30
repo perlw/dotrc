@@ -13,6 +13,10 @@ gitInfo () {
   fi
 
   local branchName=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if (( $#branchName > 9 )); then
+    # NOTE: Work fix. Long branchnames.
+    branchName="${branchName:0:8}…"
+  fi
   if [[ $branchName == "HEAD" ]]; then
     branchName="%B%F{red}$(git rev-parse --short HEAD 2>/dev/null)"
   else
