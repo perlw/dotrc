@@ -30,15 +30,10 @@ if !exists('g:vscode')
   Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
   " File and syntax
   Plug 'gabrielelana/vim-markdown'
-  Plug 'petrbroz/vim-glsl'
   Plug 'rhysd/vim-clang-format'
   Plug 'tpope/vim-fugitive'
-  Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'fatih/vim-go'
-  Plug 'jansedivy/jai.vim'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'lifepillar/pgsql.vim'
   Plug 'aklt/plantuml-syntax'
   Plug 'PProvost/vim-ps1'
   Plug 'ekalinin/Dockerfile.vim'
