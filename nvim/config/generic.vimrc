@@ -2,14 +2,22 @@ set enc=utf-8
 set relativenumber
 set number
 set nowrap
-au InsertEnter * :set norelativenumber
-au InsertLeave * set number | :set relativenumber
-au FileType make set noexpandtab
-au FileType rust set ts=4 sw=4 sts=4
-au FileType c set ts=2 sw=2 sts=2
-au BufRead,BufNewFile *.rs set ts=4 sw=4 sts=4
-au BufRead,BufNewFile *.c set ts=2 sw=2 sts=2
-au BufRead,BufNewFile *.h set ts=2 sw=2 sts=2
+augroup auto_numbers
+  autocmd!
+  au InsertEnter * :set norelativenumber
+  au InsertLeave * set number | :set relativenumber
+augroup END
+
+augroup basic_filetype_overrides
+  autocmd!
+  au FileType make set noexpandtab
+  au FileType rust set ts=4 sw=4 sts=4
+  au FileType c set ts=2 sw=2 sts=2
+  au BufRead,BufNewFile *.rs set ts=4 sw=4 sts=4
+  au BufRead,BufNewFile *.c set ts=2 sw=2 sts=2
+  au BufRead,BufNewFile *.h set ts=2 sw=2 sts=2
+augroup END
+
 set nobackup
 set noswapfile
 set mouse=n
