@@ -1,7 +1,18 @@
 function TabLabel(n)
   let l:buflist = tabpagebuflist(a:n)
   let l:winnr = tabpagewinnr(a:n)
-  return bufname(l:buflist[l:winnr - 1])
+  let l:bufname = split(bufname(l:buflist[l:winnr - 1]), '/')
+
+  let l:i = 0
+  if len(l:bufname) > 1
+    while i < len(l:bufname[0:-2])
+      let l:newname = l:bufname[i][0] . l:bufname[i][len(l:bufname) / 2] . l:bufname[i][-1:]
+      let l:bufname[i] = l:newname
+      let i += 1
+    endwhile
+  endif
+
+  return join(l:bufname, '/')
 endfunction
 
 function Tabline()
