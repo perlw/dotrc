@@ -1,6 +1,6 @@
 function! InitialStatuslineColors()
-  hi statusline guibg=grey guifg=grey
-  hi statuslinenc guibg=grey guifg=lightgrey
+  hi statusline guibg=lightgrey guifg=grey
+  hi statuslinenc guibg=grey guifg=grey
   hi User1 guibg=grey guifg=lightblue
   hi User2 guibg=lightblue guifg=black
   hi User3 guibg=#e78f00 guifg=lightblue

@@ -7,7 +7,7 @@ if !exists('g:vscode')
   Plug 'tpope/vim-surround'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'sakshamgupta05/vim-todo-highlight'
+  Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
   Plug 'hrsh7th/vim-vsnip'
@@ -24,8 +24,6 @@ if !exists('g:vscode')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'easymotion/vim-easymotion'
   " Style/sexy
-  Plug 'cocopon/iceberg.vim'
-  Plug 'sainnhe/edge'
   Plug 'drewtempelmeyer/palenight.vim'
   Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
   " File and syntax

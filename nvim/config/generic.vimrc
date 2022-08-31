@@ -73,10 +73,26 @@ augroup dynamic_cursorline
 augroup END
 set termguicolors
 let &t_ut=''
-" set background=light
-" color edge
 set background=dark
-colorscheme palenight
+
+lua <<EOF
+  require 'gruvbox'.setup {
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = false,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true,
+    contrast = 'hard',
+    overrides = {},
+  }
+  vim.cmd 'colorscheme gruvbox'
+EOF
+
 set fillchars=vert:\│
 hi! VertSplit guifg=darkgray
 
