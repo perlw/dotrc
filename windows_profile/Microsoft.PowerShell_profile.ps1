@@ -18,6 +18,10 @@ function GitPrompt() {
   try {
     $branch = git rev-parse --abbrev-ref HEAD 2>$null
 
+    if ($branch.Length -gt 9) {
+      $branch = $branch.Substring(0, 8) + "…"
+    }
+
     if ($branch -eq "HEAD") {
       $branch = git rev-parse --short HEAD 2>$null
       $result += Foreground Red $branch
@@ -94,6 +98,7 @@ function global:prompt {
   $prompt += GitPrompt
 
   # NOTE: Hack to be able to check if last execution produced errors. It's bad practice, I know.
+  # NOTE: Is it tho? I mean, as long as it's only the prompt clearing the errors it should be perfectly fine, right?
   $Error.Clear()
 
   return $prompt + $promptChar
