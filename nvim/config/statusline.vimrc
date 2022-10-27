@@ -21,26 +21,6 @@ function! InsertStatuslineColor(mode)
   endif
 endfunction
 
-function! GitStatus()
-  if empty(FugitiveGitDir(bufnr('')))
-    return ''
-  else
-    let head = FugitiveHead()
-    if head == ''
-      let head = 'detached'
-    elseif len(head) > 9
-      let head = head[0:7] . '…'
-    endif
-    let [a,m,r] = GitGutterGetHunkSummary()
-    let isDirty = a || m || r
-    return printf('%s%s', head, (isDirty ? '‼' : ''))
-  endif
-endfunction
-
-function! FileFormat()
-  return &ff
-endfunction
-
 function! Statusline(mode)
   let l:cEdgeSlant = '%1*'
   let l:cEdgeContent = '%2*'
@@ -54,9 +34,9 @@ function! Statusline(mode)
 
   let l:line = ''
   let l:line .= cEdgeSlant . ' ' . cEdgeContent . ' %t%m%r ' . cMidSlant . ''
-  let l:line .= cMidContent . ' %{GitStatus()} ' . cCenterBarSlant . ''
+  let l:line .= cMidContent . ' ' . cCenterBarSlant . ''
   let l:line .= '%='
-  let l:line .= '' . cMidContent . ' %y:%{FileFormat()} ' . cMidSlant . '' . cEdgeContent
+  let l:line .= '' . cMidContent . ' ' . cMidSlant . '' . cEdgeContent
   let l:line .= ' %c#%l/%L ' . cEdgeSlant . '%* '
 
   let &l:statusline = l:line

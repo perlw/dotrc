@@ -25,23 +25,17 @@ nnoremap <leader>l :spl\|lcd %:h\|term<CR>
 
 runtime ./config/plugins.vimrc
 
-if exists('g:vscode')
-  nnoremap <leader>s :<C-u>call VSCodeNotify('workbench.action.toggleSidebarVisibility')><CR>
-  nnoremap <leader>t :<C-u>call VSCodeNotify('outline.focus')><CR>
-else
-  runtime ./config/generic.vimrc
-  runtime ./config/statusline.vimrc
-  runtime ./config/tabline.vimrc
-  runtime! ./config/plugins/**/*
+runtime ./config/generic.vimrc
+runtime ./config/statusline.vimrc
+runtime ./config/tabline.vimrc
+runtime! ./config/plugins/**/*
 
-  au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
-  set title
+au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
+set title
 
-  " strikethrough
-  nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
+" strikethrough
+nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
 
-  " easy-align
-  xmap ga <Plug>(EasyAlign)
-  nmap ga <Plug>(EasyAlign)
-endif
-
+" easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)

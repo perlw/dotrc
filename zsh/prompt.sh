@@ -1,35 +1,8 @@
 #!/bin/zsh
 
-vcsInfo=""
 dirInfo=""
 sessions=""
 gcloudProjectId=""
-
-gitInfo () {
-  gitStatus=$(git status --porcelain 2>/dev/null)
-  if [[ $? -ne 0 ]]; then
-    vcsInfo=""
-    return
-  fi
-
-  local branchName=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  if (( $#branchName > 9 )); then
-    # NOTE: Work fix. Long branchnames.
-    branchName="${branchName:0:8}…"
-  fi
-  if [[ $branchName == "HEAD" ]]; then
-    branchName="%B%F{red}$(git rev-parse --short HEAD 2>/dev/null)"
-  else
-    branchName="%B%F{green}$branchName"
-  fi
-
-  local dirtyFlag=""
-  if [[ ! -z $gitStatus ]]; then
-    dirtyFlag="%F{yellow}‼"
-  fi
-
-  vcsInfo=" %B%F{blue}($branchName%F{blue})%f%b$dirtyFlag%f%b"
-}
 
 dirCount() {
   local count="$(dirs -p | wc -l | tr -d ' ')"
@@ -42,9 +15,13 @@ tmuxSessionCount() {
 }
 
 gcloudProject() {
-  local credPath="$HOME/.config/gcloud/application_default_credentials.json"
-  local id=$([ -f $credPath ] && cat $credPath | jq -r .quota_project_id)
-  gcloudProjectId=$([ ! -z $id ] && echo "%B%F{blue}%f$id%b")
+  if [[ $PWD =~ 'Work' ]]; then
+    local credPath="$HOME/.config/gcloud/application_default_credentials.json"
+    local id=$([ -f $credPath ] && cat $credPath | jq -r .quota_project_id)
+    gcloudProjectId=$([ ! -z $id ] && echo "%B%F{blue}%f$id%b")
+  else
+    gcloudProjectId=""
+  fi
 }
 
 if [[ ! -v PROMPT_COLOR ]]; then
@@ -71,7 +48,7 @@ elif [[ $un =~ 'Darwin' ]]; then
 fi
 
 precmd_functions=( _z_precmd )
-precmd_functions+=( gitInfo dirCount tmuxSessionCount gcloudProject )
+precmd_functions+=( dirCount tmuxSessionCount gcloudProject )
 setopt prompt_subst
-export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions]$vcsInfo '
+export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions] '
 export RPROMPT='$gcloudProjectId'

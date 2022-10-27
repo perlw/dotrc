@@ -1,48 +1,36 @@
 call plug#begin('~/.config/nvim/bundle')
 
-if !exists('g:vscode')
-  " Vim settings/improvements
-  Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-speeddating'
-  Plug 'tpope/vim-surround'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
-  Plug 'hrsh7th/vim-vsnip'
-  Plug 'hrsh7th/vim-vsnip-integ'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'mhinz/vim-startify'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'kshenoy/vim-signature'
-  Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'easymotion/vim-easymotion'
-  " Style/sexy
-  Plug 'drewtempelmeyer/palenight.vim'
-  Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
-  " File and syntax
-  Plug 'gabrielelana/vim-markdown'
-  Plug 'rhysd/vim-clang-format'
-  Plug 'tpope/vim-fugitive'
-  Plug 'mxw/vim-jsx'
-  Plug 'fatih/vim-go'
-  Plug 'aklt/plantuml-syntax'
-  Plug 'PProvost/vim-ps1'
-  Plug 'ekalinin/Dockerfile.vim'
-  Plug 'hashivim/vim-terraform'
-  Plug 'ziglang/zig.vim'
-  Plug 'Tetralux/odin.vim'
-  Plug 'prettier/vim-prettier', { 'do': 'npm install --production' }
-  " Others
-  Plug 'wakatime/vim-wakatime'
-endif
-
+" Vim settings/improvements
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
+Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'mhinz/vim-startify'
+Plug 'kshenoy/vim-signature'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-fugitive'
+Plug 'prettier/vim-prettier', { 'do': 'npm install --production' }
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-sensible'
+" Style/sexy
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
+" File and syntax
+Plug 'sheerun/vim-polyglot'
+Plug 'rhysd/vim-clang-format'
+Plug 'fatih/vim-go'
+Plug 'hashivim/vim-terraform'
+" Others
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
