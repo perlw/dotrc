@@ -1,8 +1,32 @@
 #!/bin/zsh
 
+gitInfo=""
 dirInfo=""
 sessions=""
 gcloudProjectId=""
+
+gitInfo () {
+  gitStatus=$(git status --porcelain 2>/dev/null)
+  if [[ $? -ne 0 ]]; then
+    vcsInfo=""
+    return
+  fi
+
+  local branchColor="white"
+  local branchName=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [[ $branchName != "master" && $branchName != "main" && $branchName != "trunk" ]]; then
+    branchColor="yellow"
+  elif [[ $branchName == "HEAD" ]]; then
+    branchColor="red"
+  fi
+
+  local dirtyFlag=""
+  if [[ ! -z $gitStatus ]]; then
+    dirtyFlag="%F{yellow}‼%f"
+  fi
+
+  gitInfo="%B%F{$branchColor}%f%b$dirtyFlag"
+}
 
 dirCount() {
   local count="$(dirs -p | wc -l | tr -d ' ')"
@@ -48,7 +72,7 @@ elif [[ $un =~ 'Darwin' ]]; then
 fi
 
 precmd_functions=( _z_precmd )
-precmd_functions+=( dirCount tmuxSessionCount gcloudProject )
+precmd_functions+=( gitInfo dirCount tmuxSessionCount gcloudProject )
 setopt prompt_subst
-export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions] '
+export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions]$gitInfo '
 export RPROMPT='$gcloudProjectId'
