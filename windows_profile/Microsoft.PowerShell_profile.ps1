@@ -12,7 +12,7 @@ function GitPrompt() {
     return ""
   }
 
-  [Colors]$color = White
+  $color = [Colors]::White
   try {
     $branch = git rev-parse --abbrev-ref HEAD 2>$null
 
