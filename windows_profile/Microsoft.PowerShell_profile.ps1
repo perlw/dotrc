@@ -6,6 +6,10 @@ function tt([string]$title) {
   Write-Output "`e]2;$title`a"
 }
 
+function gg() {
+  git rev-parse --show-toplevel | cd
+}
+
 function GitPrompt() {
   $dirty = git status --porcelain 2>$null
   if (!$?) {
