@@ -26,6 +26,7 @@ Plug 'tpope/vim-sensible'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
 " File and syntax
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-clang-format'
 Plug 'fatih/vim-go'
