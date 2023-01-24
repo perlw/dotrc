@@ -1,6 +1,6 @@
 {
   "editor.fontSize": 18,
-  "editor.fontFamily": "Iosevka",
+  "editor.fontFamily": "PragmataPro Mono",
   "editor.tabSize": 2,
   "editor.fontLigatures": false,
   "editor.lineNumbers": "relative",
@@ -67,7 +67,7 @@
 
   "keyboard.dispatch": "keyCode",
 
-  "terminal.integrated.fontFamily": "Iosevka",
+  "terminal.integrated.fontFamily": "PragmataPro Mono",
   "terminal.integrated.fontSize": 18,
   "terminal.integrated.profiles.osx": {
     "zsh": {
@@ -213,10 +213,6 @@
   "vim.showMarksInGutter": true,
   "vim.enableNeovim": true,
   "vim.neovimPath": "nvim",
-
-  "remote.SSH.remotePlatform": {
-      "primus": "linux"
-  },
 
   "redhat.telemetry.enabled": false
 }
