@@ -51,11 +51,10 @@ augroup auto_reload
         \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 augroup END
 
-" NOTE: Update to vim.lsp.buf.format() on nvim 0.8.0
 augroup odin
   autocmd!
-  " autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.formatting_sync()'
-  autocmd bufwritepost *.odin silent !odinfmt -w <afile>
+  autocmd bufwritepre *.odin execute 'lua vim.lsp.buf.format()'
+  " autocmd bufwritepost *.odin silent !odinfmt -w <afile>
 augroup END
 
 " project local vim config support
