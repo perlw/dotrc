@@ -47,3 +47,4 @@ alias tt='tt() { echo -n "\033]2;$1\007" };tt'
 alias gg='cd `git rev-parse --show-toplevel`'
 alias puu='ridiculusPushDirModified'
 alias re="git ss | grep ^UU | cut -d ' ' -f 2 | xargs nvim"
+alias gbr="git branch --show-current"
