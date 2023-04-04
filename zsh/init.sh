@@ -13,7 +13,6 @@ setopt INC_APPEND_HISTORY_TIME
 setopt EXTENDED_HISTORY
 
 export EDITOR='nvim'
-export BROWSER=firefox
 export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 
