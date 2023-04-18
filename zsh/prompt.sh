@@ -40,8 +40,8 @@ tmuxSessionCount() {
 
 gcloudProject() {
   if [[ $PWD =~ 'Work' ]]; then
-    local credPath="$HOME/.config/gcloud/application_default_credentials.json"
-    local id=$([ -f $credPath ] && cat $credPath | jq -r .quota_project_id)
+    local credPath="$HOME/.config/gcloud"
+    local id=$([ -d $credPath ] && cat ${credPath}/configurations/config_$(cat ${credPath}/active_config) | grep project | cut -d ' ' -f 3)
     gcloudProjectId=$([ ! -z $id ] && echo "%B%F{blue}%f$id%b")
   else
     gcloudProjectId=""
