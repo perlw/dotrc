@@ -125,3 +125,15 @@ let g:prettier#autoformat_config_present=1
 
 " easymotion
 map <Leader>. <Plug>(easymotion-prefix)
+
+" strikethrough
+nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
+
+" easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" folds
+nnoremap <space> za
+set foldmethod=indent
+set nofoldenable

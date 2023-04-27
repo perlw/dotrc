@@ -32,13 +32,3 @@ runtime! ./config/plugins/**/*
 
 au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
 set title
-
-" strikethrough
-nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
-
-" easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" folds
-nnoremap <space> za
