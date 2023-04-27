@@ -33,11 +33,12 @@ function! Statusline(mode)
   endif
 
   let l:line = ''
-  let l:line .= cEdgeSlant . ' ' . cEdgeContent . ' %t%m%r ' . cMidSlant . ''
-  let l:line .= cMidContent . ' ' . cCenterBarSlant . ''
+  let l:line .= '%6*' . cMidContent . '' . cMidSlant . ''
+  let l:line .= cEdgeContent . ' %t%m%r '
+  let l:line .= cMidSlant . '' . cMidContent . '' . cCenterBarSlant . ''
   let l:line .= '%='
-  let l:line .= '' . cMidContent . ' ' . cMidSlant . '' . cEdgeContent
-  let l:line .= ' %c#%l/%L ' . cEdgeSlant . '%* '
+  let l:line .= '' . cMidContent . '' . cMidSlant . '' . cEdgeContent
+  let l:line .= ' %c#%l/%L ' . cMidSlant . '' . cMidContent . '' . '%6*%*'
 
   let &l:statusline = l:line
 endfunction
