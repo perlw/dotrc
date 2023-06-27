@@ -68,7 +68,7 @@ if [[ $un =~ 'Linux' ]]; then
 elif [[ $un =~ 'BSD' ]]; then
   os=''
 elif [[ $un =~ 'Darwin' ]]; then
-  os=''
+  os=''
 fi
 
 precmd_functions=( _z_precmd )
