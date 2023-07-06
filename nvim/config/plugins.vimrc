@@ -4,7 +4,6 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
