@@ -28,7 +28,7 @@ runtime ./config/plugins.vimrc
 runtime ./config/generic.vimrc
 runtime ./config/statusline.vimrc
 runtime ./config/tabline.vimrc
-runtime! ./config/plugins/**/*
+runtime! ./config/plugins/*
 
 au BufEnter * let &titlestring=CwdBase() . " - " . expand("%:t")
 set title

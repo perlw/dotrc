@@ -1,11 +1,9 @@
 call plug#begin('~/.config/nvim/bundle')
 
 " Vim settings/improvements
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 Plug 'rafamadriz/friendly-snippets', { 'branch': 'main' }
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
@@ -18,18 +16,23 @@ Plug 'mhinz/vim-startify'
 Plug 'kshenoy/vim-signature'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
-Plug 'prettier/vim-prettier', { 'do': 'npm install --production' }
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-sensible'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'MunifTanjim/nui.nvim', { 'branch': 'main' }
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
 " Style/sexy
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install --production' }
+Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
 " File and syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-clang-format'
 Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
+Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 " Others
 Plug 'wakatime/vim-wakatime'
 
