@@ -1,6 +1,6 @@
 {
-  "editor.fontSize": 18,
-  "editor.fontFamily": "PragmataPro Mono",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "Berkeley Mono",
   "editor.tabSize": 2,
   "editor.fontLigatures": false,
   "editor.lineNumbers": "relative",
@@ -67,8 +67,8 @@
 
   "keyboard.dispatch": "keyCode",
 
-  "terminal.integrated.fontFamily": "PragmataPro Mono",
-  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontFamily": "Berkeley Mono",
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
     "zsh": {
       "path": "zsh",
@@ -90,7 +90,7 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.defaultProfile.windows": "pwsh",
 
-  "workbench.colorTheme": "Palenight (Mild Contrast)",
+  "workbench.colorTheme": "★★★★★ GRUVBOX ★★★",
   "workbench.tips.enabled": false,
   "workbench.activityBar.visible": true,
   "workbench.startupEditor": "none",
