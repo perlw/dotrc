@@ -81,6 +81,9 @@ require("neo-tree").setup({
   },
   nesting_rules = {},
   filesystem = {
+    filtered_items = {
+      hide_dotfiles = false
+    },
     follow_current_file = {
       enabled = true, -- This will find and focus the file in the active buffer every time
       --              -- the current file is changed while the tree is open.

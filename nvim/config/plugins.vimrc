@@ -20,7 +20,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-sensible'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MunifTanjim/nui.nvim', { 'branch': 'main' }
-Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
 " Style/sexy
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
