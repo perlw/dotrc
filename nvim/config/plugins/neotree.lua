@@ -137,4 +137,4 @@ require("neo-tree").setup({
   }
 })
 
-vim.cmd([[nnoremap <leader>f :Neotree reveal toggle<cr>]])
+vim.cmd([[nnoremap <leader>t :Neotree reveal toggle<cr>]])
