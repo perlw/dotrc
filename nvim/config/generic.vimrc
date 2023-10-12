@@ -73,9 +73,10 @@ augroup END
 set termguicolors
 let &t_ut=''
 set background=dark
+colorscheme catppuccin
 
 lua <<EOF
-  require 'gruvbox'.setup {
+  --[[require 'gruvbox'.setup {
     undercurl = true,
     underline = true,
     bold = true,
@@ -95,6 +96,7 @@ lua <<EOF
     overrides = {},
   }
   vim.cmd 'colorscheme gruvbox'
+  ]]--
 EOF
 
 set fillchars=vert:\│

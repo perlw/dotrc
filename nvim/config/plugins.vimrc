@@ -24,6 +24,7 @@ Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'main' }
 " Style/sexy
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'prettier/vim-prettier', { 'do': 'npm install --production' }
 Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
 " File and syntax
