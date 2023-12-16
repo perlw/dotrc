@@ -16,7 +16,7 @@
   "editor.wordWrap": "off",
   "editor.links": false,
   "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -92,7 +92,6 @@
 
   "workbench.colorTheme": "★★★★★ GRUVBOX ★★★",
   "workbench.tips.enabled": false,
-  "workbench.activityBar.visible": true,
   "workbench.startupEditor": "none",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
@@ -214,5 +213,6 @@
   "vim.enableNeovim": true,
   "vim.neovimPath": "nvim",
 
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open"
 }
