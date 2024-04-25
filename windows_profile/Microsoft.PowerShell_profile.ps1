@@ -2,6 +2,8 @@ Set-PSReadlineOption -BellStyle None
 set-PSReadlineOption -EditMode vi
 Set-PSReadlineOption -Colors @{ "Parameter" = "White" }
 
+& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1' -Arch amd64 -HostArch amd64
+
 function tt([string]$title) {
   Write-Output "`e]2;$title`a"
 }
