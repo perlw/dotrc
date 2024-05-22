@@ -129,7 +129,7 @@ let g:prettier#autoformat_config_present=1
 map <Leader>. <Plug>(easymotion-prefix)
 
 " strikethrough
-nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
+" nnoremap <leader>- :s/./&̶/g<CR>:nohl<CR>
 
 " easy-align
 xmap ga <Plug>(EasyAlign)
