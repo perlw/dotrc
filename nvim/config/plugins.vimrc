@@ -36,6 +36,5 @@ Plug 'hashivim/vim-terraform'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 " Others
 Plug 'wakatime/vim-wakatime'
-Plug 'rest-nvim/rest.nvim'
 
 call plug#end()
