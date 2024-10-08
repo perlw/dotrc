@@ -12,5 +12,8 @@ elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
 end
 
 config.color_scheme = 'Catppuccin Frappe'
+config.use_fancy_tab_bar = false
+config.tab_max_width = 99
+config.hide_tab_bar_if_only_one_tab = true
 
 return config
