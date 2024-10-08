@@ -24,7 +24,7 @@ local servers = {
   "ols",
   "phpactor",
   "terraformls",
-  "tsserver",
+  "ts_ls",
   "zls",
 }
 for _, lsp in ipairs(servers) do

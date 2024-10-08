@@ -1,47 +1,64 @@
-function TabLabel(n)
-  let l:buflist = tabpagebuflist(a:n)
-  let l:winnr = tabpagewinnr(a:n)
-  let l:bufname = split(bufname(l:buflist[l:winnr - 1]), '/')
-
-  let l:i = 0
-  if len(l:bufname) > 1
-    while i < len(l:bufname[0:-2])
-      let l:newname = l:bufname[i][0] . l:bufname[i][len(l:bufname) / 2] . l:bufname[i][-1:]
-      let l:bufname[i] = l:newname
-      let i += 1
-    endwhile
-  endif
-
-  return join(l:bufname, '/')
-endfunction
-
-function Tabline()
-  let l:line = ''
-
+set tabline=%!MyTabLine()  " custom tab pages line
+function! MyTabLine()
+  let s = ''
+  " loop through each tab page
   for i in range(tabpagenr('$'))
     if i + 1 == tabpagenr()
-      let l:line ..= '%1*%3*%*'
-      let l:line ..= '%#TabLineSel#'
+      let s .= '%#TabLineSel#'
     else
-      let l:line ..= '%1*%*'
-      let l:line ..= '%#TabLine#'
+      let s .= '%#TabLine#'
     endif
-
-    let l:line ..= '%' .. (i + 1) .. 'T'
-    let l:line ..= ' %{TabLabel(' .. (i + 1) .. ')} '
-
     if i + 1 == tabpagenr()
-      let l:line ..= '%3*%1*%*'
+      let s .= '%#TabLineSel#' " WildMenu
     else
-      let l:line ..= '%1*%*'
+      let s .= '%#Title#'
     endif
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (i + 1) . 'T '
+    " set page number string
+    let s .= i + 1 . ''
+    " get buffer names and statuses
+    let n = ''  " temp str for buf names
+    let m = 0   " &modified counter
+    let buflist = tabpagebuflist(i + 1)
+    " loop through each buffer in a tab
+    for b in buflist
+      if getbufvar(b, "&buftype") == 'help'
+        " let n .= '[H]' . fnamemodify(bufname(b), ':t:s/.txt$//')
+      elseif getbufvar(b, "&buftype") == 'quickfix'
+        " let n .= '[Q]'
+      elseif getbufvar(b, "&modifiable")
+        let n .= fnamemodify(bufname(b), ':t') . ', ' " pathshorten(bufname(b))
+      endif
+      if getbufvar(b, "&modified")
+        let m += 1
+      endif
+    endfor
+    " let n .= fnamemodify(bufname(buflist[tabpagewinnr(i + 1) - 1]), ':t')
+    let n = substitute(n, ', $', '', '')
+    " add modified label
+    if m > 0
+      let s .= '+'
+      " let s .= '[' . m . '+]'
+    endif
+    if i + 1 == tabpagenr()
+      let s .= ' %#TabLineSel#'
+    else
+      let s .= ' %#TabLine#'
+    endif
+    " add buffer names
+    if n == ''
+      let s.= '[New]'
+    else
+      let s .= n
+    endif
+    " switch to no underlining and add final space
+    let s .= ' '
   endfor
-
-  let l:line ..= '%#TabLineFill#%T'
-  return l:line
+  let s .= '%#TabLineFill#%T'
+  " right-aligned close button
+  " if tabpagenr('$') > 1
+  "   let s .= '%=%#TabLineFill#%999Xclose'
+  " endif
+  return s
 endfunction
-
-hi tablinesel guibg=#e78f00 guifg=lightyellow
-hi tabline guibg=lightblue guifg=black
-hi tablinefill guibg=grey guifg=grey
-set tabline=%!Tabline()
