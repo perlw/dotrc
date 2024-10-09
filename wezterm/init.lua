@@ -1,6 +1,5 @@
 local wezterm = require 'wezterm'
 
-
 local config = wezterm.config_builder()
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
@@ -15,5 +14,12 @@ config.color_scheme = 'Catppuccin Frappe'
 config.use_fancy_tab_bar = false
 config.tab_max_width = 99
 config.hide_tab_bar_if_only_one_tab = true
+config.enable_scroll_bar = false
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
+}
 
 return config
