@@ -5,6 +5,7 @@ set -o vi
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+export LESSCHARSET=UTF-8
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS

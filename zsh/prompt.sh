@@ -75,7 +75,6 @@ elif [[ $un =~ 'Darwin' ]]; then
   os=''
 fi
 
-precmd_functions=( _z_precmd )
 precmd_functions+=( gitInfo dirCount tmuxSessionCount gcloudProject )
 setopt prompt_subst
 export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions]$gitInfo '
