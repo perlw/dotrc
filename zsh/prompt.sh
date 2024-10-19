@@ -5,6 +5,10 @@ dirInfo=""
 sessions=""
 gcloudProjectId=""
 
+if [ -x "$(command -v tmux)" ]; then
+  hasTmux=true
+fi
+
 gitInfo () {
   gitStatus=$(git status --porcelain 2>/dev/null)
   if [[ $? -ne 0 ]]; then
@@ -38,8 +42,12 @@ dirCount() {
 }
 
 tmuxSessionCount() {
-  local count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
-  sessions=$([[ $count -gt 0 ]] && echo " %B%F{cyan}⇅$count%f%b")
+  if [[ -v hasTmux ]]; then
+    local count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
+    sessions=$([[ $count -gt 0 ]] && echo " %B%F{cyan}⇅$count%f%b")
+  else
+    sessions=$(echo " %B%F{cyan}⇅%B%F{red}err%f%b")
+  fi
 }
 
 gcloudProject() {
