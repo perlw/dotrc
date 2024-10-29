@@ -18,7 +18,7 @@ function GitPrompt() {
     return ""
   }
 
-  $color = [Colors]::White
+  $color = [Colors]::Green
   try {
     $branch = git rev-parse --abbrev-ref HEAD 2>$null
 
@@ -31,7 +31,11 @@ function GitPrompt() {
     $color = Magenta
   }
 
-  $result = Foreground $color ""
+  if ($branch.Length -gt 9) {
+    $branch = $branch.Substring(0, 8) + "…"
+  }
+
+  $result = " (" + (Foreground $color $branch) + ")"
   if ($dirty -ne $null) {
     $result += Foreground Yellow "‼"
   }
