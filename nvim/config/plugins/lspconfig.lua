@@ -1,4 +1,6 @@
 local nvim_lsp = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -28,10 +30,14 @@ local servers = {
   "zls",
 }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+  nvim_lsp[lsp].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
 end
 
 nvim_lsp.diagnosticls.setup {
+  capabilities = capabilities,
   on_attach = on_attach,
   filetypes = vim.tbl_keys({
     javascript = "eslint",
