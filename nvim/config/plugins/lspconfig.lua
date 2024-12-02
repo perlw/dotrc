@@ -24,6 +24,7 @@ local servers = {
   "gopls",
   "jsonls",
   "ols",
+  "pylsp",
   "phpactor",
   "terraformls",
   "ts_ls",
