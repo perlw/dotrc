@@ -18,16 +18,17 @@ end
 
 local servers = {
   "bashls",
+  "biome",
   "clangd",
   "cmake",
   "dockerls",
   "gopls",
-  "jsonls",
+--  "jsonls",
   "ols",
   "pylsp",
   "phpactor",
   "terraformls",
-  "ts_ls",
+--  "ts_ls",
   "zls",
 }
 for _, lsp in ipairs(servers) do
