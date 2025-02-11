@@ -139,3 +139,21 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <space> za
 set foldmethod=indent
 set nofoldenable
+
+" neovide support for copy/paste etc.
+lua <<EOF
+if vim.g.neovide then
+  vim.keymap.set('v', '<D-c>', '"+y')
+  vim.keymap.set('n', '<D-v>', '"+P')
+  vim.keymap.set('v', '<D-v>', '"+P')
+  vim.keymap.set('c', '<D-v>', '<C-R>+')
+  vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli')
+
+  vim.opt.winblend = 10
+end
+
+vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+EOF
