@@ -20,11 +20,6 @@ export PATH=$PATH:$GOPATH/bin
 PWD=`dirname $0`
 source "$PWD/prompt.sh"
 
-# Functions
-source "$PWD/functions/aws.sh"
-source "$PWD/functions/gcp.sh"
-source "$PWD/functions/creds.sh"
-
 # Zsh
 alias sz="source $HOME/.zshrc"
 

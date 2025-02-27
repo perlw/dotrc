@@ -50,16 +50,6 @@ tmuxSessionCount() {
   fi
 }
 
-gcloudProject() {
-  if [[ $PWD =~ 'Work' ]]; then
-    local credPath="$HOME/.config/gcloud"
-    local id=$([ -d $credPath ] && cat ${credPath}/configurations/config_$(cat ${credPath}/active_config) | grep project | cut -d ' ' -f 3)
-    gcloudProjectId=$([ ! -z $id ] && echo "%B%F{blue}☁%f$id%b")
-  else
-    gcloudProjectId=""
-  fi
-}
-
 if [[ ! -v PROMPT_COLOR ]]; then
   PROMPT_COLOR="blue"
 fi
@@ -83,7 +73,7 @@ elif [[ $un =~ 'Darwin' ]]; then
   os=''
 fi
 
-precmd_functions+=( gitInfo dirCount tmuxSessionCount gcloudProject )
+precmd_functions+=( gitInfo dirCount tmuxSessionCount )
 setopt prompt_subst
 export PROMPT='($os$hostname:$directory)[$retVal$jobs$dirInfo$sessions]$gitInfo '
-export RPROMPT='$gcloudProjectId'
+export RPROMPT=''
