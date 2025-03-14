@@ -11,7 +11,7 @@ syn match   calendarContext       '@\w\+' display contained
 syn match   calendarTag           '+\w\+' display contained
 syn match   calendarTime          ' \d\+ ' display contained
 syn match   calendarTime          '\d\+-\d\+' display contained
-syn region  calendarSchedule      start='  .*' end='$' oneline contains=calendarContext,calendarTime
+syn region  calendarSchedule      start='  .*' end='$' oneline contains=calendarContext,calendarTime,calendarTag
 
 hi def link calendarDate          Number
 hi def link calendarWeekday       String
