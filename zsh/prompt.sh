@@ -43,7 +43,7 @@ dirCount() {
 
 tmuxSessionCount() {
   if [[ -v hasTmux ]]; then
-    local count="$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"
+    local count=$(("$(tmux list-sessions -F \#{session_name} 2>/dev/null | wc -l)"))
     sessions=$([[ $count -gt 0 ]] && echo " %B%F{cyan}⇅$count%f%b")
   else
     sessions=$(echo " %B%F{cyan}⇅%B%F{red}err%f%b")
